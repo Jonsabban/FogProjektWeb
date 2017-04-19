@@ -18,6 +18,14 @@
             <br />
             <!-- textbox der tager bredde -->
             width: <input type="text" name="width" />
+            <br />
+            <!-- dropdown liste med tag typer -->
+            tag:
+            <select>
+                <option value="fladt">fladt</option>
+                <option value="rejst">rejst</option>
+            </select>
+            <br />
             <!-- knap der henviser til servlet -->
             <input type="submit" value="Submit" />
         </form>
