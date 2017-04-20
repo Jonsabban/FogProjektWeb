@@ -33,12 +33,17 @@ public class SLPrint extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        // laver en tom array liste der kan indeholde strings
         ArrayList<String> dummyList = new ArrayList();
+        // indsætter dummy data i listen
         dummyList.add("item 1");
         dummyList.add("item 2");
         dummyList.add("item 3");
+        // laver en attribut med array listen
         request.setAttribute("list", dummyList);
+        // henviser til printList siden
         RequestDispatcher rd = request.getRequestDispatcher("/printList.jsp");
+        // forward til siden
         rd.forward(request, response);
     }
 
