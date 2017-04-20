@@ -12,9 +12,9 @@
     </head>
     <body>
         <!-- Her skriver man højde og bredde. Servlet får inputne fra text boksne når man trygger submit -->
-        <form action="servlet?action=measures" method="GET">
+        <form action="" method="GET">
             <!-- textbox der tager højde -->
-            height: <input type="text" name="height">
+            length: <input type="text" name="length">
             <br />
             <!-- textbox der tager bredde -->
             width: <input type="text" name="width" />

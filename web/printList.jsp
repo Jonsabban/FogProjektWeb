@@ -14,6 +14,7 @@
         <title>Material List</title>
     </head>
     <body>
+        <!-- Udskriver en array liste med items -->
         <c:forEach items="${list}" var="list">
             <p><c:out value="${list}" /></p>
         </c:forEach>
