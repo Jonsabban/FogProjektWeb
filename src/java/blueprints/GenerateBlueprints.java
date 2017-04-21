@@ -28,4 +28,17 @@ public class GenerateBlueprints {
     return spær;
     };
     
+    public String sideFlatRoof(int width) {
+        
+        String roofPath;
+        
+        int length = width;
+        
+        roofPath = "<path id='roof' d=' M100 100 L" + length + " " + (length/100 * 0.02) + "v7 H100 V100' /> " + "<use xlink:href='#roof' fill='white' stroke='black'  />";
+        
+        return roofPath;
+        
+    }
+    
+    
 }

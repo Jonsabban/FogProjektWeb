@@ -5,8 +5,10 @@
  */
 package main;
 
+import blueprints.GenerateBlueprints;
 import java.io.IOException;
 import java.util.ArrayList;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,16 +37,19 @@ public class Servlet extends HttpServlet {
         int height = Integer.parseInt(request.getParameter("height"));
         int width = Integer.parseInt(request.getParameter("width"));
         
-        blueprints.GenerateBlueprints gb = new blueprints.GenerateBlueprints();
+        GenerateBlueprints gb = new GenerateBlueprints();
         
         ArrayList<String> spær = gb.createSpær(height, width);
+        String sideFlatRoof = gb.sideFlatRoof(width);
         
         request.setAttribute("height", height);
         request.setAttribute("width", width);
         request.setAttribute("spær", spær);
         request.setAttribute("bjælkeBund", width - 30);
+        request.setAttribute("sideFlatRoof", sideFlatRoof);
         
-        
+        RequestDispatcher rd = request.getRequestDispatcher("/blueprints.jsp");
+            rd.forward(request, response);
         
         
     }

@@ -21,6 +21,9 @@
         </c:forEach>
         <rect x="0" y="30" heigth="8" width="<c:out value="${width}" />" style="fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)" />
         <rect x="0" y="<c:out value="${bjælkeBund}" />" heigth="8" width="<c:out value="${width}" />" style="fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)" />
+        <c:out value="${sideFlatRoof}" escapeXml="false" />
+        
+        
         </svg>
     </body>
 </html>
