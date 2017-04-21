@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>TODO write content</div>
+
+        <svg height="1000" width="1000">
+
+        <!-- post -->
+        <rect width="10" height="200" x="200" y="100" style="stroke-width:1px;stroke:black;fill:white; "/>
+        <rect width="10" height="200" x="510" y="100" style="stroke-width:1px;stroke:black;fill:white; "/>
+        
+        <!-- roof -->
+        <rect width="540" height="7" x="100" y="100" style="stroke-width:1px;stroke:black;fill:white; "/>
+        <rect width="542" height="7" x="99" y="93" style="stroke-width:1px;stroke:black;fill:white; "/>
+        
+        <!-- measurements -->
+        <path id='ground' d="
+              M 100 300
+              L 650 300              
+              " />
+         <use xlink:href="#ground" fill="none" stroke="black"  />
+         
+        <path id="height" d="
+              M50 300
+              L50 93
+              " />
+        <use xlink:href="#height" fill="none" stroke="black"  />
+        <text font-family="Verdana" font-size="10" >
+            <textPath xlink:href="#height" startOffset="50%">
+                <tspan dy="-5" text-anchor="middle" >2,30</tspan>
+            </textPath>
+        </text>
+         
+        <path id="roof" d="
+              M90 300
+              L90 107
+              " />
+        <use xlink:href="#roof" fill="none" stroke="black"  />
+        <text font-family="Verdana" font-size="10" >
+            <textPath xlink:href="#roof" startOffset="50%">
+                <tspan dy="-5" text-anchor="middle" >2,10</tspan>
+            </textPath>
+        </text>
+        
+        <path id="post1" d="
+              M 100 320
+              L 200 320              
+              " />
+        <use xlink:href="#post1" fill="none" stroke="black"  />
+         <text font-family="Verdana" font-size="10" >
+            <textPath xlink:href="#post1" startOffset="50%">
+                <tspan dy="-5" text-anchor="middle" >1,00</tspan>
+            </textPath>
+        </text>
+        
+        <path id="post2" d="
+              M 200 320
+              L 510 320              
+              " />
+        <use xlink:href="#post2" fill="none" stroke="black"  />
+         <text font-family="Verdana" font-size="10" >
+            <textPath xlink:href="#post2" startOffset="50%">
+                <tspan dy="-5" text-anchor="middle" >3,10</tspan>
+            </textPath>
+        </text>
+        
+        <path id="post3" d="
+              M 510 320
+              L 650 320              
+              " />
+        <use xlink:href="#post3" fill="none" stroke="black"  />
+         <text font-family="Verdana" font-size="10" >
+            <textPath xlink:href="#post3" startOffset="50%">
+                <tspan dy="-5" text-anchor="middle" >1,30</tspan>
+            </textPath>
+        </text>
+        
+        <path id="dividers" d="
+              M 200 330
+              L 200 305
+              M 510 330
+              L 510 305
+              " />
+        <use xlink:href="#dividers" fill="none" stroke="black"  />
+
+        </svg>
+
+
+    </body>
+</html>
