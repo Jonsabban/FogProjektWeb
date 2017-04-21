@@ -28,9 +28,13 @@
         <!-- Bjælke bottom -->
         <rect x="0" y="<c:out value="${bjælkeBund}" />" heigth="8" width="<c:out value="${width}" />" style="fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)" />
         <!-- Stolper top -->
-        
+        <rect x="100" y="35" height="10" width="10" style="fill:rgb(0,0,0)" />
+        <c:out value="${midTop}" />
+        <rect x="100" y="35" height="10" width="10" style="fill:rgb(0,0,0)" />
         <!-- Stolper top -->
-        
+        <rect x="100" y="<c:out value="${stolpeY}" />" height="10" width="10" style="fill:rgb(0,0,0)" />
+        <c:out value="${midBottom}" />
+        <rect x="100" y="<c:out value="${stolpeY}" />" height="10" width="10" style="fill:rgb(0,0,0)" />
         </svg>
         <svg id="side" >
             
