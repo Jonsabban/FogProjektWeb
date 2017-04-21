@@ -7,6 +7,7 @@ package main;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -39,14 +40,23 @@ public class Servlet extends HttpServlet {
         blueprints.GenerateBlueprints gb = new blueprints.GenerateBlueprints();
        
         //Width and height is switched because it's going to be sideways
-        ArrayList<String> spær = gb.createSpær(width, height);
+        ArrayList<String> spærList = gb.createSpær(height, width);
+        
+        String midTop = gb.midTop(width,height);
+        String midBottom = gb.midBottom(width,height);
         
         request.setAttribute("height", height);
         request.setAttribute("width", width);
-        request.setAttribute("spær", spær);
+        request.setAttribute("spær", spærList);
         //*Height becomes width*
         request.setAttribute("bjælkeBund", height - 30);
+        request.setAttribute("midTop", midTop);
+        //*Width becomes height*
+        request.setAttribute("stolpeXBack", width - 50);
+        request.setAttribute("midBottom", midBottom);
         
+        RequestDispatcher rd = request.getRequestDispatcher("/blueprints.jsp");
+            rd.forward(request, response);
         
         
         

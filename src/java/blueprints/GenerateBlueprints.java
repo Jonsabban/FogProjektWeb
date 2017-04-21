@@ -20,7 +20,7 @@ public class GenerateBlueprints {
     int spærDistance = 0;
     
     while (spærDistance < width) {
-        
+    
     spær.add("<line x1=" + spærDistance + " y1=\"0\" x2=" + spærDistance + " y2=" + height + " style=\"stroke:rgb(0,0,0);stroke-width:1\" />");
     
     spærDistance += 55;
@@ -28,6 +28,27 @@ public class GenerateBlueprints {
     
     return spær;
     };
+
+    public String midTop(int height, int width) {
+        String end;
+        if (width < 310) {
+            end = "<rect x=" + (width / 2) + " y=\"30\" height=\"10\" width=\"10\" style=\"fill:rgb(0,0,0)\" />";
+        }
+        else {
+            end = "";
+        }
+        return end;
+    }
+    public String midBottom(int height, int width) {
+        String end;
+        if (width < 310) {
+            end = "<rect x=" + (width / 2) + " y=" + (height - 30) +" height=\"10\" width=\"10\" style=\"fill:rgb(0,0,0)\" />";
+        }
+        else {
+            end = "";
+        }
+        return end;
+    }
     
     
 }

@@ -18,10 +18,13 @@
         <!-- Outline of the carport 
         Height and width is switched because it is showed sideways.
         -->
-        <rect width='<c:out value="${height}" />' height='<c:out value="${width}" />' style="fill:rgb(255,255,255);stroke-width:2px;stroke-style:rgb(0,0,0)" />
+        <rect height="<c:out value="${height}" />"
+              width="<c:out value="${width}" />" 
+              style="fill:rgb(255,255,255);stroke-width:2px;stroke-style:rgb(0,0,0)" />
+        
         <!-- Creating spær -->
         <c:forEach items="${spær}" var="List">
-            <p><c:out value="${List}" /></p>
+            <c:out value="${List}" escapeXml="false"/>
         </c:forEach>
         <!-- Bjælke top *width is height*-->
         <rect x="0" y="30" width="<c:out value="${height}" />" heigth="8" style="fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)" />
@@ -30,11 +33,11 @@
         <!-- Stolper top -->
         <rect x="100" y="35" height="10" width="10" style="fill:rgb(0,0,0)" />
         <c:out value="${midTop}" />
-        <rect x="100" y="35" height="10" width="10" style="fill:rgb(0,0,0)" />
+        <rect x="<c:out value="${stolpeXBack}" />" y="35" height="10" width="10" style="fill:rgb(0,0,0)" />
         <!-- Stolper top -->
-        <rect x="100" y="<c:out value="${stolpeY}" />" height="10" width="10" style="fill:rgb(0,0,0)" />
+        <rect x="100" y="<c:out value="${bjælkeBund}" />" height="10" width="10" style="fill:rgb(0,0,0)" />
         <c:out value="${midBottom}" />
-        <rect x="100" y="<c:out value="${stolpeY}" />" height="10" width="10" style="fill:rgb(0,0,0)" />
+        <rect x="<c:out value="${stolpeXBack}" />" y="<c:out value="${stolpeY}" />" height="10" width="10" style="fill:rgb(0,0,0)" />
         </svg>
         <svg id="side" >
             
