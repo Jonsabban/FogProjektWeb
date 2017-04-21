@@ -32,17 +32,20 @@ public class Servlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        //Getting height and width from input.jsp
         int height = Integer.parseInt(request.getParameter("height"));
         int width = Integer.parseInt(request.getParameter("width"));
         
         blueprints.GenerateBlueprints gb = new blueprints.GenerateBlueprints();
-        
-        ArrayList<String> spær = gb.createSpær(height, width);
+       
+        //Width and height is switched because it's going to be sideways
+        ArrayList<String> spær = gb.createSpær(width, height);
         
         request.setAttribute("height", height);
         request.setAttribute("width", width);
         request.setAttribute("spær", spær);
-        request.setAttribute("bjælkeBund", width - 30);
+        //*Height becomes width*
+        request.setAttribute("bjælkeBund", height - 30);
         
         
         

@@ -12,7 +12,8 @@ import java.util.ArrayList;
  * @author alexander
  */
 public class GenerateBlueprints {
-        
+    
+    //*NOTE* width and height is switched because it's going to be sideways.
     public ArrayList<String> createSpær(int height, int width) {
     ArrayList<String> spær = new ArrayList();
     
@@ -27,5 +28,6 @@ public class GenerateBlueprints {
     
     return spær;
     };
+    
     
 }
