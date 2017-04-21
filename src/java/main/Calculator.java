@@ -4,7 +4,8 @@ import static java.lang.Math.sqrt;
 
 
 public class Calculator {
-    public String calculate(int length, int width){
+    
+    public String flatRoof(int length, int width){
         //Stern
         int understernFB = (width/2)+60;
         int understernSide = length;
@@ -95,5 +96,98 @@ public class Calculator {
         return result;
      
     
+    }
+    public String liftedRoof(int length, int width, int angle){
+        //Vindskede
+        double angleToRadian = Math.toRadians(angle);
+        int vindskeder = 0;
+        int vindskedeAntal = 2;
+        double sideA = (double) width / 2;
+        double sideB = Math.tan(angleToRadian) * sideA; 
+        double hypotenuse = Math.sqrt((sideA * sideA) + (sideB * sideB));
+        
+        
+        
+        //Stern
+        int sternSide = length + 90;
+        int sternSideAntal = 2;
+        
+        //Byg Selv Spær - Færdigskåret 
+        int færdigByggetAntal = 1;
+        int antalSpær = (length/89) + 1;
+        int skruerSpærV = antalSpær;
+        int skruerSpærH = antalSpær;
+        
+        //Stolper
+        int stolper = 300;
+        int stolpeAntal = 4;
+        
+        //Remme
+        int remme = length - 30;
+        int remmeAntal = 2;
+        
+        //Vandbræt
+        int vandbræt = vindskeder;
+        int vandbrætAntal = 2;
+        
+        //Beklædning af gavle
+        int gavlantal;
+        
+        //Taglægter
+        int taglægterSpær;
+        int taglægterSpærAntal; 
+        
+        //Tag
+        int dobbelt;
+        int dobbeltSide = length / 30; 
+        if (vindskeder <= 240)
+            {
+            dobbelt = 3 * dobbeltSide;
+                    }
+        if (vindskeder > 240 && vindskeder <= 320)
+            {
+            dobbelt = 4 * dobbeltSide;
+                    }
+        if (vindskeder > 320 && vindskeder <= 400)
+            {
+            dobbelt = 5 * dobbeltSide;
+                    }
+        if (vindskeder > 400 && vindskeder <= 480)
+            {
+            dobbelt = 6 * dobbeltSide;
+                    }
+        if (vindskeder > 480 && vindskeder <= 560)
+            {
+            dobbelt = 7 * dobbeltSide;
+                    }
+        if (vindskeder > 560 && vindskeder <= 640)
+            {
+            dobbelt = 8 * dobbeltSide;
+                    }
+        if (vindskeder > 640 && vindskeder <= 720)
+            {
+            dobbelt = 9 * dobbeltSide;
+                    }
+        if (vindskeder > 720 && vindskeder <= 800)
+            {
+            dobbelt = 10 * dobbeltSide;
+                    }
+        
+        
+        
+        int rygsten;
+        int toplægteHolder;
+        int rygstensBeslag;
+        int bindereOgNakkekroge;
+        
+        //Skruer
+        int skruer;
+        
+        
+                
+        
+        
+        String result = antalSpær + "   " + sideA + " " + sideB + " " + hypotenuse + " " + angleToRadian;
+        return result;
     }
 }
