@@ -12,7 +12,7 @@
     </head>
     <body>
         <!-- Her skriver man højde og bredde. Servlet får inputne fra text boksne når man trygger submit -->
-        <form action="" method="GET">
+        <form action="FogProjectWeb/SLInput" method="GET">
             <!-- textbox der tager højde -->
             length: <input type="text" name="length">
             <br />
