@@ -20,6 +20,7 @@ import java.util.logging.Logger;
 public class ImplDataAccess implements DataAccessObject
 {
 
+    // en metode som henter all materialerne fra databaserne
     @Override
     public ArrayList<Material> getAllMaterials()
     {

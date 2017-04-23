@@ -12,9 +12,9 @@ import java.util.ArrayList;
  *
  * @author vfgya
  */
-public interface DataAccessObject {
-    
+public interface DataAccessObject
+{
     // Materials
     public ArrayList<Material> getAllMaterials();
-    
+
 }

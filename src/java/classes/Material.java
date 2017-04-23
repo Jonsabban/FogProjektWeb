@@ -9,7 +9,9 @@ package classes;
  *
  * @author vfgya_000
  */
-public class Material {
+public class Material
+{
+    // definere variablerne
     private String name;
     private int length;
     private int amount;
@@ -17,7 +19,9 @@ public class Material {
     private String description;
     private Category category;
 
-    public Material(String name, int length, int amount, String MPackage, String description, Category category) {
+    // laver en constructor
+    public Material(String name, int length, int amount, String MPackage, String description, Category category)
+    {
         this.name = name;
         this.length = length;
         this.amount = amount;
@@ -25,7 +29,8 @@ public class Material {
         this.description = description;
         this.category = category;
     }
-
+    
+    // getter og setter
     public String getName()
     {
         return name;
@@ -85,6 +90,5 @@ public class Material {
     {
         this.category = category;
     }
-    
-    
+
 }

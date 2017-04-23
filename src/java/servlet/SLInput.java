@@ -17,9 +17,15 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author vfgya
  */
-@WebServlet(name = "SlInput", urlPatterns = {"/SLInput"})
-public class SLInput extends HttpServlet {
-
+@WebServlet(name = "SlInput", urlPatterns =
+{
+    "/SLInput"
+})
+public class SLInput extends HttpServlet
+{
+    
+    
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -30,8 +36,9 @@ public class SLInput extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        
+            throws ServletException, IOException
+    {
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -45,7 +52,8 @@ public class SLInput extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException
+    {
         processRequest(request, response);
     }
 
@@ -59,7 +67,8 @@ public class SLInput extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException
+    {
         processRequest(request, response);
     }
 
@@ -69,7 +78,8 @@ public class SLInput extends HttpServlet {
      * @return a String containing servlet description
      */
     @Override
-    public String getServletInfo() {
+    public String getServletInfo()
+    {
         return "Short description";
     }// </editor-fold>
 
