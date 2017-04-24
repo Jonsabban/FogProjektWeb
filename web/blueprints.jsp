@@ -15,29 +15,29 @@
     <body>
         <h1>Plan tegning top</h1>
         <svg id="top" width="880" height="850">
-        <!-- Outline of the carport 
-        Height and width is switched because it is showed sideways.
-        -->
+        <!-- Outline of the carport -->
         <rect height="<c:out value="${height}" />"
               width="<c:out value="${width}" />" 
-              style="fill:rgb(255,255,255);stroke-width:2px;stroke-style:rgb(0,0,0)" />
+              style="fill:rgb(255,255,255);stroke-width:2px;stroke:rgb(0,0,0)" />
         
         <!-- Creating spær -->
         <c:forEach items="${spær}" var="List">
             <c:out value="${List}" escapeXml="false"/>
         </c:forEach>
-        <!-- Bjælke top *width is height*-->
-        <rect x="0" y="30" width="<c:out value="${height}" />" heigth="8" style="fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)" />
+        
+        <!-- Bjælke top -->
+        <rect x="0" y="30" height="8" width="<c:out value="${width}" />" style="fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)" />
         <!-- Bjælke bottom -->
-        <rect x="0" y="<c:out value="${bjælkeBund}" />" heigth="8" width="<c:out value="${width}" />" style="fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)" />
+        <rect x="0" y="<c:out value="${bjælkeBund}" />" height="8" width="<c:out value="${width}" />" style="fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)" />
+        
         <!-- Stolper top -->
-        <rect x="100" y="35" height="10" width="10" style="fill:rgb(0,0,0)" />
+        <rect x="100" y="30" height="10" width="10" style="fill:rgb(0,0,0)" />
         <c:out value="${midTop}" />
-        <rect x="<c:out value="${stolpeXBack}" />" y="35" height="10" width="10" style="fill:rgb(0,0,0)" />
-        <!-- Stolper top -->
+        <rect x="<c:out value="${stolpeXBack}" />" y="30" height="10" width="10" style="fill:rgb(0,0,0)" />
+        <!-- Stolper bottom -->
         <rect x="100" y="<c:out value="${bjælkeBund}" />" height="10" width="10" style="fill:rgb(0,0,0)" />
         <c:out value="${midBottom}" />
-        <rect x="<c:out value="${stolpeXBack}" />" y="<c:out value="${stolpeY}" />" height="10" width="10" style="fill:rgb(0,0,0)" />
+        <rect x="<c:out value="${stolpeXBack}" />" y="<c:out value="${bjælkeBund}" />" height="10" width="10" style="fill:rgb(0,0,0)" />
         </svg>
         <svg id="side" >
             
