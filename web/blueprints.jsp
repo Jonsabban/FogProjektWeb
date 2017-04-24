@@ -26,18 +26,24 @@
         </c:forEach>
         
         <!-- Bjælke top -->
-        <rect x="0" y="30" height="8" width="<c:out value="${width}" />" style="fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)" />
+        <rect x="0" y="30" height="8" width="<c:out value="${width}" />" 
+              style="fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)" />
         <!-- Bjælke bottom -->
-        <rect x="0" y="<c:out value="${bjælkeBund}" />" height="8" width="<c:out value="${width}" />" style="fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)" />
+        <rect x="0" y="<c:out value="${bjælkeBund}" />" height="8" 
+              width="<c:out value="${width}" />" 
+              style="fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)" />
         
         <!-- Stolper top -->
         <rect x="100" y="30" height="10" width="10" style="fill:rgb(0,0,0)" />
         <c:out value="${midTop}" />
-        <rect x="<c:out value="${stolpeXBack}" />" y="30" height="10" width="10" style="fill:rgb(0,0,0)" />
+        <rect x="<c:out value="${stolpeXBack}" />" y="30" height="10" width="10" 
+              style="fill:rgb(0,0,0)" />
         <!-- Stolper bottom -->
-        <rect x="100" y="<c:out value="${bjælkeBund}" />" height="10" width="10" style="fill:rgb(0,0,0)" />
+        <rect x="100" y="<c:out value="${bjælkeBund}" />" height="10" width="10" 
+              style="fill:rgb(0,0,0)" />
         <c:out value="${midBottom}" />
-        <rect x="<c:out value="${stolpeXBack}" />" y="<c:out value="${bjælkeBund}" />" height="10" width="10" style="fill:rgb(0,0,0)" />
+        <rect x="<c:out value="${stolpeXBack}" />" y="<c:out value="${bjælkeBund}" />" 
+              height="10" width="10" style="fill:rgb(0,0,0)" />
         </svg>
         <svg id="side" >
             
