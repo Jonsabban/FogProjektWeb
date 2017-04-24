@@ -44,6 +44,14 @@
         <c:out value="${midBottom}" />
         <rect x="<c:out value="${stolpeXBack}" />" y="<c:out value="${bjælkeBund}" />" 
               height="10" width="10" style="fill:rgb(0,0,0)" />
+        
+        <!-- Vindkryds -->
+        <g fill="none" stroke="black" stroke-width="1">
+        <path stroke-dasharray="5,5" d="M55 35 L<c:out value="${width-55}" /> <c:out value="${bjælkeBund}" /> 
+              L<c:out value="${width-50}" /> <c:out value="${bjælkeBund}" /> L60 35 Z"/>
+        <path stroke-dasharray="5,5" d="M55 <c:out value="${bjælkeBund}" /> L<c:out value="${width-55}" /> 35
+              L<c:out value="${width-50}" /> 35 L60 <c:out value="${bjælkeBund}" /> Z" />
+        </g>
         </svg>
         <svg id="side" >
             
