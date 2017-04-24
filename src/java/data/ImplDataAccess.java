@@ -5,6 +5,7 @@
  */
 package data;
 
+import classes.Category;
 import classes.Material;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -36,11 +37,12 @@ public class ImplDataAccess implements DataAccessObject
                 ResultSet rs = stmt.executeQuery(sql);
                 while (rs.next())
                 {
-                    String name = rs.getString("matID");
+                    int id = rs.getInt("matID");
                     String type = rs.getString("matType");
                     String mPackage = rs.getString("matPackage");
                     String desc = rs.getString("matDescription");
-                    material = new Material(name, 0, 0, mPackage, desc, null);
+                    int caId = rs.getInt("FkCaID");
+                    material = new Material(id, type, 0, 0, mPackage, desc, caId);
                     materials.add(material);
                 }
             } catch (Exception ex)
@@ -55,4 +57,70 @@ public class ImplDataAccess implements DataAccessObject
         return materials;
     }
 
+    @Override
+    public ArrayList<Material> getALlMaterialsByCatId(int id)
+    {
+        ArrayList<Material> materials = new ArrayList<>();
+        try
+        {
+            DBConnector db = new DBConnector();
+            Statement stmt = db.getConnection().createStatement();
+            String sql = "select * from materials where FkCaID = " + id;
+            Material material = null;
+            try
+            {
+                ResultSet rs = stmt.executeQuery(sql);
+                while (rs.next())
+                {
+                    int mId = rs.getInt("matID");
+                    String type = rs.getString("matType");
+                    String mPackage = rs.getString("matPackage");
+                    String desc = rs.getString("matDescription");
+                    int caId = rs.getInt("FkCaID");
+                    material = new Material(mId, type, 0, 0, mPackage, desc, id);
+                    materials.add(material);
+                }
+            } catch (Exception ex)
+            {
+                Logger.getLogger(ImplDataAccess.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        } catch (SQLException ex)
+        {
+            Logger.getLogger(ImplDataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return materials;
+    }
+
+    @Override
+    public ArrayList<Category> getAllCategories()
+    {
+        ArrayList<Category> categories = new ArrayList<>();
+        try
+        {
+            DBConnector db = new DBConnector();
+            Statement stmt = db.getConnection().createStatement();
+            String sql = "select * from categories";
+            Category category = null;
+            try
+            {
+                ResultSet rs = stmt.executeQuery(sql);
+                while (rs.next())
+                {
+                    int id = rs.getInt("caID");
+                    String title = rs.getString("caTitle");
+                    category = new Category(id, title);
+                    categories.add(category);
+                }
+            } catch (Exception ex)
+            {
+                Logger.getLogger(ImplDataAccess.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        } catch (SQLException ex)
+        {
+            Logger.getLogger(ImplDataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return categories;
+    }
 }

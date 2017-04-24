@@ -12,35 +12,49 @@ package classes;
 public class Material
 {
     // definere variablerne
-    private String name;
+    private int id;
+    private String type;
     private int length;
     private int amount;
     private String MPackage;
     private String description;
-    private Category category;
+    private int caID;
 
     // laver en constructor
-    public Material(String name, int length, int amount, String MPackage, String description, Category category)
+    public Material(int id, String type, int length, int amount, String MPackage, String description, int caID)
     {
-        this.name = name;
+        this.id = id;
+        this.type = type;
         this.length = length;
         this.amount = amount;
         this.MPackage = MPackage;
         this.description = description;
-        this.category = category;
+        this.caID = caID;
     }
     
     // getter og setter
-    public String getName()
+
+    public int getId()
     {
-        return name;
+        return id;
     }
 
-    public void setName(String name)
+    public void setId(int id)
     {
-        this.name = name;
+        this.id = id;
     }
 
+    public String getType()
+    {
+        return type;
+    }
+
+    public void setType(String type)
+    {
+        this.type = type;
+    }
+    
+    
     public int getLength()
     {
         return length;
@@ -81,14 +95,15 @@ public class Material
         this.description = description;
     }
 
-    public Category getCategory()
+    public int getCaID()
     {
-        return category;
+        return caID;
     }
 
-    public void setCategory(Category category)
+    public void setCaID(int caID)
     {
-        this.category = category;
+        this.caID = caID;
     }
-
+    
+    
 }

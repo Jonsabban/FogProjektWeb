@@ -5,6 +5,7 @@
  */
 package data;
 
+import classes.Category;
 import classes.Material;
 import java.util.ArrayList;
 
@@ -14,7 +15,11 @@ import java.util.ArrayList;
  */
 public interface DataAccessObject
 {
+    // Categories
+    public ArrayList<Category> getAllCategories();
+    
     // Materials
     public ArrayList<Material> getAllMaterials();
+    public ArrayList<Material> getALlMaterialsByCatId(int id);
 
 }
