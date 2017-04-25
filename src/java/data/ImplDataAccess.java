@@ -22,40 +22,6 @@ public class ImplDataAccess implements DataAccessObject
 {
 
     // en metode som henter all materialerne fra databaserne
-    @Override
-    public ArrayList<Material> getAllMaterials()
-    {
-        ArrayList<Material> materials = new ArrayList<>();
-        try
-        {
-            DBConnector db = new DBConnector();
-            Statement stmt = db.getConnection().createStatement();
-            String sql = "select * from materials";
-            Material material = null;
-            try
-            {
-                ResultSet rs = stmt.executeQuery(sql);
-                while (rs.next())
-                {
-                    int id = rs.getInt("matID");
-                    String type = rs.getString("matType");
-                    String mPackage = rs.getString("matPackage");
-                    String desc = rs.getString("matDescription");
-                    int caId = rs.getInt("FkCaID");
-                    material = new Material(id, type, 0, 0, mPackage, desc, caId);
-                    materials.add(material);
-                }
-            } catch (Exception ex)
-            {
-                Logger.getLogger(ImplDataAccess.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-        } catch (SQLException ex)
-        {
-            Logger.getLogger(ImplDataAccess.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return materials;
-    }
 
     @Override
     public ArrayList<Material> getALlMaterialsByCatId(int id)
@@ -90,38 +56,6 @@ public class ImplDataAccess implements DataAccessObject
             Logger.getLogger(ImplDataAccess.class.getName()).log(Level.SEVERE, null, ex);
         }
         return materials;
-    }
-
-    @Override
-    public ArrayList<Category> getAllCategories()
-    {
-        ArrayList<Category> categories = new ArrayList<>();
-        try
-        {
-            DBConnector db = new DBConnector();
-            Statement stmt = db.getConnection().createStatement();
-            String sql = "select * from categories";
-            Category category = null;
-            try
-            {
-                ResultSet rs = stmt.executeQuery(sql);
-                while (rs.next())
-                {
-                    int id = rs.getInt("caID");
-                    String title = rs.getString("caTitle");
-                    category = new Category(id, title);
-                    categories.add(category);
-                }
-            } catch (Exception ex)
-            {
-                Logger.getLogger(ImplDataAccess.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-        } catch (SQLException ex)
-        {
-            Logger.getLogger(ImplDataAccess.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return categories;
     }
 
     @Override

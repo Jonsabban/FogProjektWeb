@@ -15,12 +15,11 @@ import java.util.ArrayList;
  */
 public interface DataAccessObject
 {
+
     // Categories
-    public ArrayList<Category> getAllCategories();
-        public Category getCategoryById(int id);
-    
+    public Category getCategoryById(int id);
+
     // Materials
-    public ArrayList<Material> getAllMaterials();
     public ArrayList<Material> getALlMaterialsByCatId(int id);
 
 }
