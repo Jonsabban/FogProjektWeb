@@ -33,8 +33,9 @@ public class GenerateBlueprints {
         String roofPath;
         
         int length = width;
+        double angel = (length/100) * 0.98;
         
-        roofPath = "<path id='roof' d=' M100 100 L" + length + " " + (length/100 * 0.02) + "v7 H100 V100' /> " + "<use xlink:href='#roof' fill='white' stroke='black'  />";
+        roofPath = "<path id='roof' d=' M100 100 l" + length + " " + angel +  " v7 l-" + length + " -" + angel + " z  > " + "<use xlink:href='#roof' fill='white' stroke='black'  />";
         
         return roofPath;
         
