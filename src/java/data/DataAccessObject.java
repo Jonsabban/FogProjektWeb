@@ -17,6 +17,7 @@ public interface DataAccessObject
 {
     // Categories
     public ArrayList<Category> getAllCategories();
+        public Category getCategoryById(int id);
     
     // Materials
     public ArrayList<Material> getAllMaterials();

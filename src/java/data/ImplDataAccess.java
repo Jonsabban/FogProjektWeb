@@ -123,4 +123,34 @@ public class ImplDataAccess implements DataAccessObject
         }
         return categories;
     }
+
+    @Override
+    public Category getCategoryById(int id)
+    {
+        Category category = null;
+        try
+        {
+            DBConnector db = new DBConnector();
+            Statement stmt = db.getConnection().createStatement();
+            String sql = "select * from category where caID = " + id;
+            try
+            {
+                ResultSet rs = stmt.executeQuery(sql);
+                while (rs.next())
+                {
+                    int cid = rs.getInt("caID");
+                    String title = rs.getString("caTitle");
+                    category = new Category(id, title);
+                }
+            } catch (Exception ex)
+            {
+                Logger.getLogger(ImplDataAccess.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        } catch (SQLException ex)
+        {
+            Logger.getLogger(ImplDataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return category;
+    }
 }
