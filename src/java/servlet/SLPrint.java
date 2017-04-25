@@ -41,13 +41,12 @@ public class SLPrint extends HttpServlet
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
     {
-        
+
         Object length = request.getSession().getAttribute("");
         Object width = request.getSession().getAttribute("");
-        
-        
+
         data.DataAccessObject dao = new data.ImplDataAccess();
-        
+
         // får den valgte kategori
         Category getcat1 = dao.getCategoryById(1);
         Category getcat2 = dao.getCategoryById(2);
@@ -60,48 +59,43 @@ public class SLPrint extends HttpServlet
         ArrayList<Material> getTTMaterials = dao.getALlMaterialsByCatId(2);
         ArrayList<Material> getTPMaterials = dao.getALlMaterialsByCatId(3);
         ArrayList<Material> getBSMaterials = dao.getALlMaterialsByCatId(4);
-        
-        
+
         // indsætter længde og antal og udregnerdem
         //træ materialer
-        for(int i = 0; i < getTMaterials.size(); i++)
+        for (int i = 0; i < getTMaterials.size(); i++)
         {
             // indæt fra calculator class
-            if ( getTMaterials.get(i).getId() == 1)
-            {
-                getTMaterials.get(i).setLength(0);
-                getTMaterials.get(i).setAmount(0);
-            }
-            if ( getTMaterials.get(i).getId() == 2)
-            {
-                getTMaterials.get(i).setLength(0);
-                getTMaterials.get(i).setAmount(0);
-            }
+            int id = getTMaterials.get(i).getId();
             
+            switch (id)
+            {
+                case 1:
+                    break;
+            }
+
         }
         // træ og tagplader
-        for(int i = 0; i < getTTMaterials.size(); i++)
+        for (int i = 0; i < getTTMaterials.size(); i++)
         {
-            
+
         }
-        
+
         //tagpakken
-        for(int i = 0; i < getTPMaterials.size(); i++)
+        for (int i = 0; i < getTPMaterials.size(); i++)
         {
-            
+
         }
-        
+
         // Beslag & Skruer
-        for(int i = 0; i < getBSMaterials.size(); i++)
+        for (int i = 0; i < getBSMaterials.size(); i++)
         {
-            
+
         }
         // setter kategori attributerne
         request.setAttribute("getcat1", getcat1.getName());
         request.setAttribute("getcat2", getcat2.getName());
         request.setAttribute("getcat3", getcat3.getName());
         request.setAttribute("getcat4", getcat4.getName());
-        
 
         // setter arrayLists attributerne
         request.setAttribute("Tmaterials", getTMaterials);
