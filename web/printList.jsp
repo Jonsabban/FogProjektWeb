@@ -46,7 +46,8 @@
     </style>
     <body>
         <!-- Udskriver en array liste med items -->
-        <h2><c:out value="${getcat1}" /></h2>
+        
+        <c:forEach items="${allC}" var="cList">
         <table style="width:100%">
             <tr>
                 <th>Beskrivelse</th>
@@ -55,72 +56,19 @@
                 <th>Enhed</th>
                 <th>Beskrivelse</th>
             </tr>
-            <c:forEach items="${Tmaterials}" var="Tlist">
+            <h2><c:out value="${cList.name}"/></h2>
+            <c:forEach items="${allM}" var="mList">
+                <c:if test="${cList.id == mList.caID}">
                 <tr>
-                    <td><c:out value="${Tlist.type}" /></td>
-                    <td><c:out value="${Tlist.length}" /></td>
-                    <td class="amount"><c:out value="${Tlist.amount}" /></td>
-                    <td><c:out value="${Tlist.MPackage}" /></td>
-                    <td><c:out value="${Tlist.description}" /></td>                 
+                    <td><c:out value="${mList.type}" /></td>
+                    <td><c:out value="${mList.length}" /></td>
+                    <td class="amount"><c:out value="${mList.amount}" /></td>
+                    <td><c:out value="${mList.MPackage}" /></td>
+                    <td><c:out value="${mList.description}" /></td>                 
                 </tr>
+                </c:if>
             </c:forEach>
         </table>
-        <h2><c:out value="${getcat2}" /></h2>
-        <table style="width:100%">
-            <tr>
-                <th>Beskrivelse</th>
-                <th>Længde</th> 
-                <th>Antal</th>
-                <th>Enhed</th>
-                <th>Beskrivelse</th>
-            </tr>
-            <c:forEach items="${TTmaterials}" var="TTlist">
-                <tr>
-                    <td><c:out value="${TTlist.type}" /></td>
-                    <td><c:out value="${TTlist.length}" /></td>
-                    <td class="amount"><c:out value="${TTlist.amount}" /></td>
-                    <td><c:out value="${TTlist.MPackage}" /></td>
-                    <td><c:out value="${TTlist.description}" /></td>                 
-                </tr>
-            </c:forEach>
-        </table>
-        <h2><c:out value="${getcat3}" /></h2>
-        <table style="width:100%">
-            <tr>
-                <th>Beskrivelse</th>
-                <th>Længde</th> 
-                <th>Antal</th>
-                <th>Enhed</th>
-                <th>Beskrivelse</th>
-            </tr>
-            <c:forEach items="${TPmaterials}" var="TPlist">
-                <tr>
-                    <td><c:out value="${TPlist.type}" /></td>
-                    <td><c:out value="${TPlist.length}" /></td>
-                    <td class="amount"><c:out value="${TPlist.amount}" /></td>
-                    <td><c:out value="${TPlist.MPackage}" /></td>
-                    <td><c:out value="${TPlist.description}" /></td>                 
-                </tr>
-            </c:forEach>
-        </table>
-        <h2><c:out value="${getcat4}" /></h2>
-        <table style="width:100%">
-            <tr>
-                <th>Beskrivelse</th>
-                <th>Længde</th> 
-                <th>Antal</th>
-                <th>Enhed</th>
-                <th>Beskrivelse</th>
-            </tr>
-            <c:forEach items="${BSmaterials}" var="BSlist">
-                <tr>
-                    <td><c:out value="${BSlist.type}" /></td>
-                    <td><c:out value="${BSlist.length}" /></td>
-                    <td class="amount"><c:out value="${BSlist.amount}" /></td>
-                    <td><c:out value="${BSlist.MPackage}" /></td>
-                    <td><c:out value="${BSlist.description}" /></td>                 
-                </tr>
-            </c:forEach>
-        </table>
+        </c:forEach>
     </body>
 </html>

@@ -42,66 +42,13 @@ public class SLPrint extends HttpServlet
             throws ServletException, IOException
     {
 
-        Object length = request.getSession().getAttribute("");
-        Object width = request.getSession().getAttribute("");
-
         data.DataAccessObject dao = new data.ImplDataAccess();
+        
+        ArrayList<Category> CAL = dao.getAllCategories();
+        ArrayList<Material> MAL = dao.getAllMaterials();
 
-        // får den valgte kategori
-        Category getcat1 = dao.getCategoryById(1);
-        Category getcat2 = dao.getCategoryById(2);
-        Category getcat3 = dao.getCategoryById(3);
-        Category getcat4 = dao.getCategoryById(4);
-
-        // får alle array listerne
-        // T = træ, TT = træ og tagplader, TP = tagpakken, BS = beslag og Skruer
-        ArrayList<Material> getTMaterials = dao.getALlMaterialsByCatId(1);
-        ArrayList<Material> getTTMaterials = dao.getALlMaterialsByCatId(2);
-        ArrayList<Material> getTPMaterials = dao.getALlMaterialsByCatId(3);
-        ArrayList<Material> getBSMaterials = dao.getALlMaterialsByCatId(4);
-
-        // indsætter længde og antal og udregnerdem
-        //træ materialer
-        for (int i = 0; i < getTMaterials.size(); i++)
-        {
-            // indæt fra calculator class
-            int id = getTMaterials.get(i).getId();
-            
-            switch (id)
-            {
-                case 1:
-                    break;
-            }
-
-        }
-        // træ og tagplader
-        for (int i = 0; i < getTTMaterials.size(); i++)
-        {
-
-        }
-
-        //tagpakken
-        for (int i = 0; i < getTPMaterials.size(); i++)
-        {
-
-        }
-
-        // Beslag & Skruer
-        for (int i = 0; i < getBSMaterials.size(); i++)
-        {
-
-        }
-        // setter kategori attributerne
-        request.setAttribute("getcat1", getcat1.getName());
-        request.setAttribute("getcat2", getcat2.getName());
-        request.setAttribute("getcat3", getcat3.getName());
-        request.setAttribute("getcat4", getcat4.getName());
-
-        // setter arrayLists attributerne
-        request.setAttribute("Tmaterials", getTMaterials);
-        request.setAttribute("TTmaterials", getTTMaterials);
-        request.setAttribute("TPmaterials", getTPMaterials);
-        request.setAttribute("BSmaterials", getBSMaterials);
+        request.setAttribute("allC", CAL);
+        request.setAttribute("allM", MAL);
 
         RequestDispatcher rd = request.getRequestDispatcher("/printList.jsp");
         rd.forward(request, response);

@@ -87,4 +87,71 @@ public class ImplDataAccess implements DataAccessObject
         }
         return category;
     }
+
+    @Override
+    public ArrayList<Category> getAllCategories()
+    {
+         ArrayList<Category> categories = new ArrayList<>();
+        try
+        {
+            DBConnector db = new DBConnector();
+            Statement stmt = db.getConnection().createStatement();
+            String sql = "select * from category";
+            Category category = null;
+            try
+            {
+                ResultSet rs = stmt.executeQuery(sql);
+                while (rs.next())
+                {
+                    int cId = rs.getInt("caID");
+                    String title = rs.getString("caTitle");
+                    category = new Category(cId, title);
+                    categories.add(category);
+                }
+            } catch (Exception ex)
+            {
+                Logger.getLogger(ImplDataAccess.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        } catch (SQLException ex)
+        {
+            Logger.getLogger(ImplDataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return categories;
+    }
+
+    @Override
+    public ArrayList<Material> getAllMaterials()
+    {
+        ArrayList<Material> materials = new ArrayList<>();
+        try
+        {
+            DBConnector db = new DBConnector();
+            Statement stmt = db.getConnection().createStatement();
+            String sql = "select * from materials";
+            Material material = null;
+            try
+            {
+                ResultSet rs = stmt.executeQuery(sql);
+                while (rs.next())
+                {
+                    int mId = rs.getInt("matID");
+                    String type = rs.getString("matType");
+                    String mPackage = rs.getString("matPackage");
+                    String desc = rs.getString("matDescription");
+                    int caId = rs.getInt("FkCaID");
+                    material = new Material(mId, type, 0, 0, mPackage, desc, caId);
+                    materials.add(material);
+                }
+            } catch (Exception ex)
+            {
+                Logger.getLogger(ImplDataAccess.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        } catch (SQLException ex)
+        {
+            Logger.getLogger(ImplDataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return materials;
+    }
 }
