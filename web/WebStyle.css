@@ -1,0 +1,62 @@
+body {
+    font-family: Verdana;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2
+}
+header {
+    width: 100%;
+    height: 60px;
+    background-color: #014687;
+}
+h1 {
+    color: #fff;
+    margin: 0;
+    padding-top: 10px;
+    padding-left: 10px;
+    font-size: 28px;
+    font-weight: bold;
+}
+content {
+    position: absolute;
+    top: 60px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    display: block;
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 25px;
+}
+form {
+    display: block;
+    width: 960px;
+}
+form > .measure {
+    width: 400px;
+    height: 30px;
+    padding-left: 10px;
+    font-size: 18px;
+}
+form > #dd {
+    padding: 4px;
+    width: 150px;
+    height: 34px;
+    font-size: 18px;
+    float: left;
+    margin-bottom: 40px;
+    font-weight: 100;
+    color: #666666;
+}
+form > input#button {
+    clear: both;
+    float: left;
+    width: 150px;
+    height: 40px;
+    font-size: 20px;
+    background-color: #014687;
+    color: #fff;
+    border-radius: 5px;
+}
