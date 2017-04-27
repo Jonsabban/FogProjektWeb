@@ -12,41 +12,12 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Material List</title>
+        <link href="WebStyle.css" rel="stylesheet" type="text/css"/>
     </head>
-    <style>
-        table {
-            font-family: arial, sans-serif;
-            border-collapse: collapse;
-            width: 100%;
-            margin-bottom: 50px;
-        }
-
-        td, th {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 8px;
-            width: 150px;
-        }
-        td, th:nth-child(1) {
-            width: 100px;
-        }
-        td, th:nth-child(2) {
-            width: 50px;
-        }
-        td, th:nth-child(3) {
-            width: 50px;
-        }
-        td, th:nth-child(4) {
-            width: 50px;
-        }
-
-        tr:nth-child(even) {
-            background-color: #dddddd;
-        }
-    </style>
     <body>
-        <!-- Udskriver en array liste med items -->
-        
+         <header><h1>Johannes Fog - Carport Builder</h1></header>
+        <div id="container">
+        <!-- Udskriver en array liste med items -->    
         <c:forEach items="${allC}" var="cList">
         <table style="width:100%">
             <tr>
@@ -70,5 +41,6 @@
             </c:forEach>
         </table>
         </c:forEach>
+        </div>
     </body>
 </html>

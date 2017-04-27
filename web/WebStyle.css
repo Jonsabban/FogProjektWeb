@@ -15,9 +15,30 @@ h1 {
     padding-top: 10px;
     padding-left: 10px;
     font-size: 28px;
-    font-weight: bold;
+    font-weight: 400;
+    vertical-align: text-top;
 }
-content {
+h4 {
+    font-weight: normal;
+    font-size: 24px;
+}
+a#start {
+    margin-top: 20px;
+    padding: 4px;
+    padding-top: 10px;
+    display: block;
+    background-color: #014687;
+    width: 200px;
+    height: 34px;
+    font-size: 18px;
+    float: left;
+    margin-bottom: 40px;
+    font-weight: 100;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+}
+#container {
     position: absolute;
     top: 60px;
     bottom: 0;
@@ -59,4 +80,33 @@ form > input#button {
     background-color: #014687;
     color: #fff;
     border-radius: 5px;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    width: 150px;
+}
+td, th:nth-child(1) {
+    width: 100px;
+}
+td, th:nth-child(2) {
+    width: 50px;
+}
+td, th:nth-child(3) {
+    width: 50px;
+}
+td, th:nth-child(4) {
+    width: 50px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
 }
