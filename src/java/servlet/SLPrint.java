@@ -44,12 +44,15 @@ public class SLPrint extends HttpServlet
 
         data.DataAccessObject dao = new data.ImplDataAccess();
         
+        // variabler med arraylisterne
         ArrayList<Category> CAL = dao.getAllCategories();
         ArrayList<Material> MAL = dao.getAllMaterials();
 
+        // setter arraylisternes attributer
         request.setAttribute("allC", CAL);
         request.setAttribute("allM", MAL);
 
+        // henviser til printList siden
         RequestDispatcher rd = request.getRequestDispatcher("/printList.jsp");
         rd.forward(request, response);
     }
