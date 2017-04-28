@@ -12,15 +12,17 @@ header {
 h1 {
     color: #fff;
     margin: 0;
-    padding-top: 10px;
+    padding-top: 15px;
     padding-left: 10px;
-    font-size: 28px;
+    font-size: 24px;
     font-weight: 400;
     vertical-align: text-top;
 }
 h3 {
     float: left;
     clear: both;
+    font-size: 18px;
+    font-weight: normal;
 }
 h4 {
     font-weight: normal;
@@ -42,6 +44,13 @@ a#start {
     text-align: center;
     text-decoration: none;
 }
+a.createLogin {
+    margin-top: 20px;
+    float: left;
+    clear: both;
+    font-size: 14px;
+    line-height: 140%;
+}
 #container {
     position: absolute;
     top: 60px;
@@ -50,7 +59,7 @@ a#start {
     right: 0;
     background-color: #fff;
     display: block;
-    width: 960px;
+    width: 900px;
     margin-left: auto;
     margin-right: auto;
     padding: 25px;
@@ -60,7 +69,6 @@ a#start {
     height: 30px;
     padding-left: 10px;
     font-size: 18px;
-    margin-bottom: 20px;
     float: left;
     clear: both;
 }
@@ -82,7 +90,6 @@ form > #dd {
     height: 34px;
     font-size: 18px;
     float: left;
-    margin-bottom: 40px;
     font-weight: 100;
     color: #666666;
     clear: both;
@@ -97,6 +104,7 @@ form > input#button {
     color: #fff;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 40px;
 }
 form > input#button:hover {
     background-color: #122049;

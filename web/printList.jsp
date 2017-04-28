@@ -17,7 +17,7 @@
     <body>
          <header><h1>Johannes Fog - Carport Builder</h1></header>
         <div id="container">
-        <!-- Udskriver en array liste med items -->    
+        <!-- Udskriver en array liste -->    
         <c:forEach items="${allC}" var="cList">
         <table style="width:100%">
             <tr>
