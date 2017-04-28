@@ -6,7 +6,9 @@
 package data;
 
 import classes.Category;
+import classes.Customer;
 import classes.Material;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -25,7 +27,7 @@ public class ImplDataAccess implements DataAccessObject
     @Override
     public ArrayList<Category> getAllCategories()
     {
-         ArrayList<Category> categories = new ArrayList<>();
+        ArrayList<Category> categories = new ArrayList<>();
         try
         {
             DBConnector db = new DBConnector();
@@ -88,5 +90,32 @@ public class ImplDataAccess implements DataAccessObject
             Logger.getLogger(ImplDataAccess.class.getName()).log(Level.SEVERE, null, ex);
         }
         return materials;
+    }
+
+    @Override
+    public Customer getUser(String username, String password)
+    {
+        Customer customer = null;
+        try
+        {
+            DBConnector db = new DBConnector();
+            Statement stmt = db.getConnection().createStatement();
+            String sql = "select * from customers where cName = " + username + " and cPassword = " + password;
+            try
+            {
+                ResultSet rs = stmt.executeQuery(sql);
+                while (rs.next())
+                {
+                    int cid = rs.getInt("cId");
+                }
+            } catch (Exception ex)
+            {
+                Logger.getLogger(ImplDataAccess.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (SQLException ex)
+        {
+            Logger.getLogger(ImplDataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return customer;
     }
 }

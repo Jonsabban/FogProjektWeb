@@ -18,6 +18,10 @@ h1 {
     font-weight: 400;
     vertical-align: text-top;
 }
+h3 {
+    float: left;
+    clear: both;
+}
 h4 {
     font-weight: normal;
     font-size: 24px;
@@ -51,6 +55,15 @@ a#start {
     margin-right: auto;
     padding: 25px;
 }
+.login {
+    width: 400px;
+    height: 30px;
+    padding-left: 10px;
+    font-size: 18px;
+    margin-bottom: 20px;
+    float: left;
+    clear: both;
+}
 form {
     display: block;
     width: 960px;
@@ -60,6 +73,8 @@ form > .measure {
     height: 30px;
     padding-left: 10px;
     font-size: 18px;
+    float: left;
+    clear: both;
 }
 form > #dd {
     padding: 4px;
@@ -70,6 +85,7 @@ form > #dd {
     margin-bottom: 40px;
     font-weight: 100;
     color: #666666;
+    clear: both;
 }
 form > input#button {
     clear: both;
@@ -80,6 +96,10 @@ form > input#button {
     background-color: #014687;
     color: #fff;
     border-radius: 5px;
+    cursor: pointer;
+}
+form > input#button:hover {
+    background-color: #122049;
 }
 table {
     font-family: arial, sans-serif;

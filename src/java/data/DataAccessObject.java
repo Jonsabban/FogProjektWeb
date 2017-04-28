@@ -6,6 +6,7 @@
 package data;
 
 import classes.Category;
+import classes.Customer;
 import classes.Material;
 import java.util.ArrayList;
 
@@ -21,5 +22,8 @@ public interface DataAccessObject
 
     // Materials
     public ArrayList<Material> getAllMaterials();
+    
+    // Customers
+    public Customer getUser(String username, String password);
 
 }
