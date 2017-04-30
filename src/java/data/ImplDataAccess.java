@@ -100,13 +100,15 @@ public class ImplDataAccess implements DataAccessObject
         {
             DBConnector db = new DBConnector();
             Statement stmt = db.getConnection().createStatement();
-            String sql = "select * from customers where cName = " + username + " and cPassword = " + password;
+            String sql = "select * from customers where cName = '" + username + "' and cPasword = '" + password + "'";
             try
             {
                 ResultSet rs = stmt.executeQuery(sql);
                 while (rs.next())
                 {
                     int cid = rs.getInt("cId");
+                    String cName = rs.getString("cName");
+                    customer = new Customer(cid, cName, null, null, 0, 0, null);
                 }
             } catch (Exception ex)
             {

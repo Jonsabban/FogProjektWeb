@@ -5,8 +5,11 @@
  */
 package servlet;
 
+import classes.Customer;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,12 +20,11 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author vfgya
  */
-@WebServlet(name = "SLlogin", urlPatterns =
-{
-    "/SLlogin"
-})
-public class SLlogin extends HttpServlet
-{
+@WebServlet(name = "SLlogin", urlPatterns
+        = {
+            "/SLlogin"
+        })
+public class SLlogin extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,9 +36,28 @@ public class SLlogin extends HttpServlet
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException
-    {
+            throws ServletException, IOException {
+
+        String cname = request.getParameter("username");
+        String cword = request.getParameter("password");
+
         
+        
+        data.DataAccessObject dao = new data.ImplDataAccess();
+        try {
+            Customer cs = dao.getUser(cname, cword);
+
+            if (cs.getcName().equals(cname)) {
+
+                RequestDispatcher rd = request.getRequestDispatcher("/input.jsp");
+                rd.forward(request, response);
+            }
+        } catch (NullPointerException ex) {
+            request.setAttribute("error", "<h3 style=\"color: red;\">login or password is incorrect</h3>");
+            RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+            rd.forward(request, response);
+        }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -50,8 +71,7 @@ public class SLlogin extends HttpServlet
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException
-    {
+            throws ServletException, IOException {
         processRequest(request, response);
     }
 
@@ -65,8 +85,7 @@ public class SLlogin extends HttpServlet
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException
-    {
+            throws ServletException, IOException {
         processRequest(request, response);
     }
 
@@ -76,8 +95,7 @@ public class SLlogin extends HttpServlet
      * @return a String containing servlet description
      */
     @Override
-    public String getServletInfo()
-    {
+    public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
 
