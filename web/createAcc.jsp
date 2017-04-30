@@ -15,14 +15,14 @@
     <body>
         <header><h1>Johannes Fog - Carport Builder</h1></header>
         <div id="container">
-            <form action="SLlogin" method="GET">
+            <form action="SLlogin" method="post">
                 <h3>Username:</h3><input class="login" type="text" name="username" placeholder="username">
                 <h3>Password:</h3><input class="login" type="text" name="password" placeholder="password">
                 <h3>Address:</h3><input class="login" type="text" name="address" placeholder="address">
                 <h3>Zipcode:</h3><input class="login" type="text" name="zipcode" placeholder="zipcode">
                 <h3>Phone:</h3><input class="login" type="text" name="phone" placeholder="phone">
                 <h3>Email:</h3><input class="login" type="text" name="email" placeholder="email">
-                <input id="button" type="submit" value="login" />
+                <input id="button" type="submit" value="create" />
             </form>
         </div>
     </body>
