@@ -20,7 +20,7 @@
             <form action="SLlogin" method="post">
                 <h3>Username:</h3><input class="login" type="text" name="username" placeholder="username">
                 <h3>Password:</h3><input class="login" type="password" name="password" placeholder="password">
-                <c:out value="${fn:escapeXml(param.error)}" />
+                <c:out value="${error}" escapeXml="false"/>
                 <input id="button" type="submit" value="login" />
                 <a href="#" class="createLogin">Dont have a account?<br /> create one here</a>
             </form>

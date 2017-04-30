@@ -53,7 +53,7 @@ public class SLlogin extends HttpServlet {
                 rd.forward(request, response);
             }
         } catch (NullPointerException ex) {
-            request.setAttribute("error", "<h3 style=\"color: red;\">login or password is incorrect</h3>");
+            request.setAttribute("error", "<p style=\"color: red;\">login or password is incorrect</p>");
             RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
             rd.forward(request, response);
         }
