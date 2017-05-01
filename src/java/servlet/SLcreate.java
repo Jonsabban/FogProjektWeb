@@ -7,6 +7,7 @@ package servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,12 +18,11 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author vfgya
  */
-@WebServlet(name = "SLcreate", urlPatterns =
-{
-    "/SLcreate"
-})
-public class SLcreate extends HttpServlet
-{
+@WebServlet(name = "SLcreate", urlPatterns
+        = {
+            "/SLcreate"
+        })
+public class SLcreate extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,9 +34,24 @@ public class SLcreate extends HttpServlet
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException
-    {
-       
+            throws ServletException, IOException {
+        data.DataAccessObject dao = new data.ImplDataAccess();
+
+        String name = request.getParameter("username");
+        String password = request.getParameter("password");
+        String address = request.getParameter("address");
+        String zipcode = request.getParameter("zipcode");
+        String phone = request.getParameter("phone");
+        String email = request.getParameter("email");
+
+        int ziptoint = Integer.parseInt(zipcode);
+        int phonetoint = Integer.parseInt(phone);
+
+        dao.createUser(name, password, address, ziptoint, phonetoint, email);
+
+        RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+        rd.forward(request, response);
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -50,8 +65,7 @@ public class SLcreate extends HttpServlet
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException
-    {
+            throws ServletException, IOException {
         processRequest(request, response);
     }
 
@@ -65,8 +79,7 @@ public class SLcreate extends HttpServlet
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException
-    {
+            throws ServletException, IOException {
         processRequest(request, response);
     }
 
@@ -76,8 +89,7 @@ public class SLcreate extends HttpServlet
      * @return a String containing servlet description
      */
     @Override
-    public String getServletInfo()
-    {
+    public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
 

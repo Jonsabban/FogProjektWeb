@@ -42,7 +42,6 @@ public class SLlogin extends HttpServlet {
         String cword = request.getParameter("password");
 
         
-        
         data.DataAccessObject dao = new data.ImplDataAccess();
         try {
             Customer cs = dao.getUser(cname, cword);

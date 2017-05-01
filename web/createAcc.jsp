@@ -15,7 +15,7 @@
     <body>
         <header><h1>Johannes Fog - Carport Builder</h1></header>
         <div id="container">
-            <form action="SLlogin" method="post">
+            <form action="SLcreate" method="post">
                 <h3>Username:</h3><input class="login" type="text" name="username" placeholder="username">
                 <h3>Password:</h3><input class="login" type="text" name="password" placeholder="password">
                 <h3>Address:</h3><input class="login" type="text" name="address" placeholder="address">

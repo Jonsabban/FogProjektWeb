@@ -106,19 +106,19 @@ public class ImplDataAccess implements DataAccessObject {
     public void createUser(String name, String password, String address, int zipcode, int phone, String email) {
         DBConnector db = new DBConnector();
         try {
-            String sql = "insert into customers values(?,?,?,?,?,?,?)";
-            PreparedStatement stmt = db.getConnection().prepareStatement(email);
+            String sql = "insert into customers (cName,cAddress,cZipcode,cPhone,cEmail,cPasword) values(?,?,?,?,?,?)";
+            PreparedStatement stmt = db.getConnection().prepareStatement(sql);
 
             String eP = Encrypt.sha256(password);
 
-            stmt.setString(2, name);
-            stmt.setString(3, address);
-            stmt.setInt(4, zipcode);
-            stmt.setInt(5, phone);
-            stmt.setString(6, email);
-            stmt.setString(7, eP);
+            stmt.setString(1, name);
+            stmt.setString(2, address);
+            stmt.setInt(3, zipcode);
+            stmt.setInt(4, phone);
+            stmt.setString(5, email);
+            stmt.setString(6, eP);
 
-            stmt.executeUpdate(sql);
+            stmt.executeUpdate();
             
         } catch (SQLException ex) {
             Logger.getLogger(ImplDataAccess.class.getName()).log(Level.SEVERE, null, ex);
