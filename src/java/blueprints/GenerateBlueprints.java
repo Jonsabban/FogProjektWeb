@@ -17,11 +17,11 @@ public class GenerateBlueprints {
     public ArrayList<String> createSpær(int height, int width) {
     ArrayList<String> spær = new ArrayList();
     
-    int spærDistance = 0;
+    int spærDistance = 100;
     
-    while (spærDistance < width) {
+    while (spærDistance < (width + 100)) {
     
-    spær.add("<line x1=" + spærDistance + " y1=\"0\" x2=" + spærDistance + " y2=" + height + " style=\"stroke:rgb(0,0,0);stroke-width:1\" />");
+    spær.add("<line x1=" + spærDistance + " y1=\"100\" x2=" + spærDistance + " y2=" + (height + 100) + " style=\"stroke:rgb(0,0,0);stroke-width:1\" />");
     
     spærDistance += 55;
     }

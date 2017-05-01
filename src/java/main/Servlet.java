@@ -49,10 +49,10 @@ public class Servlet extends HttpServlet {
         request.setAttribute("width", width);
         request.setAttribute("spær", spærList);
         //*Height becomes width*
-        request.setAttribute("bjælkeBund", height - 30);
+        request.setAttribute("bjælkeBund", (height + 100) - 30);
         request.setAttribute("midTop", midTop);
         //*Width becomes height*
-        request.setAttribute("stolpeXBack", width - 50);
+        request.setAttribute("stolpeXBack", (width + 100) - 50);
         request.setAttribute("midBottom", midBottom);
         
         RequestDispatcher rd = request.getRequestDispatcher("/blueprints.jsp");
