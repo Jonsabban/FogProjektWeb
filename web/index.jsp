@@ -21,8 +21,8 @@
                 <h3>Username:</h3><input class="login" type="text" name="username" placeholder="username">
                 <h3>Password:</h3><input class="login" type="password" name="password" placeholder="password">
                 <c:out value="${error}" escapeXml="false"/>
-                <input id="button" type="submit" value="login" />
-                <a href="createAcc.jsp" class="createLogin">Dont have a account?<br /> create one here</a>
+                <input id="button" type="submit" value="Login" />
+                <a href="createAcc.jsp" class="createLogin">Dont have a account?<br /> Create one here</a>
             </form>
         </div>
     </body>

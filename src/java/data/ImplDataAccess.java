@@ -20,37 +20,30 @@ import java.util.logging.Logger;
  *
  * @author vfgya
  */
-public class ImplDataAccess implements DataAccessObject
-{
+public class ImplDataAccess implements DataAccessObject {
 
     // en metode som henter all kategorierne fra databaserne
     @Override
-    public ArrayList<Category> getAllCategories()
-    {
+    public ArrayList<Category> getAllCategories() {
         ArrayList<Category> categories = new ArrayList<>();
-        try
-        {
+        try {
             DBConnector db = new DBConnector();
             Statement stmt = db.getConnection().createStatement();
             String sql = "select * from category";
             Category category = null;
-            try
-            {
+            try {
                 ResultSet rs = stmt.executeQuery(sql);
-                while (rs.next())
-                {
+                while (rs.next()) {
                     int cId = rs.getInt("caID");
                     String title = rs.getString("caTitle");
                     category = new Category(cId, title);
                     categories.add(category);
                 }
-            } catch (Exception ex)
-            {
+            } catch (Exception ex) {
                 Logger.getLogger(ImplDataAccess.class.getName()).log(Level.SEVERE, null, ex);
             }
 
-        } catch (SQLException ex)
-        {
+        } catch (SQLException ex) {
             Logger.getLogger(ImplDataAccess.class.getName()).log(Level.SEVERE, null, ex);
         }
         return categories;
@@ -58,20 +51,16 @@ public class ImplDataAccess implements DataAccessObject
 
     // en metode som henter all materialerne fra databaserne
     @Override
-    public ArrayList<Material> getAllMaterials()
-    {
+    public ArrayList<Material> getAllMaterials() {
         ArrayList<Material> materials = new ArrayList<>();
-        try
-        {
+        try {
             DBConnector db = new DBConnector();
             Statement stmt = db.getConnection().createStatement();
             String sql = "select * from materials";
             Material material = null;
-            try
-            {
+            try {
                 ResultSet rs = stmt.executeQuery(sql);
-                while (rs.next())
-                {
+                while (rs.next()) {
                     int mId = rs.getInt("matID");
                     String type = rs.getString("matType");
                     String mPackage = rs.getString("matPackage");
@@ -80,44 +69,59 @@ public class ImplDataAccess implements DataAccessObject
                     material = new Material(mId, type, 0, 0, mPackage, desc, caId);
                     materials.add(material);
                 }
-            } catch (Exception ex)
-            {
+            } catch (Exception ex) {
                 Logger.getLogger(ImplDataAccess.class.getName()).log(Level.SEVERE, null, ex);
             }
 
-        } catch (SQLException ex)
-        {
+        } catch (SQLException ex) {
             Logger.getLogger(ImplDataAccess.class.getName()).log(Level.SEVERE, null, ex);
         }
         return materials;
     }
 
     @Override
-    public Customer getUser(String username, String password)
-    {
+    public Customer getUser(String username, String password) {
         Customer customer = null;
-        try
-        {
+        try {
             DBConnector db = new DBConnector();
             Statement stmt = db.getConnection().createStatement();
             String sql = "select * from customers where cName = '" + username + "' and cPasword = '" + password + "'";
-            try
-            {
+            try {
                 ResultSet rs = stmt.executeQuery(sql);
-                while (rs.next())
-                {
+                while (rs.next()) {
                     int cid = rs.getInt("cId");
                     String cName = rs.getString("cName");
                     customer = new Customer(cid, cName, null, null, 0, 0, null);
                 }
-            } catch (Exception ex)
-            {
+            } catch (Exception ex) {
                 Logger.getLogger(ImplDataAccess.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } catch (SQLException ex)
-        {
+        } catch (SQLException ex) {
             Logger.getLogger(ImplDataAccess.class.getName()).log(Level.SEVERE, null, ex);
         }
         return customer;
+    }
+
+    @Override
+    public void createUser(String name, String password, String address, int zipcode, int phone, String email) {
+        DBConnector db = new DBConnector();
+        try {
+            String sql = "insert into customers values(?,?,?,?,?,?,?)";
+            PreparedStatement stmt = db.getConnection().prepareStatement(email);
+
+            String eP = Encrypt.sha256(password);
+
+            stmt.setString(2, name);
+            stmt.setString(3, address);
+            stmt.setInt(4, zipcode);
+            stmt.setInt(5, phone);
+            stmt.setString(6, email);
+            stmt.setString(7, eP);
+
+            stmt.executeUpdate(sql);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ImplDataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
