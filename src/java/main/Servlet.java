@@ -61,7 +61,6 @@ public class Servlet extends HttpServlet {
         String sideFlatRoof2 = gb.sideFlatRoof2(width);
         ArrayList<String> posts = gb.supportPosts(width, height);
         
-
         request.setAttribute("spær", spær);
         request.setAttribute("bjælkeBund", width - 30);
         request.setAttribute("sideFlatRoof", sideFlatRoof);
@@ -70,8 +69,7 @@ public class Servlet extends HttpServlet {
         
         RequestDispatcher rd = request.getRequestDispatcher("/blueprints.jsp");
             rd.forward(request, response);
-        
-        
+     
     }
     
 
