@@ -5,6 +5,7 @@
  */
 package main;
 
+import blueprints.GenerateBlueprints;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
@@ -54,10 +55,21 @@ public class Servlet extends HttpServlet {
         //*Width becomes height*
         request.setAttribute("stolpeXBack", (width + 100) - 50);
         request.setAttribute("midBottom", midBottom);
+         
+        ArrayList<String> spær = gb.createSpær(height, width);
+        String sideFlatRoof = gb.sideFlatRoof(width);
+        String sideFlatRoof2 = gb.sideFlatRoof2(width);
+        ArrayList<String> posts = gb.supportPosts(width, height);
+        
+
+        request.setAttribute("spær", spær);
+        request.setAttribute("bjælkeBund", width - 30);
+        request.setAttribute("sideFlatRoof", sideFlatRoof);
+        request.setAttribute("sideFlatRoof2", sideFlatRoof2);
+        request.setAttribute("supportPosts", posts);
         
         RequestDispatcher rd = request.getRequestDispatcher("/blueprints.jsp");
             rd.forward(request, response);
-        
         
         
     }
