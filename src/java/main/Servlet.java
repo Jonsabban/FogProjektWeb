@@ -50,7 +50,7 @@ public class Servlet extends HttpServlet {
         request.setAttribute("width", width);
         request.setAttribute("spær", spærList);
         //*Height becomes width*
-        request.setAttribute("bjælkeBund", (height + 100) - 30);
+        request.setAttribute("bjælkeBund", (height + 100) - 40);
         request.setAttribute("midTop", midTop);
         //*Width becomes height*
         request.setAttribute("stolpeXBack", (width + 100) - 50);
@@ -62,7 +62,6 @@ public class Servlet extends HttpServlet {
         ArrayList<String> posts = gb.supportPosts(width, height);
         
         request.setAttribute("spær", spær);
-        request.setAttribute("bjælkeBund", width - 30);
         request.setAttribute("sideFlatRoof", sideFlatRoof);
         request.setAttribute("sideFlatRoof2", sideFlatRoof2);
         request.setAttribute("supportPosts", posts);
