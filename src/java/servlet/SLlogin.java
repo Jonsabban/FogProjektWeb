@@ -6,6 +6,7 @@
 package servlet;
 
 import classes.Customer;
+import data.Encrypt;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -40,11 +41,13 @@ public class SLlogin extends HttpServlet {
 
         String cname = request.getParameter("username");
         String cword = request.getParameter("password");
+        
+        String eP = Encrypt.sha256(cword);
 
         
         data.DataAccessObject dao = new data.ImplDataAccess();
         try {
-            Customer cs = dao.getUser(cname, cword);
+            Customer cs = dao.getUser(cname, eP);
 
             if (cs.getcName().equals(cname)) {
 
