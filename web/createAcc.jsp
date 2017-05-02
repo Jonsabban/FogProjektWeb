@@ -15,14 +15,14 @@
     <body>
         <header><h1>Johannes Fog - Carport Builder</h1></header>
         <div id="container">
-            <form action="SLcreate" method="post">
-                <h3>Username:</h3><input class="login" type="text" name="username" placeholder="username">
-                <h3>Password:</h3><input class="login" type="text" name="password" placeholder="password">
-                <h3>Address:</h3><input class="login" type="text" name="address" placeholder="address">
-                <h3>Zipcode:</h3><input class="login" type="text" name="zipcode" placeholder="zipcode">
-                <h3>Phone:</h3><input class="login" type="text" name="phone" placeholder="phone">
-                <h3>Email:</h3><input class="login" type="text" name="email" placeholder="email">
-                <input id="button" type="submit" value="create" />
+            <form action="SLcreate" method="post" name="createuser">
+                <h3>Username:</h3><input class="login" type="text" name="username" placeholder="user1234">
+                <h3>Password:</h3><input class="login" type="text" name="password" placeholder="6-12 characters">
+                <h3>Address:</h3><input class="login" type="text" name="address" placeholder="Road street 1">
+                <h3>Zipcode:</h3><input class="login" type="text" name="zipcode" placeholder="0000">
+                <h3>Phone:</h3><input class="login" type="text" name="phone" placeholder="00000000">
+                <h3>Email:</h3><input class="login" type="text" name="email" placeholder="yourmail@mail.com">
+                <input id="button" type="submit" value="Create" />
             </form>
         </div>
     </body>

@@ -24,6 +24,7 @@ h3 {
     clear: both;
     font-size: 18px;
     font-weight: normal;
+    margin-bottom: 10px;
 }
 h4 {
     font-weight: normal;
@@ -79,6 +80,7 @@ a.createLogin {
     font-size: 18px;
     float: left;
     clear: both;
+    margin-bottom: 15px;
 }
 form {
     display: block;
