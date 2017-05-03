@@ -13,7 +13,7 @@ public class Start {
         gb.sideFlatRoof(550);
         gb.sideFlatRoof2(550);
         
-        ArrayList<String> mes = gb.getMeasurements();
+        ArrayList<String> mes = gb.getMeasurementsSide();
         
         for (String a : mes) {
             System.out.println(a);

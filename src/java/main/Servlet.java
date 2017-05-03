@@ -50,24 +50,36 @@ public class Servlet extends HttpServlet {
         request.setAttribute("width", width);
         request.setAttribute("spær", spærList);
         //*Height becomes width*
-        request.setAttribute("bjælkeBund", (height + 100) - 40);
+        request.setAttribute("stolpe", (height + 100) - 40); //Tjek med gruppe
         request.setAttribute("midTop", midTop);
         //*Width becomes height*
         request.setAttribute("stolpeXBack", (width + 100) - 50);
         request.setAttribute("midBottom", midBottom);
-         
+        
+        // Top
         ArrayList<String> spær = gb.createSpær(height, width);
+        String outline = gb.outlineTop(height, width);
+        String bjælkeTop = gb.bjælkeTop(width);
+        String bjælkeBund = gb.bjælkeBottom(width, height);
+        
+        request.setAttribute("outline", outline);
+        request.setAttribute("spær", spær);
+        request.setAttribute("bjælkeTop", bjælkeTop);
+        request.setAttribute("bjælkeBund", bjælkeBund);
+        
+        
+        //Side
         String sideFlatRoof = gb.sideFlatRoof(width);
         String sideFlatRoof2 = gb.sideFlatRoof2(width);
         ArrayList<String> posts = gb.supportPosts(width, height);
-        ArrayList<String> measurements = gb.getMeasurements();
+        ArrayList<String> measurementsSide = gb.getMeasurementsSide();
+        ArrayList<String> measurementsTop = gb.getMeasurementsTop();
         
-        
-        request.setAttribute("spær", spær);
         request.setAttribute("sideFlatRoof", sideFlatRoof);
         request.setAttribute("sideFlatRoof2", sideFlatRoof2);
         request.setAttribute("supportPosts", posts);
-        request.setAttribute("measurements", measurements);
+        request.setAttribute("measurementsSide", measurementsSide);
+        request.setAttribute("measurementsTop", measurementsTop);
         
         RequestDispatcher rd = request.getRequestDispatcher("/blueprints.jsp");
             rd.forward(request, response);
