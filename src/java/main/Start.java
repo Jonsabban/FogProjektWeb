@@ -1,17 +1,24 @@
 package main;
 
+import blueprints.GenerateBlueprints;
+import classes.Measurement;
+import java.util.ArrayList;
+
 public class Start {
 
     public static void main(String[] args) {
-        Calculator c = new Calculator();
-        System.out.println(c.calculate(720, 600));
+        GenerateBlueprints gb = new GenerateBlueprints();
+        Measurement m = new Measurement();
         
-        System.out.println("*******************************");
+        gb.sideFlatRoof(550);
+        gb.sideFlatRoof2(550);
         
-        System.out.println("I metoder");
+        ArrayList<String> mes = gb.getMeasurements();
         
-        System.out.println();
-        
+        for (String a : mes) {
+            System.out.println(a);
+            
+        }
     }
 
 }

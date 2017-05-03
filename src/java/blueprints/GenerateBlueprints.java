@@ -5,6 +5,7 @@
  */
 package blueprints;
 
+import classes.Measurement;
 import java.util.ArrayList;
 
 /**
@@ -12,6 +13,9 @@ import java.util.ArrayList;
  * @author alexander
  */
 public class GenerateBlueprints {
+    Measurement m = new Measurement();
+    
+    ArrayList<String> measureArray = new ArrayList();
 
     //*NOTE* width and height is switched because it's going to be sideways.
     public ArrayList<String> createSpær(int height, int width) {
@@ -54,59 +58,65 @@ public class GenerateBlueprints {
     public String sideFlatRoof(int width) {
 
         String roofPath;
-        String measurements;
+        String measurement;
 
         int length = width;
         double angel = (length / 100) * 0.98;
 
-        roofPath = "<path id='roof' d=' M100 100 l" + length + " " + angel + " v7 l-" + length + " -" + angel + " z>";
-        measurements = 
-                    "<path id='height' d= 'M50 330 v-230'/>" +
-                    "<text font-family='Verdana' font-size='10' >" +
-                    "<textPath xlink:href='#height' startOffset='50%'>" +
-                    "<tspan dy='-5' text-anchor='middle' >2,30</tspan>" +
-                    "</textPath>" +
-                    "</text>";
+        roofPath = "<path id='roof' d=' M100 100 l" + length + " " + angel + " v7 l-" + length + " -" + angel + " z'/>";
+        measurement = m.createMeasurementV("sideFlatRoof", 50, 330, 230, 230);
         
-        String sideRoofFladt = roofPath + measurements;
+        measureArray.add(measurement);
         
-        return sideRoofFladt;
+        return roofPath;
     }
 
     public String sideFlatRoof2(int width) {
 
         String roofPath2;
+        String measurement;
 
         int length = width - 4;
         double angel = (width / 100) * 0.98;
 
-        roofPath2 = "<path id='roof' d=' M102 107 l" + length + " " + angel + " v7 l-" + length + " -" + angel + " z  > " + "<use xlink:href='#roof' fill='white' stroke='black'  />";
-
+        roofPath2 = "<path id='roof2' d=' M102 107 l" + length + " " + angel + " v7 l-" + length + " -" + angel + " z'/>";
+        measurement = m.createMeasurementV("sideFlatRoof2", 80, 330, 220, 210);
+        
+        measureArray.add(measurement);
+        
         return roofPath2;
     }
 
     public ArrayList<String> supportPosts(int width, int height) {
 
         ArrayList<String> posts = new ArrayList();
+        String measurePost1;
+        String measurePost2;
+        String measureToEnd;
 
+        
         String post1 = "<rect width='10' height='230' x='200' y='101' style='stroke-width:1px;stroke:black;fill:white;'/>";
-        String post2 = "<rect width='10' height='220' x='" + width + "' y='110' style='stroke-width:1px;stroke:black;fill:white;'/>";
+        String post2 = "<rect width='10' height='220' x='" + width + "' y='111' style='stroke-width:1px;stroke:black;fill:white;'/>";
+        //Measurements and ground lines
+        measurePost1 = m.createMeasurementH("post1", 100, 341, 100, 100);
+        measurePost2 = m.createMeasurementH("post2", 200, 341, width - 200, width - 200);
+        measureToEnd = m.createMeasurementH("toEnd", width, 341, 100, 100);
 
+        
         posts.add(post1);
         posts.add(post2);
+        
+        measureArray.add(measurePost1);
+        measureArray.add(measurePost2);
+        measureArray.add(measureToEnd);
+
 
         return posts;
     }
 
-    public String ground(int width, int height) {
-//    <path id='ground' d="
-//              M 100 300
-//              L 650 300              
-//              " />
-//        <use xlink:href="#ground" fill="none" stroke="black"  />
-
-    String ground = "<path id='ground' d='' style='stroke-width:1px;stroke:black; ";
-
-    return ground;
+    public ArrayList<String> getMeasurements() {
+        
+        return measureArray;
     }
+
 }
