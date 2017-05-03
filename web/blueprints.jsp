@@ -61,9 +61,10 @@
         <c:forEach items="${supportPosts}" var="List">
             <c:out value="${List}" escapeXml="false" />
         </c:forEach>
+        <g fill='white' stroke='black' stroke-width='1'>
         <c:out value="${sideFlatRoof}" escapeXml="false" />
         <c:out value="${sideFlatRoof2}" escapeXml="false" />
-
+        </g>
         </svg>
     </body>
 </html>
