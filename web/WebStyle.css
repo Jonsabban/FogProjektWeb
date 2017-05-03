@@ -19,6 +19,16 @@ h1 {
     font-weight: 400;
     vertical-align: text-top;
 }
+h2 {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto; 
+    font-size: 18px;
+    font-weight: normal;
+    margin-bottom: 40px;
+}
 h3 {
     float: left;
     clear: both;
@@ -94,7 +104,7 @@ form > .measure {
     float: left;
     clear: both;
 }
-form > #dd {
+form > .dd {
     padding: 4px;
     width: 150px;
     height: 34px;
@@ -117,6 +127,25 @@ form > input#button {
     margin-top: 40px;
 }
 form > input#button:hover {
+    background-color: #122049;
+}
+.roof {
+    display: block;
+    text-align: center;
+    width: 300px;
+    height: 80px;
+    background-color: #014687;
+    line-height: 80px;
+    vertical-align: text;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    clear: both;
+    font-size: 26px;
+    color: #fff;
+    text-decoration: none;
+}
+.roof:hover {
     background-color: #122049;
 }
 table {
