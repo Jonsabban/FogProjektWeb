@@ -103,8 +103,9 @@ public class GenerateBlueprints {
         
         
         if ((xEnd - xStart) > 310) {
+            int between = (xEnd + xStart)/2;
             stolperTop.add("<rect width=\"10\" height=\"10\" x=\"" 
-                + (xEnd - xStart) + "\" y=\"" + y + "\" style=\"fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)\" />");
+                + between + "\" y=\"" + y + "\" style=\"fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)\" />");
         }
                 
         return stolperTop;
@@ -133,8 +134,9 @@ public class GenerateBlueprints {
                 + "\" y=\"" + y + "\" style=\"fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)\" />");
         
         if ((xEnd - xStart) > 310) {
+            int between = (xEnd + xStart)/2;
             stolperBottom.add("<rect width=\"10\" height=\"10\" x=\"" 
-                + (xEnd - xStart) + "\" y=\"" + y + "\" style=\"fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)\" />");
+                + between + "\" y=\"" + y + "\" style=\"fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)\" />");
         }
         return stolperBottom;
     }
