@@ -20,51 +20,43 @@
         <!-- Outline of the carport -->
         <c:out value="${outline}" escapeXml="false"/>
         
-        <!-- Creating spær -->
-        <c:forEach items="${spær}" var="List">
+        <!-- Stolper top -->
+        <c:forEach items="${stolperTop}" var="List">
+            <c:out value="${List}" escapeXml="false" />
+        </c:forEach>
+        
+        <!-- Stolper bottom -->
+        <c:forEach items="${stolperBottom}" var="List">
+            <c:out value="${List}" escapeXml="false" />
+        </c:forEach>
+        
+        <!-- Creating spaer -->
+        <g fill="none" stroke="black" stroke-width="1">
+        <c:forEach items="${spaer}" var="List">
             <c:out value="${List}" escapeXml="false"/>
         </c:forEach>
         
-        <!-- Bjælke top -->
-        <c:out value="${bjælkeTop}" escapeXml="false"/>
+        <!-- Bjaelke top -->
+        <c:out value="${bjaelkeTop}" escapeXml="false"/>
         
-        <!-- Bjælke bottom -->
-        <c:out value="${bjælkeBund}" escapeXml="false"/>
-        
-        <!-- Stolper top -->
-        <rect x="200" y="130" height="10" width="10" style="fill:rgb(0,0,0)" />
-        <c:out value="${midTop}" />
-        <rect x="<c:out value="${stolpeXBack}" />" y="130" height="10" width="10" 
-              style="fill:rgb(0,0,0)" />
-        <!-- Stolper bottom -->
-        <rect x="200" y="<c:out value="${stolpe}" />" height="10" width="10" 
-              style="fill:rgb(0,0,0)" />
-        <c:out value="${midBottom}" />
-        <rect x="<c:out value="${stolpeXBack}" />" y="<c:out value="${stolpe}" />" 
-              height="10" width="10" style="fill:rgb(0,0,0)" />
-        
-        <!-- Vindkryds -->
-        <g fill="none" stroke="black" stroke-width="1">
-        <path stroke-dasharray="5,5" d="M155 135 L<c:out value="${(width+100)-55}" /> <c:out value="${stolpe}" /> 
-              L<c:out value="${(width+100)-50}" /> <c:out value="${stolpe}" /> L160 135 Z"/>
-        <path stroke-dasharray="5,5" d="M155 <c:out value="${stolpe}" /> L<c:out value="${(width+100)-55}" /> 135
-              L<c:out value="${(width+100)-50}" /> 135 L160 <c:out value="${stolpe}" /> Z" />
+        <!-- Bjaelke bottom -->
+        <c:out value="${bjaelkeBund}" escapeXml="false"/>
+
+        <!-- Vindkryds* -->
+        <c:out value="${vindkryds}" />
         </g>
-        
         <!-- Measurements -->
         <g fill="none" stroke="black" stroke-width:2 font-family='Verdana' font-size='10'>
         <c:forEach items="${measurementsTop}" var="List">
             <c:out value="${List}" escapeXml="false" />
         </c:forEach>
-        
         </g>
-        
         
         </svg>
         <svg id="side" width="1000" height="1000" >
 
         <rect x="0" y="30" heigth="8" width="<c:out value="${width}" />" style="fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)" />
-        <rect x="0" y="<c:out value="${bjælkeBund}" />" heigth="8" width="<c:out value="${width}" />" style="fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)" />
+        <rect x="0" y="<c:out value="${bjaelkeBund}" />" heigth="8" width="<c:out value="${width}" />" style="fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)" />
         <c:forEach items="${supportPosts}" var="List">
             <c:out value="${List}" escapeXml="false" />
         </c:forEach>
