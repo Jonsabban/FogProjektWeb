@@ -35,66 +35,161 @@ public class GenerateBlueprints {
         return outline;
     }
 
-    //*NOTE* width and height is switched because it's going to be sideways.
-    public ArrayList<String> createSpær(int height, int width) {
-        ArrayList<String> spær = new ArrayList();
+    public ArrayList<String> createSpaerFlat(int height, int width) {
+        ArrayList<String> spaer = new ArrayList();
         String measurement;
 
-        int spærDistance = 100;
-        int spærnb = 1;
+        int spaerDistance = 100;
+        int spaernb = 1;
 
-        while (spærDistance < (width + 100)) {
+        while (spaerDistance < (width + 100)) {
 
-            spær.add("<line x1=" + spærDistance + " y1='100' x2=" + spærDistance + " y2=" + (height + 100) + " style='stroke:rgb(0,0,0);stroke-width:1' />");
+            spaer.add("<line x1=" + spaerDistance + " y1='100' x2=" + spaerDistance + " y2=" + (height + 100) + " style='stroke:rgb(0,0,0);stroke-width:1' />");
             
-            measurement = m.createMeasurementH("spaer" + spærnb, spærDistance, 90, 55, 55);
+            measurement = m.createMeasurementH("spaer" + spaernb, spaerDistance, 90, 55, 55);
             
-            spærDistance += 55;
-            spærnb += 1;
+            spaerDistance += 55;
+            spaernb += 1;
             measureArrayTop.add(measurement);
         }
 
-        return spær;
-    }
-
-    public String midTop(int height, int width) {
-        String end;
-        if (width < 310) {
-            end = "<rect x=" + (width / 2) + " y=\"30\" height=\"10\" width=\"10\" style=\"fill:rgb(0,0,0)\" />";
-        } else {
-            end = "";
-        }
-        return end;
-    }
-
-    public String midBottom(int height, int width) {
-        String end;
-        if (width < 310) {
-            end = "<rect x=" + (width / 2) + " y=" + (height - 30) + " height=\"10\" width=\"10\" style=\"fill:rgb(0,0,0)\" />";
-        } else {
-            end = "";
-        }
-        return end;
+        return spaer;
     }
     
-    public String bjælkeTop(int width) {
+    public ArrayList<String> createSpaerRejsning(int height, int width) {
+        ArrayList<String> spaer = new ArrayList();
+        String measurement;
+
+        int spaerDistance = 120;
+        int spaernb = 1;
+
+        while (spaerDistance < (width + 100)) {
+
+            spaer.add("<path d=\"M" + spaerDistance + " 100 L" + spaerDistance 
+                    + " " + (height + 100) + " L" + (spaerDistance + 5) + " " 
+                    + (height + 100) + " L" + (spaerDistance + 5) + " 100\" />");
+            
+            measurement = m.createMeasurementH("spaer" + spaernb, spaerDistance, 90, 90, 90);
+            
+            spaerDistance += 90;
+            spaernb += 1;
+            measureArrayTop.add(measurement);
+        }
+
+        return spaer;
+    }
+    
+    public ArrayList<String> stolperTop( int width, boolean rejsning) {
+        ArrayList<String> stolperTop = new ArrayList();
+        int y;
+        int xStart;
+        int xEnd;
+        
+        if (rejsning) {
+            y = 120;
+            xStart = 190;
+            xEnd = width + 70;
+        }
+        else {
+            y = 130;
+            xStart = 200;
+            xEnd = width + 50;
+        }
+        
+        stolperTop.add("<rect width=\"10\" height=\"10\" x=\"" + xStart + "\" y=\"" 
+                + y + "\" style=\"fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)\" />");
+        stolperTop.add("<rect width=\"10\" height=\"10\" x=\"" + xEnd 
+                + "\" y=\"" + y + "\" style=\"fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)\" />");
+        
+        
+        if ((xEnd - xStart) > 310) {
+            stolperTop.add("<rect width=\"10\" height=\"10\" x=\"" 
+                + (xEnd - xStart) + "\" y=\"" + y + "\" style=\"fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)\" />");
+        }
+                
+        return stolperTop;
+    }
+    
+    public ArrayList<String> stolperBottom(int height, int width, boolean rejsning) {
+        ArrayList<String> stolperBottom = new ArrayList();
+        int y;
+        int xStart;
+        int xEnd;
+        
+        if (rejsning) {
+            y = height + 70;
+            xStart = 190;
+            xEnd = width + 70;
+        }
+        else {
+            y = height + 60;
+            xStart = 200;
+            xEnd = width + 50;
+        }
+        
+        stolperBottom.add("<rect width=\"10\" height=\"10\" x=\"" + xStart + "\" y=\"" 
+                + y  + "\" style=\"fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)\" />");
+        stolperBottom.add("<rect width=\"10\" height=\"10\" x=\"" + xEnd 
+                + "\" y=\"" + y + "\" style=\"fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)\" />");
+        
+        if ((xEnd - xStart) > 310) {
+            stolperBottom.add("<rect width=\"10\" height=\"10\" x=\"" 
+                + (xEnd - xStart) + "\" y=\"" + y + "\" style=\"fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)\" />");
+        }
+        return stolperBottom;
+    }
+    
+    public String bjaelkeTopFlat(int width) {
         String top;
-        top = "<rect x='100' y='130' height='8' width='" + width +"' style='fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)' />";
+        top = "<path d=\"M100 132 L" + (width + 100) + " 132 L" + (width + 100) + " 138 L100 138 Z\" />";
         
         return top;
     }
     
-        public String bjælkeBottom(int width, int height) {
+    public String bjaelkeBottomFlat(int width, int height) {
         String bottom;
         String measurement;
         
-        int startY = (height + 100) - 40; //Spørg hvorfor xD
-        bottom = "<rect x='100' y='" + startY + "' height='8' width='" + width +"' style='fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)' />";
+        int startY = height + 62; //Spørg hvorfor xD
+        bottom = "<path d=\"M100 " + startY + " L" + (width + 100) + " " + startY + " L" + (width + 100) + " " + (startY + 6) + " L100 " + (startY + 6) + " Z\" />";
+        
         
         measurement = m.createMeasurementV("beams", 90, startY+8, height-62, height-72);
         measureArrayTop.add(measurement);
         
         return bottom;
+    }
+    
+    public String bjaelkeTopRejsning(int width) {
+        String top;
+        top = "<path d=\"M115 122 L" + (width + 100) + " 122 L" + (width + 100) + " 128 L115 128 Z\" />";
+        
+        
+        return top;
+    }
+    
+    public String bjaelkeBottomRejsning(int width, int height) {
+        String bottom;
+        String measurement;
+        
+        int startY = height + 72; //Spørg hvorfor xD
+        bottom = "<path d=\"M115 " + startY + " L" + (width + 100) + " " + startY + " L" + (width + 100) + " " + (startY+6) + " L115 " + (startY+6) + " Z\" />";
+        
+        
+        measurement = m.createMeasurementV("beams", 90, startY+8, height-62, height-72);
+        measureArrayTop.add(measurement);
+        
+        return bottom;
+    }
+    
+    public String vindkryds(int height, int width) {
+        String end;
+        int Y = (height + 100) - 38;
+        end = "<path stroke-dasharray=\"5,5\" d=\"M155 135 L" + (width + 45) 
+                + " " + Y + " L" + (width + 50) + " " + Y + " L160 135 Z\" /> \n"
+                + "<path stroke-dasharray=\"5,5\" d=\"M155 " + Y + " L" 
+                + (width + 45) + " 135 L" + (width + 50) + " 135 L160 " + Y + " Z\" />";
+        return end;
     }
 
     public String sideFlatRoof(int width) {
