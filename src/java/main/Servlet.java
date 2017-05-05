@@ -39,34 +39,43 @@ public class Servlet extends HttpServlet {
         int width = Integer.parseInt(request.getParameter("width"));
         
         blueprints.GenerateBlueprints gb = new blueprints.GenerateBlueprints();
-       
-        //Width and height is switched because it's going to be sideways
-        ArrayList<String> spærList = gb.createSpær(height, width);
-        
-        String midTop = gb.midTop(width,height);
-        String midBottom = gb.midBottom(width,height);
+        String outline = gb.outlineTop(height, width);
         
         request.setAttribute("height", height);
         request.setAttribute("width", width);
-        request.setAttribute("spær", spærList);
-        //*Height becomes width*
-        request.setAttribute("stolpe", (height + 100) - 40); //Tjek med gruppe
-        request.setAttribute("midTop", midTop);
-        //*Width becomes height*
-        request.setAttribute("stolpeXBack", (width + 100) - 50);
-        request.setAttribute("midBottom", midBottom);
-        
-        // Top
-        ArrayList<String> spær = gb.createSpær(height, width);
-        String outline = gb.outlineTop(height, width);
-        String bjælkeTop = gb.bjælkeTop(width);
-        String bjælkeBund = gb.bjælkeBottom(width, height);
         
         request.setAttribute("outline", outline);
-        request.setAttribute("spær", spær);
-        request.setAttribute("bjælkeTop", bjælkeTop);
-        request.setAttribute("bjælkeBund", bjælkeBund);
         
+        // TODO: get boolean input from input.jsp
+        boolean rejsning = true;
+        
+        // Top
+        if (rejsning = true) {
+            ArrayList<String> spaer = gb.createSpaerRejsning(height, width);
+            request.setAttribute("spaer", spaer);
+            String bjaelkeTop = gb.bjaelkeTopRejsning(width);
+            request.setAttribute("bjaelkeTop", bjaelkeTop);
+            String bjaelkeBund = gb.bjaelkeBottomRejsning(width, height);
+            request.setAttribute("bjaelkeBund", bjaelkeBund);
+            ArrayList<String> stolperTop = gb.stolperTop(width, rejsning);
+            request.setAttribute("stolperTop", stolperTop);
+            ArrayList<String> stolperBottom = gb.stolperBottom(height, width, rejsning); 
+            request.setAttribute("stolperBottom", stolperBottom);
+        }
+        else {
+            ArrayList<String> spaer = gb.createSpaerFlat(height, width);
+            request.setAttribute("spaer", spaer);
+            String bjaelkeTop = gb.bjaelkeTopFlat(width);
+            request.setAttribute("bjaelkeTop", bjaelkeTop);
+            String bjaelkeBund = gb.bjaelkeBottomFlat(width, height);
+            request.setAttribute("bjaelkeBund", bjaelkeBund);
+            String vindkryds = gb.vindkryds(height, width);
+            request.setAttribute("vindkryds", vindkryds);
+            ArrayList<String> stolperTop = gb.stolperTop(width, rejsning);
+            request.setAttribute("stolperTop", stolperTop);
+            ArrayList<String> stolperBottom = gb.stolperBottom(height, width, rejsning); 
+            request.setAttribute("stolperBottom", stolperBottom);
+        }
         
         //Side
         String sideFlatRoof = gb.sideFlatRoof(width);
