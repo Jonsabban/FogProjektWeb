@@ -26,5 +26,9 @@ public interface DataAccessObject
     // Customers
     public Customer getUser(String username, String password);
     public void createUser(String name, String password, String address, int zipcode, int phone, String email);
+    
+    // Length & Width
+    public ArrayList<Integer> getAllLengths();
+    public ArrayList<Integer> getAllWidths();
 
 }

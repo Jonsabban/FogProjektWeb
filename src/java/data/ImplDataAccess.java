@@ -124,4 +124,50 @@ public class ImplDataAccess implements DataAccessObject {
             Logger.getLogger(ImplDataAccess.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    @Override
+    public ArrayList<Integer> getAllLengths() {
+        ArrayList<Integer> lengths = new ArrayList<>();
+        try {
+            DBConnector db = new DBConnector();
+            Statement stmt = db.getConnection().createStatement();
+            String sql = "select lnumber from length";
+            try {
+                ResultSet rs = stmt.executeQuery(sql);
+                while (rs.next()) {
+                    int l = rs.getInt("lnumber");
+                    lengths.add(l);
+                }
+            } catch (Exception ex) {
+                Logger.getLogger(ImplDataAccess.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ImplDataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return lengths;
+    }
+
+    @Override
+    public ArrayList<Integer> getAllWidths() {
+        ArrayList<Integer> widths = new ArrayList<>();
+        try {
+            DBConnector db = new DBConnector();
+            Statement stmt = db.getConnection().createStatement();
+            String sql = "select wnumber from width";
+            try {
+                ResultSet rs = stmt.executeQuery(sql);
+                while (rs.next()) {
+                    int w = rs.getInt("wnumber");
+                    widths.add(w);
+                }
+            } catch (Exception ex) {
+                Logger.getLogger(ImplDataAccess.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ImplDataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return widths;
+    }
 }
