@@ -46,7 +46,7 @@ public class GenerateBlueprints {
     public ArrayList<String> taglaegteUp(int height, int width) {
         ArrayList<String> taglaegteUp = new ArrayList();
         int mid = (height + 200)/2;
-        int dif = ((height + 65) - (mid + 34)) / 4;
+        int dif = ((height + 65) - (mid + 34)) / 5;
         
         // top taglaegte
         taglaegteUp.add("<path d=\"M100 131 L" + (width + 100) + " 131 L" 
@@ -74,7 +74,7 @@ public class GenerateBlueprints {
         ArrayList<String> taglaegteDown = new ArrayList();
         int mid = (height + 200)/2;
         
-        int dif = ((height + 65) - (mid + 34)) / 4; 
+        int dif = ((height + 65) - (mid + 34)) / 5; 
         // top taglaegte
         taglaegteDown.add("<path d=\"M100 " + (mid + 30) + " L" + (width + 100) 
                 + " " + (mid + 30) + " L" + (width + 100) + " " + (mid + 34) 
