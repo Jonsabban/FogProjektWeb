@@ -16,6 +16,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -44,6 +45,7 @@ public class SLlogin extends HttpServlet {
         
         String eP = Encrypt.sha256(cword);
 
+        HttpSession session = request.getSession();
         
         data.DataAccessObject dao = new data.ImplDataAccess();
         try {
@@ -51,7 +53,8 @@ public class SLlogin extends HttpServlet {
 
             if (cs.getcName().equals(cname)) {
 
-                RequestDispatcher rd = request.getRequestDispatcher("/input.jsp");
+                session.setAttribute("id", cs.getcID());
+                RequestDispatcher rd = request.getRequestDispatcher("/SLInput");
                 rd.forward(request, response);
             }
         } catch (NullPointerException ex) {

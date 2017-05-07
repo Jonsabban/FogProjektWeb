@@ -170,4 +170,9 @@ public class ImplDataAccess implements DataAccessObject {
         }
         return widths;
     }
+
+    @Override
+    public ArrayList<Customer> getAllUsers() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

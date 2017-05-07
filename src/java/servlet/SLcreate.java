@@ -37,6 +37,7 @@ public class SLcreate extends HttpServlet {
             throws ServletException, IOException {
         
         data.DataAccessObject dao = new data.ImplDataAccess();
+        
 
         String name = request.getParameter("username");
         String password = request.getParameter("password");

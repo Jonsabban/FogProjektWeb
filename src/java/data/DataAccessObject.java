@@ -24,6 +24,7 @@ public interface DataAccessObject
     public ArrayList<Material> getAllMaterials();
     
     // Customers
+    public ArrayList<Customer> getAllUsers();
     public Customer getUser(String username, String password);
     public void createUser(String name, String password, String address, int zipcode, int phone, String email);
     
