@@ -36,6 +36,17 @@
             <c:out value="${List}" escapeXml="false"/>
         </c:forEach>
         
+        <!-- Creating stem -->
+        <c:out value="${stem}" escapeXml="false"/>
+        
+        <!-- Creating taglaegter -->
+        <c:forEach items="${tlUp}" var="List">
+            <c:out value="${List}" escapeXml="false"/>
+        </c:forEach>
+        <c:forEach items="${tlDown}" var="List">
+            <c:out value="${List}" escapeXml="false"/>
+        </c:forEach>
+        
         <!-- Bjaelke top -->
         <c:out value="${bjaelkeTop}" escapeXml="false"/>
         

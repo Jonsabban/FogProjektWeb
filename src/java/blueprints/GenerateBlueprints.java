@@ -34,6 +34,69 @@ public class GenerateBlueprints {
         
         return outline;
     }
+    
+    public String stem(int height, int width) {
+        int mid = (height + 200) / 2;
+        String stem = "<path d=\"M100 " + (mid - 1) + " L" + (width+100) + " " 
+                + (mid - 1) + " L" + (width+100) + " " + (mid + 1) + " L100 " 
+                + (mid + 1) + "\"  />";
+        return stem;
+    }
+    
+    public ArrayList<String> taglaegteUp(int height, int width) {
+        ArrayList<String> taglaegteUp = new ArrayList();
+        int mid = (height + 200)/2;
+        int dif = ((height + 65) - (mid + 34)) / 4;
+        
+        // top taglaegte
+        taglaegteUp.add("<path d=\"M100 131 L" + (width + 100) + " 131 L" 
+                + (width + 100) + " 135 L100 135 \"/>");
+        
+        // between taglaegte
+        int y = (mid - 34) - dif;
+        while (y - 4 >= 139) {
+            taglaegteUp.add("<path d=\"M100 " + y + " L" + (width + 100) 
+                + " " + y + " L" + (width + 100) + " " + (y - 4) 
+                + " L100 " + (y - 4) + " \"/>");
+            y -= dif;
+
+        }
+        
+        // bottom taglaegte
+        taglaegteUp.add("<path d=\"M100 " + (mid-30) + " L" + (width + 100) 
+                + " " + (mid-30) + " L" + (width + 100) + " " + (mid-34) 
+                + " L100 " + (mid-34) + " \"/>");
+        
+        return taglaegteUp;
+    }
+    
+    public ArrayList<String> taglaegteDown(int height, int width) {
+        ArrayList<String> taglaegteDown = new ArrayList();
+        int mid = (height + 200)/2;
+        
+        int dif = ((height + 65) - (mid + 34)) / 4; 
+        // top taglaegte
+        taglaegteDown.add("<path d=\"M100 " + (mid + 30) + " L" + (width + 100) 
+                + " " + (mid + 30) + " L" + (width + 100) + " " + (mid + 34) 
+                + " L100 " + (mid + 34) + " \"/>");
+        
+        // between taglaegte
+        int y = (mid + 34) + dif;
+        while ( y + 4 <= ((height + 100) - 35)) {
+            taglaegteDown.add("<path d=\"M100 " + y + " L" + (width + 100) 
+                + " " + y + " L" + (width + 100) + " " + (y + 4) 
+                + " L100 " + (y + 4) + " \"/>");
+            y += dif;  
+        }
+        
+        // bottom taglaegte most 
+        taglaegteDown.add("<path d=\"M100 " + ((height + 100) - 35) + " L" 
+                + (width + 100) + " " + ((height + 100) - 35) + " L" 
+                + (width + 100) + " " + ((height + 100) - 31) + " L100 " 
+                + ((height + 100) - 31) + " \"/>");
+        
+        return taglaegteDown;
+    }
 
     public ArrayList<String> createSpaerFlat(int height, int width) {
         ArrayList<String> spaer = new ArrayList();
