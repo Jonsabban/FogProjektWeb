@@ -172,7 +172,25 @@ public class ImplDataAccess implements DataAccessObject {
     }
 
     @Override
-    public ArrayList<Customer> getAllUsers() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public ArrayList<String> getAllUserNames() {
+        ArrayList<String> customers = new ArrayList<>();
+        try {
+            DBConnector db = new DBConnector();
+            Statement stmt = db.getConnection().createStatement();
+            String sql = "select cName from customers";
+            try {
+                ResultSet rs = stmt.executeQuery(sql);
+                while (rs.next()) {
+                    String name = rs.getString("cName");
+                    customers.add(name);
+                }
+            } catch (Exception ex) {
+                Logger.getLogger(ImplDataAccess.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ImplDataAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return customers;
     }
 }

@@ -6,7 +6,7 @@
 package servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -35,9 +35,8 @@ public class SLcreate extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         data.DataAccessObject dao = new data.ImplDataAccess();
-        
 
         String name = request.getParameter("username");
         String password = request.getParameter("password");
@@ -49,11 +48,17 @@ public class SLcreate extends HttpServlet {
         int ziptoint = Integer.parseInt(zipcode);
         int phonetoint = Integer.parseInt(phone);
 
-        dao.createUser(name, password, address, ziptoint, phonetoint, email);
+        ArrayList<String> getNames = dao.getAllUserNames();
+        if (getNames.contains(name)) {
+            request.setAttribute("error", "<p style=\"color: red;\">Brugernavn er allerede taget</p>");
 
-        RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+        } else {
+            dao.createUser(name, password, address, ziptoint, phonetoint, email);
+            RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+            rd.forward(request, response);
+        }
+        RequestDispatcher rd = request.getRequestDispatcher("/createAcc.jsp");
         rd.forward(request, response);
-
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
