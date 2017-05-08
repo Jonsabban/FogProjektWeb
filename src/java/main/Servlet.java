@@ -47,21 +47,17 @@ public class Servlet extends HttpServlet {
         request.setAttribute("outline", outline);
         
         // TODO: get boolean input from input.jsp
-        boolean rejsning = true;
+        boolean rejsning = false;
         // TODO: get boolean input from input.jsp
         boolean skur = false;
-        // Total height and width will change if a skur is chosen
-        int totalHeight = height;
+        // Total width will change if a skur is chosen
         int totalWidth = width;
         
-        if(skur = true) {
-                
-        }
+//        if(skur = true) {
+//              String skurOutline = gb.skurOutline(height, totalWidth); 
+//        }
         // Top
-        if (rejsning = true) {
-            if(skur = true) {
-                
-            }
+        if (rejsning == true) {
             // Creating stem
             String stem = gb.stem(height, width);
             request.setAttribute("stem", stem);
@@ -91,13 +87,13 @@ public class Servlet extends HttpServlet {
             // Creating vindkryds
             String vindkryds = gb.vindkryds(height, width);
             request.setAttribute("vindkryds", vindkryds);
-            ArrayList<String> spaer = gb.createSpaerRejsning(height, width);
+            ArrayList<String> spaer = gb.createSpaerFlat(height, width);
             request.setAttribute("spaer", spaer);
             // Creating the top bjaelke
-            String bjaelkeTop = gb.bjaelkeTopRejsning(width);
+            String bjaelkeTop = gb.bjaelkeTopFlat(width);
             request.setAttribute("bjaelkeTop", bjaelkeTop);
             // Creating the bottom bjaelke
-            String bjaelkeBund = gb.bjaelkeBottomRejsning(width, height);
+            String bjaelkeBund = gb.bjaelkeBottomFlat(width, height);
             request.setAttribute("bjaelkeBund", bjaelkeBund);
             // Creating top stolper
             ArrayList<String> stolperTop = gb.stolperTop(width, rejsning);

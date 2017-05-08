@@ -54,7 +54,7 @@
         <c:out value="${bjaelkeBund}" escapeXml="false"/>
 
         <!-- Vindkryds* -->
-        <c:out value="${vindkryds}" />
+        <c:out value="${vindkryds}" escapeXml="false"/>
         </g>
         <!-- Measurements -->
         <g fill="none" stroke="black" stroke-width:2 font-family='Verdana' font-size='10'>

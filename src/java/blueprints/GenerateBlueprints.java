@@ -148,7 +148,7 @@ public class GenerateBlueprints {
         int xStart;
         int xEnd;
         
-        if (rejsning) {
+        if (rejsning == true) {
             y = 120;
             xStart = 190;
             xEnd = width + 70;
@@ -180,7 +180,7 @@ public class GenerateBlueprints {
         int xStart;
         int xEnd;
         
-        if (rejsning) {
+        if (rejsning == true) {
             y = height + 70;
             xStart = 190;
             xEnd = width + 70;
@@ -321,6 +321,10 @@ public class GenerateBlueprints {
     public ArrayList<String> getMeasurementsSide() {
 
         return measureArraySide;
+    }
+
+    public String skurOutline(int height, int width) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
