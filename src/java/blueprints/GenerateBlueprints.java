@@ -117,7 +117,14 @@ public class GenerateBlueprints {
             
             spaerDistance += 55;
             spaernb += 1;
-            measureArrayTop.add(measurement);
+            if(spaerDistance <= (width + 100))
+                measureArrayTop.add(measurement);
+            else if(spaerDistance > 0) {
+                measurement = m.createMeasurementH("spaerEnd", spaerDistance - 55, 90, (width % 55), (width % 55));
+                measureArrayTop.add(measurement);
+            }
+                
+             
         }
 
         return spaer;
