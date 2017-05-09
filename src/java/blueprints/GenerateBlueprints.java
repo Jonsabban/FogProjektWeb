@@ -292,8 +292,8 @@ public class GenerateBlueprints {
 
         roofPath = "<path id='roof' d=' M100 100 l" + length + " " + angel + " v7 l-" + length + " -" + angel + " z'/>";
         measurement = m.createMeasurementV("sideFlatRoof", 50, 330, 230, 230);
-
         measureArraySide.add(measurement);
+        measurement = m.createMeasurementV("sideFlatRoof", 50, 330, 230, 230);
 
         return roofPath;
     }
