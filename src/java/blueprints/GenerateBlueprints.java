@@ -41,9 +41,9 @@ public class GenerateBlueprints {
         String stem = "<rect x='100' y='" + (mid - 1) + "' height='2' width='" 
                 + width + "' style='fill:rgb(255,255,255);stroke-width:1px;stroke:rgb(0,0,0)' />";
         
-        // "<path d=\"M100 " + (mid - 1) + " L" + (width+100) + " " 
+        // "<path d='M100 " + (mid - 1) + " L" + (width+100) + " " 
         // + (mid - 1) + " L" + (width+100) + " " + (mid + 1) + " L100 " 
-        // + (mid + 1) + "\"  />"
+        // + (mid + 1) + "'  />"
         return stem;
     }
     
@@ -53,23 +53,23 @@ public class GenerateBlueprints {
         int dif = ((height + 65) - (mid + 7)) / 5;
         
         // top taglaegte
-        taglaegteUp.add("<path d=\"M100 131 L" + (width + 100) + " 131 L" 
-                + (width + 100) + " 135 L100 135 \"/>");
+        taglaegteUp.add("<path d='M100 131 L" + (width + 100) + " 131 L" 
+                + (width + 100) + " 135 L100 135 '/>");
         
         // between taglaegte
         int y = (mid - 7) - dif;
         while (y - 4 >= 139) {
-            taglaegteUp.add("<path d=\"M100 " + y + " L" + (width + 100) 
+            taglaegteUp.add("<path d='M100 " + y + " L" + (width + 100) 
                 + " " + y + " L" + (width + 100) + " " + (y - 4) 
-                + " L100 " + (y - 4) + " \"/>");
+                + " L100 " + (y - 4) + " '/>");
             y -= dif;
 
         }
         
         // bottom taglaegte
-        taglaegteUp.add("<path d=\"M100 " + (mid-3) + " L" + (width + 100) 
+        taglaegteUp.add("<path d='M100 " + (mid-3) + " L" + (width + 100) 
                 + " " + (mid-3) + " L" + (width + 100) + " " + (mid-7) 
-                + " L100 " + (mid-7) + " \"/>");
+                + " L100 " + (mid-7) + " '/>");
         
         return taglaegteUp;
     }
@@ -80,24 +80,24 @@ public class GenerateBlueprints {
         
         int dif = ((height + 65) - (mid + 7)) / 5; 
         // top taglaegte
-        taglaegteDown.add("<path d=\"M100 " + (mid + 3) + " L" + (width + 100) 
+        taglaegteDown.add("<path d='M100 " + (mid + 3) + " L" + (width + 100) 
                 + " " + (mid + 3) + " L" + (width + 100) + " " + (mid + 7) 
-                + " L100 " + (mid + 7) + " \"/>");
+                + " L100 " + (mid + 7) + " '/>");
         
         // between taglaegte
         int y = (mid + 7) + dif;
         while ( y + 4 <= ((height + 100) - 35)) {
-            taglaegteDown.add("<path d=\"M100 " + y + " L" + (width + 100) 
+            taglaegteDown.add("<path d='M100 " + y + " L" + (width + 100) 
                 + " " + y + " L" + (width + 100) + " " + (y + 4) 
-                + " L100 " + (y + 4) + " \"/>");
+                + " L100 " + (y + 4) + " '/>");
             y += dif;  
         }
         
         // bottom taglaegte most 
-        taglaegteDown.add("<path d=\"M100 " + ((height + 100) - 35) + " L" 
+        taglaegteDown.add("<path d='M100 " + ((height + 100) - 35) + " L" 
                 + (width + 100) + " " + ((height + 100) - 35) + " L" 
                 + (width + 100) + " " + ((height + 100) - 31) + " L100 " 
-                + ((height + 100) - 31) + " \"/>");
+                + ((height + 100) - 31) + " '/>");
         
         return taglaegteDown;
     }
@@ -139,9 +139,9 @@ public class GenerateBlueprints {
 
         while (spaerDistance < (width + 100)) {
 
-            spaer.add("<path d=\"M" + spaerDistance + " 100 L" + spaerDistance 
+            spaer.add("<path d='M" + spaerDistance + " 100 L" + spaerDistance 
                     + " " + (height + 100) + " L" + (spaerDistance + 5) + " " 
-                    + (height + 100) + " L" + (spaerDistance + 5) + " 100\" />");
+                    + (height + 100) + " L" + (spaerDistance + 5) + " 100' />");
             
             measurement = m.createMeasurementH("spaer" + spaernb, spaerDistance, 90, 90, 90);
             
@@ -176,16 +176,16 @@ public class GenerateBlueprints {
                 xEnd = width + 50;
         }
         
-        stolperTop.add("<rect width=\"10\" height=\"10\" x=\"" + xStart + "\" y=\"" 
-                + y + "\" style=\"fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)\" />");
-        stolperTop.add("<rect width=\"10\" height=\"10\" x=\"" + xEnd 
-                + "\" y=\"" + y + "\" style=\"fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)\" />");
+        stolperTop.add("<rect width='10' height='10' x='" + xStart + "' y='" 
+                + y + "' style='fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)' />");
+        stolperTop.add("<rect width='10' height='10' x='" + xEnd 
+                + "' y='" + y + "' style='fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)' />");
         
         
         if ((xEnd - xStart) > 310) {
             int between = (xEnd + xStart)/2;
-            stolperTop.add("<rect width=\"10\" height=\"10\" x=\"" 
-                + between + "\" y=\"" + y + "\" style=\"fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)\" />");
+            stolperTop.add("<rect width='10' height='10' x='" 
+                + between + "' y='" + y + "' style='fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)' />");
         }
                 
         return stolperTop;
@@ -216,22 +216,22 @@ public class GenerateBlueprints {
                 xEnd = width + 50;
         }
         
-        stolperBottom.add("<rect width=\"10\" height=\"10\" x=\"" + xStart + "\" y=\"" 
-                + y  + "\" style=\"fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)\" />");
-        stolperBottom.add("<rect width=\"10\" height=\"10\" x=\"" + xEnd 
-                + "\" y=\"" + y + "\" style=\"fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)\" />");
+        stolperBottom.add("<rect width='10' height='10' x='" + xStart + "' y='" 
+                + y  + "' style='fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)' />");
+        stolperBottom.add("<rect width='10' height='10' x='" + xEnd 
+                + "' y='" + y + "' style='fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)' />");
         
         if ((xEnd - xStart) > 310) {
             int between = (xEnd + xStart)/2;
-            stolperBottom.add("<rect width=\"10\" height=\"10\" x=\"" 
-                + between + "\" y=\"" + y + "\" style=\"fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)\" />");
+            stolperBottom.add("<rect width='10' height='10' x='" 
+                + between + "' y='" + y + "' style='fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)' />");
         }
         return stolperBottom;
     }
     
     public String bjaelkeTopFlat(int width) {
         String top;
-        top = "<path d=\"M100 132 L" + (width + 100) + " 132 L" + (width + 100) + " 138 L100 138 Z\" />";
+        top = "<path d='M100 132 L" + (width + 100) + " 132 L" + (width + 100) + " 138 L100 138 Z' />";
         
         return top;
     }
@@ -241,7 +241,7 @@ public class GenerateBlueprints {
         String measurement;
         
         int startY = height + 62; //Spørg hvorfor xD
-        bottom = "<path d=\"M100 " + startY + " L" + (width + 100) + " " + startY + " L" + (width + 100) + " " + (startY + 6) + " L100 " + (startY + 6) + " Z\" />";
+        bottom = "<path d='M100 " + startY + " L" + (width + 100) + " " + startY + " L" + (width + 100) + " " + (startY + 6) + " L100 " + (startY + 6) + " Z' />";
         
         
         measurement = m.createMeasurementV("beams", 90, startY+8, height-62, height-72);
@@ -252,7 +252,7 @@ public class GenerateBlueprints {
     
     public String bjaelkeTopRejsning(int width) {
         String top;
-        top = "<path d=\"M115 122 L" + (width + 100) + " 122 L" + (width + 100) + " 128 L115 128 Z\" />";
+        top = "<path d='M115 122 L" + (width + 100) + " 122 L" + (width + 100) + " 128 L115 128 Z' />";
         
         
         return top;
@@ -263,7 +263,7 @@ public class GenerateBlueprints {
         String measurement;
         
         int startY = height + 72; //Spørg hvorfor xD
-        bottom = "<path d=\"M115 " + startY + " L" + (width + 100) + " " + startY + " L" + (width + 100) + " " + (startY+6) + " L115 " + (startY+6) + " Z\" />";
+        bottom = "<path d='M115 " + startY + " L" + (width + 100) + " " + startY + " L" + (width + 100) + " " + (startY+6) + " L115 " + (startY+6) + " Z' />";
         
         
         measurement = m.createMeasurementV("beams", 90, startY+8, height-62, height-72);
@@ -275,10 +275,10 @@ public class GenerateBlueprints {
     public String vindkryds(int height, int width) {
         String end;
         int Y = (height + 100) - 38;
-        end = "<path stroke-dasharray=\"5,5\" d=\"M155 135 L" + (width + 45) 
-                + " " + Y + " L" + (width + 50) + " " + Y + " L160 135 Z\" /> \n"
-                + "<path stroke-dasharray=\"5,5\" d=\"M155 " + Y + " L" 
-                + (width + 45) + " 135 L" + (width + 50) + " 135 L160 " + Y + " Z\" />";
+        end = "<path stroke-dasharray='5,5' d='M155 135 L" + (width + 45) 
+                + " " + Y + " L" + (width + 50) + " " + Y + " L160 135 Z' /> \n"
+                + "<path stroke-dasharray='5,5' d='M155 " + Y + " L" 
+                + (width + 45) + " 135 L" + (width + 50) + " 135 L160 " + Y + " Z' />";
         return end;
     }
 
@@ -315,12 +315,14 @@ public class GenerateBlueprints {
     }
 
     public ArrayList<String> supportPosts(int width, int height) {
-
+        
         ArrayList<String> posts = new ArrayList();
         String measurePost1;
         String measurePost2;
         String measureToEnd;
-
+        
+        
+        
         String post1 = "<rect width='10' height='230' x='200' y='101' style='stroke-width:1px;stroke:black;fill:white;'/>";
         String post2 = "<rect width='10' height='220' x='" + width + "' y='111' style='stroke-width:1px;stroke:black;fill:white;'/>";
         //Measurements and ground lines
@@ -362,14 +364,14 @@ public class GenerateBlueprints {
         }
        
         
-        String outline = "<path d=\"M" + (width - 150) + " " + yTop + " L" 
+        String outline = "<path d='M" + (width - 150) + " " + yTop + " L" 
                 + (width + 70) + " " + yTop + " L" + (width + 70) + " " 
                 + yBottom + " L" + (width - 150) + " " + yBottom 
-                + " Z \" stroke-width=\"2\" stroke-dasharray=\"8,4\" /> \n "
-                + "<path d=\"M" + (width - 149) + " " + (yTop + 1) + " L" 
+                + " Z ' stroke-width='2' stroke-dasharray='8,4' /> \n "
+                + "<path d='M" + (width - 149) + " " + (yTop + 1) + " L" 
                 + (width + 69) + " " + (yTop + 1) + " L" + (width + 69) + " " 
                 + (yBottom - 1) + " L" + (width - 149) + " " + (yBottom - 1) 
-                + " Z stroke-width=\"1\" />"; 
+                + " Z stroke-width='1' />"; 
         return outline;
     }
 
@@ -387,19 +389,19 @@ public class GenerateBlueprints {
             yBottom = height + 59;
         }
                 
-        String stolper = "<rect width=\"10\" height=\"10\" x=\"" + (width - 149) + "\" y=\"" 
-                + yTop  + "\" style=\"fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)\" /> \n "
-                + "<rect width=\"10\" height=\"10\" x=\"" + (width + 59) + "\" y=\"" 
-                + yTop  + "\" style=\"fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)\" /> \n"
-                + "<rect width=\"10\" height=\"10\" x=\"" + (width - 149) + "\" y=\"" 
-                + yBottom  + "\" style=\"fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)\" /> \n"
-                + "<rect width=\"10\" height=\"10\" x=\"" + (width + 59) + "\" y=\"" 
-                + yBottom  + "\" style=\"fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)\" /> \n";
+        String stolper = "<rect width='10' height='10' x='" + (width - 149) + "' y='" 
+                + yTop  + "' style='fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)' /> \n "
+                + "<rect width='10' height='10' x='" + (width + 59) + "' y='" 
+                + yTop  + "' style='fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)' /> \n"
+                + "<rect width='10' height='10' x='" + (width - 149) + "' y='" 
+                + yBottom  + "' style='fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)' /> \n"
+                + "<rect width='10' height='10' x='" + (width + 59) + "' y='" 
+                + yBottom  + "' style='fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)' /> \n";
         
-        String flatStolper = "<rect width=\"10\" height=\"10\" x=\"" + (width - 149) + "\" y=\"" 
-                + (mid - 5)  + "\" style=\"fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)\" /> \n"
-                + "<rect width=\"10\" height=\"10\" x=\"" + (width + 59) + "\" y=\"" 
-                + (mid - 5) + "\" style=\"fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)\" />";
+        String flatStolper = "<rect width='10' height='10' x='" + (width - 149) + "' y='" 
+                + (mid - 5)  + "' style='fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)' /> \n"
+                + "<rect width='10' height='10' x='" + (width + 59) + "' y='" 
+                + (mid - 5) + "' style='fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)' />";
         
         if (rejsning == false)
             end = stolper + flatStolper;
