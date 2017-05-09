@@ -4,43 +4,82 @@ public class Customer {
     
     private int cID;
     private String cName;
+    private String password;
     private String cAddress;
     private int cZipcode;
     private int cPhone;
     private String cEmail;
 
-    public Customer(int cID, String cName, String cAddress, int cZipcode, int cPhone, String cEmail) {
+    public Customer(int cID, String cName, String password, String cAddress, int cZipcode, int cPhone, String cEmail)
+    {
         this.cID = cID;
         this.cName = cName;
+        this.password = password;
         this.cAddress = cAddress;
         this.cZipcode = cZipcode;
         this.cPhone = cPhone;
         this.cEmail = cEmail;
     }
 
-
-    public int getcID() {
+    public int getcID()
+    {
         return cID;
     }
 
-    public String getcName() {
+    public void setcID(int cID)
+    {
+        this.cID = cID;
+    }
+
+    public String getcName()
+    {
         return cName;
     }
 
-    public String getcAddress() {
+    public void setcName(String cName)
+    {
+        this.cName = cName;
+    }
+
+    public String getcAddress()
+    {
         return cAddress;
     }
 
-    public int getcZipcode() {
+    public void setcAddress(String cAddress)
+    {
+        this.cAddress = cAddress;
+    }
+
+    public int getcZipcode()
+    {
         return cZipcode;
     }
 
-    public int getcPhone() {
+    public void setcZipcode(int cZipcode)
+    {
+        this.cZipcode = cZipcode;
+    }
+
+    public int getcPhone()
+    {
         return cPhone;
     }
 
-    public String getcEmail() {
+    public void setcPhone(int cPhone)
+    {
+        this.cPhone = cPhone;
+    }
+
+    public String getcEmail()
+    {
         return cEmail;
     }
 
+    public void setcEmail(String cEmail)
+    {
+        this.cEmail = cEmail;
+    }
+    
+    
 }

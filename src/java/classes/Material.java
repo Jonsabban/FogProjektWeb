@@ -1,41 +1,109 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package classes;
 
-public class Material {
+/**
+ *
+ * @author vfgya_000
+ */
+public class Material
+{
+    // definere variablerne
+    private int id;
+    private String type;
+    private int length;
+    private int amount;
+    private String MPackage;
+    private String description;
+    private int caID;
 
-    private int partId;
-    private String partType;
-    private int partMinAmount;
-    private String partPackage;
-    private String partCategory;
-
-    public Material(int partId, String partType, int partMinAmount, String partPackage, String partCategory) {
-        this.partId = partId;
-        this.partType = partType;
-        this.partMinAmount = partMinAmount;
-        this.partPackage = partPackage;
-        this.partCategory = partCategory;
+    // laver en constructor
+    public Material(int id, String type, int length, int amount, String MPackage, String description, int caID)
+    {
+        this.id = id;
+        this.type = type;
+        this.length = length;
+        this.amount = amount;
+        this.MPackage = MPackage;
+        this.description = description;
+        this.caID = caID;
     }
-
     
+    // getter og setter
 
-    public int getId() {
-        return partId;
+    public int getId()
+    {
+        return id;
     }
 
-    public String getType() {
-        return partType;
+    public void setId(int id)
+    {
+        this.id = id;
     }
 
-    public int getMinAmount() {
-        return partMinAmount;
+    public String getType()
+    {
+        return type;
     }
 
-    public String getPackage() {
-        return partPackage;
+    public void setType(String type)
+    {
+        this.type = type;
+    }
+    
+    
+    public int getLength()
+    {
+        return length;
     }
 
-    public String getCategory() {
-        return partCategory;
+    public void setLength(int length)
+    {
+        this.length = length;
     }
 
+    public int getAmount()
+    {
+        return amount;
+    }
+
+    public void setAmount(int amount)
+    {
+        this.amount = amount;
+    }
+
+    public String getMPackage()
+    {
+        return MPackage;
+    }
+
+    public void setMPackage(String MPackage)
+    {
+        this.MPackage = MPackage;
+    }
+
+    public String getDescription()
+    {
+        return description;
+    }
+
+    public void setDescription(String description)
+    {
+        this.description = description;
+    }
+
+    public int getCaID()
+    {
+        return caID;
+    }
+
+    public void setCaID(int caID)
+    {
+        this.caID = caID;
+    }
+    
+    
 }
