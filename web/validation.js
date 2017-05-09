@@ -55,4 +55,15 @@ function validateForm() {
     else {
         return true;
     }
+}function showDiv() {
+    $('#roofAngle').hide();
+    var Privileges = jQuery('#roof');
+    var select = this.value;
+    Privileges.change(function () {
+        if ($(this).val() == 'rejst') {
+            $('#roofAngle').show();
+        } else
+            $('#roofAngle').hide(); // hide div if value is not "custom"
+    });
 }
+showDiv();

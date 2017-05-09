@@ -15,7 +15,8 @@
     <body>
         <header><h1>Johannes Fog - Carport Builder</h1></header>
         <div id="container">
-            
+            <h5>HER SKAL KUNDEN BETALE</h5><br>
+            <a href="SLPrint" id="payment">videre til materiale liste</a>
         </div>
     </body>
 </html>
