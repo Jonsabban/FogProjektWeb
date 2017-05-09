@@ -43,63 +43,69 @@ public class Servlet extends HttpServlet {
         request.setAttribute("height", height);
         request.setAttribute("width", width);
         
-        String outline = gb.outlineTop(height, width);
-        request.setAttribute("outline", outline);
         
         // TODO: get boolean input from input.jsp
-        boolean rejsning = false;
+        boolean rejsning = true;
         // TODO: get boolean input from input.jsp
-        boolean skur = false;
+        boolean skur = true;
         // Total width will change if a skur is chosen
         int totalWidth = width;
         
-//        if(skur = true) {
-//              String skurOutline = gb.skurOutline(height, totalWidth); 
-//        }
+        if(skur == true) {
+            totalWidth += 220;
+            String skurOutline = gb.skurOutline(height, totalWidth, rejsning);
+            request.setAttribute("skurOutline", skurOutline);
+            String skurStolper = gb.skurStolper(height, totalWidth, rejsning);
+            request.setAttribute("skurStolper", skurStolper);
+        }
+        
+        String outline = gb.outlineTop(height, totalWidth);
+        request.setAttribute("outline", outline);
+        
         // Top
         if (rejsning == true) {
             // Creating stem
-            String stem = gb.stem(height, width);
+            String stem = gb.stem(height, totalWidth);
             request.setAttribute("stem", stem);
             // Creating taglaegter up 
-            ArrayList<String> tlUp = gb.taglaegteUp(height, width);
+            ArrayList<String> tlUp = gb.taglaegteUp(height, totalWidth);
             request.setAttribute("tlUp", tlUp);
             // Creating taglaegter down
-            ArrayList<String> tlDown = gb.taglaegteDown(height, width);
+            ArrayList<String> tlDown = gb.taglaegteDown(height, totalWidth);
             request.setAttribute("tlDown", tlDown);
             // Creating spaer
-            ArrayList<String> spaer = gb.createSpaerRejsning(height, width);
+            ArrayList<String> spaer = gb.createSpaerRejsning(height, totalWidth);
             request.setAttribute("spaer", spaer);
             // Creating the top bjaelke
-            String bjaelkeTop = gb.bjaelkeTopRejsning(width);
+            String bjaelkeTop = gb.bjaelkeTopRejsning(totalWidth);
             request.setAttribute("bjaelkeTop", bjaelkeTop);
             // Creating the bottom bjaelke
-            String bjaelkeBund = gb.bjaelkeBottomRejsning(width, height);
+            String bjaelkeBund = gb.bjaelkeBottomRejsning(totalWidth, height);
             request.setAttribute("bjaelkeBund", bjaelkeBund);
             // Creating top stolper
-            ArrayList<String> stolperTop = gb.stolperTop(width, rejsning);
+            ArrayList<String> stolperTop = gb.stolperTop(width, rejsning, skur);
             request.setAttribute("stolperTop", stolperTop);
             // Creating bottom stolper
-            ArrayList<String> stolperBottom = gb.stolperBottom(height, width, rejsning); 
+            ArrayList<String> stolperBottom = gb.stolperBottom(height, width, rejsning, skur); 
             request.setAttribute("stolperBottom", stolperBottom);
         }
         else {
             // Creating vindkryds
             String vindkryds = gb.vindkryds(height, width);
             request.setAttribute("vindkryds", vindkryds);
-            ArrayList<String> spaer = gb.createSpaerFlat(height, width);
+            ArrayList<String> spaer = gb.createSpaerFlat(height, totalWidth);
             request.setAttribute("spaer", spaer);
             // Creating the top bjaelke
-            String bjaelkeTop = gb.bjaelkeTopFlat(width);
+            String bjaelkeTop = gb.bjaelkeTopFlat(totalWidth);
             request.setAttribute("bjaelkeTop", bjaelkeTop);
             // Creating the bottom bjaelke
-            String bjaelkeBund = gb.bjaelkeBottomFlat(width, height);
+            String bjaelkeBund = gb.bjaelkeBottomFlat(totalWidth, height);
             request.setAttribute("bjaelkeBund", bjaelkeBund);
             // Creating top stolper
-            ArrayList<String> stolperTop = gb.stolperTop(width, rejsning);
+            ArrayList<String> stolperTop = gb.stolperTop(width, rejsning, skur);
             request.setAttribute("stolperTop", stolperTop);
             // Creating bottom stolper
-            ArrayList<String> stolperBottom = gb.stolperBottom(height, width, rejsning); 
+            ArrayList<String> stolperBottom = gb.stolperBottom(height, width, rejsning, skur); 
             request.setAttribute("stolperBottom", stolperBottom);
         }
         

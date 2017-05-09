@@ -15,7 +15,7 @@
     <body>
         <h1>Plan tegning top</h1>
         
-        <svg id="top" width="1000" height="1000">
+        <svg id="top" width="1100" height="1000">
        
         <!-- Outline of the carport -->
         <c:out value="${outline}" escapeXml="false"/>
@@ -30,14 +30,18 @@
             <c:out value="${List}" escapeXml="false" />
         </c:forEach>
         
-        <!-- Creating spaer -->
         <g fill="none" stroke="black" stroke-width="1">
+        <!-- Bjaelke top -->
+        <c:out value="${bjaelkeTop}" escapeXml="false"/>
+        
+        <!-- Bjaelke bottom -->
+        <c:out value="${bjaelkeBund}" escapeXml="false"/>
+        </g>
+        <!-- Creating spaer -->
+        <g fill="#ffffff" stroke="black" stroke-width="1">
         <c:forEach items="${spaer}" var="List">
             <c:out value="${List}" escapeXml="false"/>
         </c:forEach>
-        
-        <!-- Creating stem -->
-        <c:out value="${stem}" escapeXml="false"/>
         
         <!-- Creating taglaegter -->
         <c:forEach items="${tlUp}" var="List">
@@ -47,15 +51,21 @@
             <c:out value="${List}" escapeXml="false"/>
         </c:forEach>
         
-        <!-- Bjaelke top -->
-        <c:out value="${bjaelkeTop}" escapeXml="false"/>
-        
-        <!-- Bjaelke bottom -->
-        <c:out value="${bjaelkeBund}" escapeXml="false"/>
-
         <!-- Vindkryds* -->
         <c:out value="${vindkryds}" escapeXml="false"/>
         </g>
+        
+        <g fill="none" stroke="black" >
+        <!-- skur outline -->
+        <c:out value="${skurOutline}" escapeXml="false" />
+        </g>
+        
+        <!-- skur stolper -->
+        <c:out value="${skurStolper}" escapeXml="false" />
+        
+        <!-- Creating stem -->
+        <c:out value="${stem}" escapeXml="false"/>
+        
         <!-- Measurements -->
         <g fill="none" stroke="black" stroke-width:2 font-family='Verdana' font-size='10'>
         <c:forEach items="${measurementsTop}" var="List">
