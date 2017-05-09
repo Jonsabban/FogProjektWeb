@@ -47,6 +47,9 @@ public class SLPrint extends HttpServlet
         // variabler med arraylisterne
         ArrayList<Category> CAL = dao.getAllCategories();
         ArrayList<Material> MAL = dao.getAllMaterials();
+        
+        result.Calculator cl = new result.Calculator();
+        cl.calculateResult(MAL, 0, 0, 0, false, 0, 0);
 
         // setter arraylisternes attributer
         request.setAttribute("allC", CAL);
