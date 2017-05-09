@@ -314,24 +314,56 @@ public class GenerateBlueprints {
         return roofPath2;
     }
 
-    public ArrayList<String> supportPosts(int width, int height) {
+    public ArrayList<String> supportPosts(int width, boolean rejsning, boolean skur, int roofHeight) {
+        
+        int xStart;
+        int xEnd;
+        int top = 108;
+        int boardHeight = 212;
+        
+        if (rejsning == true) {
+            xStart = 190;
+            top += roofHeight + 20;
+            
+            if (skur == true)
+                xEnd = width - 30;
+            else
+            xEnd = width + 60;
+        }
+        else {
+            xStart = 200;
+            
+            if (skur == true)
+                xEnd = width - 40;
+            else
+                xEnd = width + 40;
+        }
         
         ArrayList<String> posts = new ArrayList();
         String measurePost1;
         String measurePost2;
         String measureToEnd;
         
+        posts.add("<rect width='10' height='"+boardHeight+"' x='" + xStart 
+                + "' y='"+top+"' style='fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)' />");
+        posts.add("<rect width='10' height='"+boardHeight+"' x='" + xEnd 
+                + "' y='"+top+"' style='fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)' />");
         
+        if ((xEnd - xStart) > 310) {
+            int between = (xEnd + xStart)/2;
+            posts.add("<rect width='10' height='220' x='" 
+                + between + "' y='110' style='fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)' />");
+        }
         
-        String post1 = "<rect width='10' height='230' x='200' y='101' style='stroke-width:1px;stroke:black;fill:white;'/>";
-        String post2 = "<rect width='10' height='220' x='" + width + "' y='111' style='stroke-width:1px;stroke:black;fill:white;'/>";
+//        String post1 = "<rect width='10' boardHeight='230' x='200' y='101' style='stroke-width:1px;stroke:black;fill:white;'/>";
+//        String post2 = "<rect width='10' boardHeight='220' x='" + width + "' y='111' style='stroke-width:1px;stroke:black;fill:white;'/>";
         //Measurements and ground lines
         measurePost1 = m.createMeasurementH("post1", 100, 341, 100, 100);
         measurePost2 = m.createMeasurementH("post2", 200, 341, width - 200, width - 200);
         measureToEnd = m.createMeasurementH("toEnd", width, 341, 100, 100);
 
-        posts.add(post1);
-        posts.add(post2);
+//        posts.add(post1);
+//        posts.add(post2);
 
         measureArraySide.add(measurePost1);
         measureArraySide.add(measurePost2);
@@ -367,7 +399,7 @@ public class GenerateBlueprints {
         String outline = "<path d='M" + (width - 150) + " " + yTop + " L" 
                 + (width + 70) + " " + yTop + " L" + (width + 70) + " " 
                 + yBottom + " L" + (width - 150) + " " + yBottom 
-                + " Z ' stroke-width='2' stroke-dasharray='8,4' /> \n "
+                + " Z ' stroke-width='2' stroke-dasharray='6,2' /> \n "
                 + "<path d='M" + (width - 149) + " " + (yTop + 1) + " L" 
                 + (width + 69) + " " + (yTop + 1) + " L" + (width + 69) + " " 
                 + (yBottom - 1) + " L" + (width - 149) + " " + (yBottom - 1) 
@@ -408,6 +440,72 @@ public class GenerateBlueprints {
         else
             end = stolper;
         
+        return end;
+    }
+
+    public ArrayList<String> skurSide(int width, boolean rejsning, int roofHeight) {
+        ArrayList<String> skurSide = new ArrayList();
+        int bp = width - 150;
+        int top = 108;
+        
+        if (rejsning == true)
+            top += roofHeight + 20;
+        
+        int boardHeight = 210;
+        boolean boardSide = true;
+        
+        while (bp <= width + 70) {
+
+            if (boardSide == true){
+                skurSide.add("<path d='M" + bp + " "+top+" L" 
+                    + bp + " "+(top+boardHeight)+" L" + (bp + 8) + " "+(top+boardHeight)+" L" + (bp + 8) + " "+top+" Z' />");
+                bp += 8;
+                boardSide = false;
+            }
+            else {
+                skurSide.add("<path d='M" + bp + " "+top+" L" 
+                    + bp + " "+(top+boardHeight)+" L" + (bp + 4) + " "+(top+boardHeight)+" L" + (bp + 4) + " "+top+" Z' />");
+                bp += 4;
+                boardSide = true;
+            }
+            
+            }
+            
+        return skurSide;
+    }
+
+    public ArrayList<String> roofboards(int totalWidth, int roofHeight) {
+        ArrayList<String> roofBoards = new ArrayList();
+        int bp = 105;
+        while (bp <= totalWidth + 95) {
+            roofBoards.add("<path d='M" + bp + " 105 L" 
+                + bp + " "+(roofHeight + 110)+" L" + (bp + 8) + " "+(roofHeight + 110)+" L" + (bp + 8) + " 105 Z' />");
+                bp += 8;
+        }
+        return roofBoards;
+    }
+
+    public String roofHorizontal(int width, int roofHeight) {
+        String end;
+        int totalWidth = width + 100;
+        int top = 110;
+        int boardStart = top + roofHeight;
+        String rooftop = "<path d='M100 100 L"+(totalWidth+2)+" 100 L"+(totalWidth+2)+" 105 L100 105 Z' />\n"; 
+        String topBoard = "<path d='M100 "+boardStart+" L"+(totalWidth+2)+" "+boardStart+" L"+(totalWidth+2)+" "+(boardStart+10)+" L100 "+(boardStart+10)+" Z' /> \n ";
+        String bottomBoard = "<path d='M130 "+(boardStart+10)+" L"+(totalWidth-26)+" "+(boardStart+10)+" L"+(totalWidth-26)+" "+(boardStart+20)+" L130 "+(boardStart+20)+" Z' />";
+        
+        end = rooftop + topBoard + bottomBoard;
+        
+        return end;
+    }
+
+    public String roofEnds(int width, int roofHeight) {
+        
+        int totalWidth = width + 96;
+        
+        String front = "<rect x='98' y='98' height='"+(roofHeight+15)+"' width='8' style='fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)'/> \n";
+        String back = "<rect x='"+totalWidth+"' y='98' height='"+(roofHeight+15)+"' width='8' style='fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)' />";
+        String end = front + back;
         return end;
     }
 

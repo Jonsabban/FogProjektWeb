@@ -50,20 +50,25 @@ public class Servlet extends HttpServlet {
         boolean skur = true;
         // Total width will change if a skur is chosen
         int totalWidth = width;
-        
+        int roofHeight = 100;
+        // Adding skur and changeing total width to fit a skur
         if(skur == true) {
             totalWidth += 220;
             String skurOutline = gb.skurOutline(height, totalWidth, rejsning);
             request.setAttribute("skurOutline", skurOutline);
             String skurStolper = gb.skurStolper(height, totalWidth, rejsning);
             request.setAttribute("skurStolper", skurStolper);
+            ArrayList<String> skurSide = gb.skurSide(totalWidth, rejsning, roofHeight);
+            request.setAttribute("skurSide", skurSide);
+            
         }
         
         String outline = gb.outlineTop(height, totalWidth);
         request.setAttribute("outline", outline);
         
-        // Top
+        
         if (rejsning == true) {
+            // *** TOP ***
             // Creating stem
             String stem = gb.stem(height, totalWidth);
             request.setAttribute("stem", stem);
@@ -88,8 +93,22 @@ public class Servlet extends HttpServlet {
             // Creating bottom stolper
             ArrayList<String> stolperBottom = gb.stolperBottom(height, width, rejsning, skur); 
             request.setAttribute("stolperBottom", stolperBottom);
+            
+            // *** SIDE ***
+            
+            ArrayList<String> posts = gb.supportPosts(width, rejsning, skur, roofHeight);
+            request.setAttribute("supportPosts", posts);
+            ArrayList<String> roofBoards = gb.roofboards(totalWidth, roofHeight);
+            request.setAttribute("roofBoards", roofBoards);
+            String roofHorizontal = gb.roofHorizontal(totalWidth, roofHeight);
+            request.setAttribute("roofHorizontal", roofHorizontal);
+            String roofEnds = gb.roofEnds(totalWidth, roofHeight);
+            request.setAttribute("roofEnds", roofEnds);
+            
+            
         }
         else {
+            // *** TOP ***
             // Creating vindkryds
             String vindkryds = gb.vindkryds(height, width);
             request.setAttribute("vindkryds", vindkryds);
@@ -107,18 +126,19 @@ public class Servlet extends HttpServlet {
             // Creating bottom stolper
             ArrayList<String> stolperBottom = gb.stolperBottom(height, width, rejsning, skur); 
             request.setAttribute("stolperBottom", stolperBottom);
+            
+            // *** SIDE ***
+            String sideFlatRoof = gb.sideFlatRoof(totalWidth);
+            request.setAttribute("sideFlatRoof", sideFlatRoof);
+            String sideFlatRoof2 = gb.sideFlatRoof2(totalWidth);
+            request.setAttribute("sideFlatRoof2", sideFlatRoof2);
+            ArrayList<String> posts = gb.supportPosts(width, rejsning, skur, roofHeight);
+            request.setAttribute("supportPosts", posts);
         }
         
-        //Side
-        String sideFlatRoof = gb.sideFlatRoof(width);
-        String sideFlatRoof2 = gb.sideFlatRoof2(width);
-        ArrayList<String> posts = gb.supportPosts(width, height);
         ArrayList<String> measurementsSide = gb.getMeasurementsSide();
         ArrayList<String> measurementsTop = gb.getMeasurementsTop();
         
-        request.setAttribute("sideFlatRoof", sideFlatRoof);
-        request.setAttribute("sideFlatRoof2", sideFlatRoof2);
-        request.setAttribute("supportPosts", posts);
         request.setAttribute("measurementsSide", measurementsSide);
         request.setAttribute("measurementsTop", measurementsTop);
         

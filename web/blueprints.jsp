@@ -74,17 +74,34 @@
         </g>
         
         </svg>
-        <svg id="side" width="1000" height="1000" >
-
-        <rect x="0" y="30" heigth="8" width="<c:out value="${width}" />" style="fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)" />
-        <rect x="0" y="<c:out value="${bjaelkeBund}" />" heigth="8" width="<c:out value="${width}" />" style="fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)" />
+        <svg id="side" width="1100" height="1000" >
+        <!-- stolper -->
         <c:forEach items="${supportPosts}" var="List">
             <c:out value="${List}" escapeXml="false" />
         </c:forEach>
         <g fill="white" stroke="black" stroke-width="1">
-        <c:out value="${sideFlatRoof}" escapeXml="false" />
-        <c:out value="${sideFlatRoof2}" escapeXml="false" />
+        <c:forEach items="${roofBoards}" var="List">
+            <c:out value="${List}" escapeXml="false" />
+        </c:forEach>
         </g>
+            
+        <g fill="white" stroke="black" stroke-width="1">
+        <<c:out value="${sideFlatRoof2}" escapeXml="false" />
+        
+        </g>
+        <!-- skur -->
+        <g fill="white" stroke="black" stroke-width="1">
+        <c:forEach items="${skurSide}" var="List">
+            <c:out value="${List}" escapeXml="false" />
+        </c:forEach>
+        </g>
+        <g fill="white" stroke="black" stroke-width="1">
+        <c:out value="${sideFlatRoof}" escapeXml="false" />
+        <c:out value="${roofHorizontal}" escapeXml="false" />
+        </g>
+        
+        <<c:out value="${roofEnds}" escapeXml="false" />
+        
         <!-- Measurements -->
         <g fill="none" stroke="black" stroke-width:2 font-family='Verdana' font-size='10'>
         <c:forEach items="${measurementsSide}" var="List">
