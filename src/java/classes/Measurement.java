@@ -22,7 +22,7 @@ public class Measurement {
         
         //for small distances
         String distString = distance + "cm";
-        if (distance < 20) {
+        if (distance < 30) {
             distString = distance + "";
         }
         
