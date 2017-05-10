@@ -17,17 +17,17 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author vfgya_000
  */
-@WebServlet(name = "SLPrint", urlPatterns =
-{
-    "/SLPrint"
-})
-public class SLPrint extends HttpServlet
-{
+@WebServlet(name = "SLPrint", urlPatterns
+        = {
+            "/SLPrint"
+        })
+public class SLPrint extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,17 +39,26 @@ public class SLPrint extends HttpServlet
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException
-    {
+            throws ServletException, IOException {
 
         data.DataAccessObject dao = new data.ImplDataAccess();
-        
+
         // variabler med arraylisterne
         ArrayList<Category> CAL = dao.getAllCategories();
         ArrayList<Material> MAL = dao.getAllMaterials();
+
+        // Sessions
+        HttpSession session = request.getSession();
+        String rooftype = session.getAttribute("roof").toString();
         
+
         result.Calculator cl = new result.Calculator();
-        cl.calculateResult(MAL, 0, 0, 0, false, 0, 0);
+        if (rooftype == "rejst") {
+            cl.calculateResultLifted(MAL, 0, 0, 0, false, 0, 0);
+        }
+        else {
+            cl.calculateResultFlat(MAL, 0, 0, true, 0, 0);
+        }
 
         // setter arraylisternes attributer
         request.setAttribute("allC", CAL);
@@ -71,8 +80,7 @@ public class SLPrint extends HttpServlet
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException
-    {
+            throws ServletException, IOException {
         processRequest(request, response);
     }
 
@@ -86,8 +94,7 @@ public class SLPrint extends HttpServlet
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException
-    {
+            throws ServletException, IOException {
         processRequest(request, response);
     }
 
@@ -97,8 +104,7 @@ public class SLPrint extends HttpServlet
      * @return a String containing servlet description
      */
     @Override
-    public String getServletInfo()
-    {
+    public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
 
