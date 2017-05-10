@@ -16,11 +16,11 @@
     <body>
         <header><h1>Johannes Fog - Carport Builder</h1></header>
         <div id="container">
-            <form action="SLInput" method="GET">
+            <form action="SLBlueprints" method="GET">
                 <h3>length:</h3>
                 <select class="dd" name="ddLength">
                     <c:forEach items="${lengths}" var="length">
-                        <option value="<<c:out value="${length}" />"><c:out value="${length}" /> cm</option>
+                        <option value="<c:out value="${length}" />"><c:out value="${length}" /> cm</option>
                     </c:forEach>
                 </select>
 
@@ -54,8 +54,8 @@
 
                 <h3>Inkluder skur:</h3>
                 <div class="rbuttons">
-                    <input type="radio" name="choice" value="false"  checked="checked"> Nej<br>
-                    <input type="radio" name="choice" value="true"> Ja<br>
+                    <input type="radio" name="choice" value="no"  checked="checked"> Nej<br>
+                    <input type="radio" name="choice" value="yes"> Ja<br>
                 </div>
 
                 <input id="button" type="submit" value="Submit" />

@@ -21,12 +21,12 @@
         <c:out value="${outline}" escapeXml="false"/>
         
         <!-- Stolper top -->
-        <c:forEach items="${stolperTop}" var="List">
+        <c:forEach items="${postsTop}" var="List">
             <c:out value="${List}" escapeXml="false" />
         </c:forEach>
         
         <!-- Stolper bottom -->
-        <c:forEach items="${stolperBottom}" var="List">
+        <c:forEach items="${postsBottom}" var="List">
             <c:out value="${List}" escapeXml="false" />
         </c:forEach>
         
@@ -56,12 +56,12 @@
         </g>
         
         <g fill="none" stroke="black" >
-        <!-- skur outline -->
-        <c:out value="${skurOutline}" escapeXml="false" />
+        <!-- shed outline -->
+        <c:out value="${shedOutline}" escapeXml="false" />
         </g>
         
-        <!-- skur stolper -->
-        <c:out value="${skurStolper}" escapeXml="false" />
+        <!-- shed posts -->
+        <c:out value="${shedStolper}" escapeXml="false" />
         
         <!-- Creating stem -->
         <c:out value="${stem}" escapeXml="false"/>
@@ -75,7 +75,7 @@
         
         </svg>
         <svg id="side" width="1100" height="1000" >
-        <!-- stolper -->
+        <!-- posts -->
         <c:forEach items="${supportPosts}" var="List">
             <c:out value="${List}" escapeXml="false" />
         </c:forEach>
@@ -89,9 +89,9 @@
         <<c:out value="${sideFlatRoof2}" escapeXml="false" />
         
         </g>
-        <!-- skur -->
+        <!-- shed -->
         <g fill="white" stroke="black" stroke-width="1">
-        <c:forEach items="${skurSide}" var="List">
+        <c:forEach items="${shedSide}" var="List">
             <c:out value="${List}" escapeXml="false" />
         </c:forEach>
         </g>

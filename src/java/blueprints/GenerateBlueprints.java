@@ -153,8 +153,8 @@ public class GenerateBlueprints {
         return spaer;
     }
     
-    public ArrayList<String> stolperTop( int width, boolean rejsning, boolean skur) {
-        ArrayList<String> stolperTop = new ArrayList();
+    public ArrayList<String> postsTop( int width, boolean rejsning, boolean shed) {
+        ArrayList<String> postsTop = new ArrayList();
         int y;
         int xStart;
         int xEnd;
@@ -162,7 +162,7 @@ public class GenerateBlueprints {
         if (rejsning == true) {
             y = 120;
             xStart = 190;
-            if (skur == true)
+            if (shed == true)
                 xEnd = width - 20;
             else
             xEnd = width + 70;
@@ -170,29 +170,29 @@ public class GenerateBlueprints {
         else {
             y = 130;
             xStart = 200;
-            if (skur == true)
+            if (shed == true)
                 xEnd = width - 30;
             else
                 xEnd = width + 50;
         }
         
-        stolperTop.add("<rect width='10' height='10' x='" + xStart + "' y='" 
+        postsTop.add("<rect width='10' height='10' x='" + xStart + "' y='" 
                 + y + "' style='fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)' />");
-        stolperTop.add("<rect width='10' height='10' x='" + xEnd 
+        postsTop.add("<rect width='10' height='10' x='" + xEnd 
                 + "' y='" + y + "' style='fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)' />");
         
         
         if ((xEnd - xStart) > 310) {
             int between = (xEnd + xStart)/2;
-            stolperTop.add("<rect width='10' height='10' x='" 
+            postsTop.add("<rect width='10' height='10' x='" 
                 + between + "' y='" + y + "' style='fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)' />");
         }
                 
-        return stolperTop;
+        return postsTop;
     }
     
-    public ArrayList<String> stolperBottom(int height, int width, boolean rejsning, boolean skur) {
-        ArrayList<String> stolperBottom = new ArrayList();
+    public ArrayList<String> postsBottom(int height, int width, boolean rejsning, boolean shed) {
+        ArrayList<String> postsBottom = new ArrayList();
         int y;
         int xStart;
         int xEnd;
@@ -201,7 +201,7 @@ public class GenerateBlueprints {
             y = height + 70;
             xStart = 190;
             
-            if (skur == true)
+            if (shed == true)
                 xEnd = width - 20;
             else
                 xEnd = width + 70;
@@ -210,23 +210,23 @@ public class GenerateBlueprints {
             y = height + 60;
             xStart = 200;
             
-            if (skur == true)
+            if (shed == true)
                 xEnd = width - 30;
             else
                 xEnd = width + 50;
         }
         
-        stolperBottom.add("<rect width='10' height='10' x='" + xStart + "' y='" 
+        postsBottom.add("<rect width='10' height='10' x='" + xStart + "' y='" 
                 + y  + "' style='fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)' />");
-        stolperBottom.add("<rect width='10' height='10' x='" + xEnd 
+        postsBottom.add("<rect width='10' height='10' x='" + xEnd 
                 + "' y='" + y + "' style='fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)' />");
         
         if ((xEnd - xStart) > 310) {
             int between = (xEnd + xStart)/2;
-            stolperBottom.add("<rect width='10' height='10' x='" 
+            postsBottom.add("<rect width='10' height='10' x='" 
                 + between + "' y='" + y + "' style='fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)' />");
         }
-        return stolperBottom;
+        return postsBottom;
     }
     
     public String bjaelkeTopFlat(int width) {
@@ -314,7 +314,7 @@ public class GenerateBlueprints {
         return roofPath2;
     }
 
-    public ArrayList<String> supportPosts(int width, boolean rejsning, boolean skur, int roofHeight) {
+    public ArrayList<String> supportPosts(int width, boolean rejsning, boolean shed, int roofHeight) {
         
         int xStart;
         int xEnd;
@@ -325,7 +325,7 @@ public class GenerateBlueprints {
             xStart = 190;
             top += roofHeight + 20;
             
-            if (skur == true)
+            if (shed == true)
                 xEnd = width - 30;
             else
             xEnd = width + 60;
@@ -333,7 +333,7 @@ public class GenerateBlueprints {
         else {
             xStart = 200;
             
-            if (skur == true)
+            if (shed == true)
                 xEnd = width - 40;
             else
                 xEnd = width + 40;
@@ -351,8 +351,8 @@ public class GenerateBlueprints {
         
         if ((xEnd - xStart) > 310) {
             int between = (xEnd + xStart)/2;
-            posts.add("<rect width='10' height='220' x='" 
-                + between + "' y='110' style='fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)' />");
+            posts.add("<rect width='10' height='"+boardHeight+"' x='" 
+                + between + "' y='"+top+"' style='fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)' />");
         }
         
 //        String post1 = "<rect width='10' boardHeight='230' x='200' y='101' style='stroke-width:1px;stroke:black;fill:white;'/>";
@@ -382,7 +382,7 @@ public class GenerateBlueprints {
         return measureArraySide;
     }
 
-    public String skurOutline(int height, int width, boolean rejsning) {
+    public String shedOutline(int height, int width, boolean rejsning) {
         
         int yTop;
         int yBottom;
@@ -407,7 +407,7 @@ public class GenerateBlueprints {
         return outline;
     }
 
-    public String skurStolper(int height, int width, boolean rejsning) {
+    public String shedStolper(int height, int width, boolean rejsning) {
         String end;
         int mid = (height + 200) / 2;
         int yTop;
@@ -421,7 +421,7 @@ public class GenerateBlueprints {
             yBottom = height + 59;
         }
                 
-        String stolper = "<rect width='10' height='10' x='" + (width - 149) + "' y='" 
+        String posts = "<rect width='10' height='10' x='" + (width - 149) + "' y='" 
                 + yTop  + "' style='fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)' /> \n "
                 + "<rect width='10' height='10' x='" + (width + 59) + "' y='" 
                 + yTop  + "' style='fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)' /> \n"
@@ -436,15 +436,15 @@ public class GenerateBlueprints {
                 + (mid - 5) + "' style='fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)' />";
         
         if (rejsning == false)
-            end = stolper + flatStolper;
+            end = posts + flatStolper;
         else
-            end = stolper;
+            end = posts;
         
         return end;
     }
 
-    public ArrayList<String> skurSide(int width, boolean rejsning, int roofHeight) {
-        ArrayList<String> skurSide = new ArrayList();
+    public ArrayList<String> shedSide(int width, boolean rejsning, int roofHeight) {
+        ArrayList<String> shedSide = new ArrayList();
         int bp = width - 150;
         int top = 108;
         
@@ -457,13 +457,13 @@ public class GenerateBlueprints {
         while (bp <= width + 70) {
 
             if (boardSide == true){
-                skurSide.add("<path d='M" + bp + " "+top+" L" 
+                shedSide.add("<path d='M" + bp + " "+top+" L" 
                     + bp + " "+(top+boardHeight)+" L" + (bp + 8) + " "+(top+boardHeight)+" L" + (bp + 8) + " "+top+" Z' />");
                 bp += 8;
                 boardSide = false;
             }
             else {
-                skurSide.add("<path d='M" + bp + " "+top+" L" 
+                shedSide.add("<path d='M" + bp + " "+top+" L" 
                     + bp + " "+(top+boardHeight)+" L" + (bp + 4) + " "+(top+boardHeight)+" L" + (bp + 4) + " "+top+" Z' />");
                 bp += 4;
                 boardSide = true;
@@ -471,7 +471,7 @@ public class GenerateBlueprints {
             
             }
             
-        return skurSide;
+        return shedSide;
     }
 
     public ArrayList<String> roofboards(int totalWidth, int roofHeight) {
