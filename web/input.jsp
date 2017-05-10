@@ -54,8 +54,8 @@
 
                 <h3>Inkluder skur:</h3>
                 <div class="rbuttons">
-                    <input type="radio" name="choice" value="no"  checked="checked"> Nej<br>
-                    <input type="radio" name="choice" value="yes"> Ja<br>
+                    <input type="radio" name="choice" value="false"  checked="checked"> Nej<br>
+                    <input type="radio" name="choice" value="true"> Ja<br>
                 </div>
 
                 <input id="button" type="submit" value="Submit" />
