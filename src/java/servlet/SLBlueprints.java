@@ -5,6 +5,7 @@
  */
 package servlet;
 
+import facade.Facade;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -39,7 +40,7 @@ public class SLBlueprints extends HttpServlet {
         int height = Integer.parseInt(request.getParameter("ddLength"));
         int width = Integer.parseInt(request.getParameter("ddWidth"));
         
-        blueprints.GenerateBlueprints gb = new blueprints.GenerateBlueprints();        
+        Facade facade = new Facade();
         
         boolean rejsning;
         String roof = "rejst";
@@ -66,55 +67,55 @@ public class SLBlueprints extends HttpServlet {
         // Adding shed and changeing total width to fit a shed
         if(shed == true) {
             totalWidth += 220;
-            String shedOutline = gb.shedOutline(height, totalWidth, rejsning);
+            String shedOutline = facade.shedOutline(height, totalWidth, rejsning);
             request.setAttribute("shedOutline", shedOutline);
-            String shedStolper = gb.shedStolper(height, totalWidth, rejsning);
+            String shedStolper = facade.shedStolper(height, totalWidth, rejsning);
             request.setAttribute("shedStolper", shedStolper);
-            ArrayList<String> shedSide = gb.shedSide(totalWidth, rejsning, roofHeight);
+            ArrayList<String> shedSide = facade.shedSide(totalWidth, rejsning, roofHeight);
             request.setAttribute("shedSide", shedSide);
             
         }
         
-        String outline = gb.outlineTop(height, totalWidth);
+        String outline = facade.outlineTop(height, totalWidth);
         request.setAttribute("outline", outline);
         
         
         if (rejsning == true) {
             // *** TOP ***
             // Creating stem
-            String stem = gb.stem(height, totalWidth);
+            String stem = facade.stem(height, totalWidth);
             request.setAttribute("stem", stem);
             // Creating taglaegter up 
-            ArrayList<String> tlUp = gb.taglaegteUp(height, totalWidth);
+            ArrayList<String> tlUp = facade.taglaegteUp(height, totalWidth);
             request.setAttribute("tlUp", tlUp);
             // Creating taglaegter down
-            ArrayList<String> tlDown = gb.taglaegteDown(height, totalWidth);
+            ArrayList<String> tlDown = facade.taglaegteDown(height, totalWidth);
             request.setAttribute("tlDown", tlDown);
             // Creating spaer
-            ArrayList<String> spaer = gb.createSpaerRejsning(height, totalWidth);
+            ArrayList<String> spaer = facade.createSpaerRejsning(height, totalWidth);
             request.setAttribute("spaer", spaer);
             // Creating the top bjaelke
-            String bjaelkeTop = gb.bjaelkeTopRejsning(totalWidth);
+            String bjaelkeTop = facade.bjaelkeTopRejsning(totalWidth);
             request.setAttribute("bjaelkeTop", bjaelkeTop);
             // Creating the bottom bjaelke
-            String bjaelkeBund = gb.bjaelkeBottomRejsning(totalWidth, height);
+            String bjaelkeBund = facade.bjaelkeBottomRejsning(totalWidth, height);
             request.setAttribute("bjaelkeBund", bjaelkeBund);
             // Creating top posts
-            ArrayList<String> postsTop = gb.postsTop(width, rejsning, shed);
+            ArrayList<String> postsTop = facade.postsTop(width, rejsning, shed);
             request.setAttribute("postsTop", postsTop);
             // Creating bottom posts
-            ArrayList<String> postsBottom = gb.postsBottom(height, width, rejsning, shed); 
+            ArrayList<String> postsBottom = facade.postsBottom(height, width, rejsning, shed); 
             request.setAttribute("postsBottom", postsBottom);
             
             // *** SIDE ***
             
-            ArrayList<String> posts = gb.supportPosts(width, rejsning, shed, roofHeight);
+            ArrayList<String> posts = facade.supportPosts(width, rejsning, shed, roofHeight);
             request.setAttribute("supportPosts", posts);
-            ArrayList<String> roofBoards = gb.roofboards(totalWidth, roofHeight);
+            ArrayList<String> roofBoards = facade.roofboards(totalWidth, roofHeight);
             request.setAttribute("roofBoards", roofBoards);
-            String roofHorizontal = gb.roofHorizontal(totalWidth, roofHeight);
+            String roofHorizontal = facade.roofHorizontal(totalWidth, roofHeight);
             request.setAttribute("roofHorizontal", roofHorizontal);
-            String roofEnds = gb.roofEnds(totalWidth, roofHeight);
+            String roofEnds = facade.roofEnds(totalWidth, roofHeight);
             request.setAttribute("roofEnds", roofEnds);
             
             
@@ -122,34 +123,34 @@ public class SLBlueprints extends HttpServlet {
         else {
             // *** TOP ***
             // Creating vindkryds
-            String vindkryds = gb.vindkryds(height, width);
+            String vindkryds = facade.vindkryds(height, width);
             request.setAttribute("vindkryds", vindkryds);
-            ArrayList<String> spaer = gb.createSpaerFlat(height, totalWidth);
+            ArrayList<String> spaer = facade.createSpaerFlat(height, totalWidth);
             request.setAttribute("spaer", spaer);
             // Creating the top bjaelke
-            String bjaelkeTop = gb.bjaelkeTopFlat(totalWidth);
+            String bjaelkeTop = facade.bjaelkeTopFlat(totalWidth);
             request.setAttribute("bjaelkeTop", bjaelkeTop);
             // Creating the bottom bjaelke
-            String bjaelkeBund = gb.bjaelkeBottomFlat(totalWidth, height);
+            String bjaelkeBund = facade.bjaelkeBottomFlat(totalWidth, height);
             request.setAttribute("bjaelkeBund", bjaelkeBund);
             // Creating top posts
-            ArrayList<String> postsTop = gb.postsTop(width, rejsning, shed);
+            ArrayList<String> postsTop = facade.postsTop(width, rejsning, shed);
             request.setAttribute("postsTop", postsTop);
             // Creating bottom posts
-            ArrayList<String> postsBottom = gb.postsBottom(height, width, rejsning, shed); 
+            ArrayList<String> postsBottom = facade.postsBottom(height, width, rejsning, shed); 
             request.setAttribute("postsBottom", postsBottom);
             
             // *** SIDE ***
-            String sideFlatRoof = gb.sideFlatRoof(totalWidth);
+            String sideFlatRoof = facade.sideFlatRoof(totalWidth);
             request.setAttribute("sideFlatRoof", sideFlatRoof);
-            String sideFlatRoof2 = gb.sideFlatRoof2(totalWidth);
+            String sideFlatRoof2 = facade.sideFlatRoof2(totalWidth);
             request.setAttribute("sideFlatRoof2", sideFlatRoof2);
-            ArrayList<String> posts = gb.supportPosts(width, rejsning, shed, roofHeight);
+            ArrayList<String> posts = facade.supportPosts(width, rejsning, shed, roofHeight);
             request.setAttribute("supportPosts", posts);
         }
         
-        ArrayList<String> measurementsSide = gb.getMeasurementsSide();
-        ArrayList<String> measurementsTop = gb.getMeasurementsTop();
+        ArrayList<String> measurementsSide = facade.getMeasurementsSide();
+        ArrayList<String> measurementsTop = facade.getMeasurementsTop();
         
         request.setAttribute("measurementsSide", measurementsSide);
         request.setAttribute("measurementsTop", measurementsTop);

@@ -5,6 +5,7 @@
  */
 package servlet;
 
+import facade.Facade;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -38,10 +39,10 @@ public class SLInput extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        data.DataAccessObject dao = new data.ImplDataAccess();
+        Facade facade = new Facade();
         
-        ArrayList<Integer> lengths = dao.getAllLengths();
-        ArrayList<Integer> widths = dao.getAllWidths();
+        ArrayList<Integer> lengths = facade.getAllLengths();
+        ArrayList<Integer> widths = facade.getAllWidths();
         
         request.setAttribute("lengths", lengths);
         request.setAttribute("widths", widths);
