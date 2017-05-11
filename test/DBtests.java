@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+import data.DataAccessObject;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -21,9 +22,9 @@ import org.junit.Test;
  * @author vfgya_000
  */
 public class DBtests {
-
+private DataAccessObject dao;
     public DBtests() {
-        data.DataAccessObject dao = new data.ImplDataAccess();
+        dao = new data.ImplDataAccess();
     }
 
     @BeforeClass
@@ -47,9 +48,8 @@ public class DBtests {
     //
     @Test
     public void testArrayListContains() {
-        data.DataAccessObject dao = new data.ImplDataAccess();
         ArrayList<String> list = dao.getAllUserNames();
-        List<String> expected = Arrays.asList("hans", "HashPilgaard");
+        List<String> expected = Arrays.asList("hans", "HashPilgaard", "jon");
         assertThat(list, is(expected));
     }
 }

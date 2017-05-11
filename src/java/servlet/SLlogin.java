@@ -7,6 +7,7 @@ package servlet;
 
 import classes.Customer;
 import data.Encrypt;
+import facade.Facade;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -39,17 +40,16 @@ public class SLlogin extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+         Facade facade = new Facade();
 
         String cname = request.getParameter("username");
         String cword = request.getParameter("password");
         
-        String eP = Encrypt.sha256(cword);
-
         HttpSession session = request.getSession();
         
-        data.DataAccessObject dao = new data.ImplDataAccess();
         try {
-            Customer cs = dao.getUser(cname, eP);
+            Customer cs = facade.getUser(cname, cword);
 
             if (cs.getcName().equals(cname)) {
 

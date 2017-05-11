@@ -5,6 +5,7 @@
  */
 package servlet;
 
+import facade.Facade;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
@@ -36,8 +37,8 @@ public class SLcreate extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        data.DataAccessObject dao = new data.ImplDataAccess();
-
+        Facade facade = new Facade();
+        
         String name = request.getParameter("username");
         String password = request.getParameter("password");
         String address = request.getParameter("address");
@@ -48,12 +49,12 @@ public class SLcreate extends HttpServlet {
         int ziptoint = Integer.parseInt(zipcode);
         int phonetoint = Integer.parseInt(phone);
 
-        ArrayList<String> getNames = dao.getAllUserNames();
-        if (getNames.contains(name)) {
+        boolean success;
+        success = facade.createUser(name, password, address, ziptoint, phonetoint, email);
+        if (success == false) {
             request.setAttribute("error", "<p style=\"color: red;\">Brugernavn er allerede taget</p>");
 
         } else {
-            dao.createUser(name, password, address, ziptoint, phonetoint, email);
             RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
             rd.forward(request, response);
         }
