@@ -8,7 +8,7 @@ public class LiftedRoof {
     //Calculates materials for carport with lifted roof.
    
         //Vindskede
-        public static int vindskeder(int width, int angle)
+        public int vindskeder(int width, int angle)
         {
             double angleToRadian = Math.toRadians(angle);
             int vindskeder = 0;
@@ -92,6 +92,7 @@ public class LiftedRoof {
         int antalSpær = (length/89) + 1;
         return antalSpær;
         }
+        
         
         public int skruerSpærV(int length){
         int skruerSpærV = (length/89) + 1;
