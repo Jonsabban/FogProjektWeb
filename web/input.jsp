@@ -21,14 +21,18 @@
                 <select class="dd" name="ddLength">
                     <c:forEach items="${lengths}" var="length">
                         <option value="<c:out value="${length}" />"><c:out value="${length}" /> cm</option>
+                       
                     </c:forEach>
+                         <option value="550">550</option>
                 </select>
 
                 <h3>width:</h3>
                 <select class="dd" name="ddWidth">
                     <c:forEach items="${widths}" var="width">
                         <option value="<c:out value="${width}" />"><c:out value="${width}" /> cm</option>
+                        
                     </c:forEach>
+                        <option value="670">670</option>
                 </select>
 
 

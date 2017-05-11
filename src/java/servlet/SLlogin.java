@@ -6,11 +6,8 @@
 package servlet;
 
 import classes.Customer;
-import data.Encrypt;
-import facade.Facade;
+import facade.DBFacade;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.SQLException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -41,7 +38,7 @@ public class SLlogin extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-         Facade facade = new Facade();
+         DBFacade facade = new DBFacade();
 
         String cname = request.getParameter("username");
         String cword = request.getParameter("password");

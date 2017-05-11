@@ -5,9 +5,11 @@
  */
 package servlet;
 
-import facade.Facade;
+import facade.DBFacade;
+import facade.userAlreadyExistsException;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -37,7 +39,7 @@ public class SLcreate extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        Facade facade = new Facade();
+        DBFacade facade = new DBFacade();
         
         String name = request.getParameter("username");
         String password = request.getParameter("password");
@@ -49,15 +51,22 @@ public class SLcreate extends HttpServlet {
         int ziptoint = Integer.parseInt(zipcode);
         int phonetoint = Integer.parseInt(phone);
 
-        boolean success;
-        success = facade.createUser(name, password, address, ziptoint, phonetoint, email);
-        if (success == false) {
+        try {
+            facade.createUser(name, password, address, ziptoint, phonetoint, email);
+        } catch (userAlreadyExistsException ex) {
+            Logger.getLogger(SLcreate.class.getName()).log(Level.SEVERE, null, ex);
             request.setAttribute("error", "<p style=\"color: red;\">Brugernavn er allerede taget</p>");
-
-        } else {
-            RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
-            rd.forward(request, response);
         }
+       
+//        boolean success;
+//        success = facade.createUser(name, password, address, ziptoint, phonetoint, email);
+//        if (success == false) {
+//            request.setAttribute("error", "<p style=\"color: red;\">Brugernavn er allerede taget</p>");
+//
+//        } else {
+//            RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+//            rd.forward(request, response);
+//        }
         RequestDispatcher rd = request.getRequestDispatcher("/createAcc.jsp");
         rd.forward(request, response);
     }

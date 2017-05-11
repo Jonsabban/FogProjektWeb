@@ -5,6 +5,7 @@
  */
 package servlet;
 
+import calculator.LiftedRoof;
 import facade.Facade;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -39,6 +40,7 @@ public class SLBlueprints extends HttpServlet {
         //Getting length and width from input.jsp
         int height = Integer.parseInt(request.getParameter("ddLength"));
         int width = Integer.parseInt(request.getParameter("ddWidth"));
+        int angle = Integer.parseInt(request.getParameter("angle"));
         
         Facade facade = new Facade();
         
@@ -50,7 +52,7 @@ public class SLBlueprints extends HttpServlet {
             rejsning = false;
         
         // TODO: Get roof height from Martin
-        int roofHeight = 45;
+        int roofHeight = (int) Math.round(LiftedRoof.hypotenuse(height, angle));
         
         boolean shed;
         String shedString = "yes";
