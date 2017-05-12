@@ -17,7 +17,7 @@ public class Facade implements FacadeInterface {
 
     private DataAccessObject dao;
     private GenerateBlueprints gb;
-
+ 
     public Facade() {
         this.dao = new ImplDataAccess();
         this.gb = new GenerateBlueprints();

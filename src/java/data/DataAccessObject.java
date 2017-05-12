@@ -27,6 +27,7 @@ public interface DataAccessObject
     public ArrayList<String> getAllUserNames();
     public Customer getUser(String username, String password);
     public void createUser(String name, String password, String address, int zipcode, int phone, String email);
+    public void deleteUser(String name, String password);
     
     // Length & Width
     public ArrayList<Integer> getAllLengths();

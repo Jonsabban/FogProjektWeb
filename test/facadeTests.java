@@ -42,15 +42,16 @@ public class facadeTests {
     }
 
     @Test (expected = userAlreadyExistsException.class)
-    public void testCreateUser() throws userAlreadyExistsException {
+    public void createUserUsernameAlreadyExists() throws userAlreadyExistsException {
         //test if method fails when a Username already exists
         assertFalse(dbfacade.createUser("hans", "123asd123", "...", 0, 0, "..."));
     }
     @Test
-    public void testGetUser() {
+    public void createUserSuccess() throws userAlreadyExistsException {
+        dbfacade.createUser("jon", "123456", "apple123", 0, 0, "nope");
         Customer user = dbfacade.getUser("jon", "123456");
         assertEquals(user.getcName(), "jon");
-        
     }
+    
 
 }

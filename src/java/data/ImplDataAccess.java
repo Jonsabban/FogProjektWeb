@@ -124,6 +124,14 @@ public class ImplDataAccess implements DataAccessObject {
             Logger.getLogger(ImplDataAccess.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+        
+    @Override
+    public void deleteUser(String name, String password) {
+        try {
+            
+        } catch (Exception e) {
+        }
+    }
 
     @Override
     public ArrayList<Integer> getAllLengths() {
@@ -193,4 +201,5 @@ public class ImplDataAccess implements DataAccessObject {
         }
         return customers;
     }
+
 }
