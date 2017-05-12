@@ -1,0 +1,204 @@
+body {
+    font-family: Verdana;
+    margin: 0;
+    padding: 0;
+    background-image: url(light_noise_diagonal.png);
+    background-repeat: repeat;
+}
+header {
+    width: 100%;
+    height: 60px;
+    background-color: #004687;
+}
+h1 {
+    color: #fff;
+    margin: 0;
+    padding-top: 15px;
+    padding-left: 10px;
+    font-size: 24px;
+    font-weight: 400;
+    vertical-align: text-top;
+}
+h2 {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto; 
+    font-size: 18px;
+    font-weight: normal;
+    margin-bottom: 40px;
+}
+h3 {
+    float: left;
+    clear: both;
+    font-size: 18px;
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+h4 {
+    font-weight: normal;
+    font-size: 24px;
+}
+h5 {
+    font-weight: normal;
+    font-size: 28px;
+    text-align: center;
+}
+#payment {
+    display: block;
+    margin: auto;
+    width: 195px;
+}
+p {
+    float: left;
+    clear: both;
+    margin-bottom: -25px;
+}
+a#start {
+    margin-top: 20px;
+    padding: 4px;
+    padding-top: 10px;
+    display: block;
+    background-color: #014687;
+    width: 200px;
+    height: 34px;
+    font-size: 18px;
+    float: left;
+    margin-bottom: 40px;
+    font-weight: 100;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+}
+a.createLogin {
+    margin-top: 20px;
+    float: left;
+    clear: both;
+    font-size: 14px;
+    line-height: 140%;
+}
+#container {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    display: block;
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 25px;
+    border-left: 1px solid #999999;
+    border-right: 1px solid #999999;
+}
+.login {
+    width: 400px;
+    height: 30px;
+    padding-left: 10px;
+    font-size: 18px;
+    float: left;
+    clear: both;
+    margin-bottom: 15px;
+}
+#shedCheck {
+    float: left;
+    clear: both;
+    margin-top: 10px;
+}
+#roofAngle {
+    width: 100%;
+    float: left;
+}
+form {
+    display: block;
+    width: 960px;
+}
+.measure {
+    width: 400px;
+    height: 30px;
+    padding-left: 10px;
+    font-size: 18px;
+    float: left;
+    clear: both;
+}
+.dd {
+    padding: 4px;
+    width: 300px;
+    height: 34px;
+    font-size: 18px;
+    float: left;
+    font-weight: 100;
+    color: #666666;
+    clear: both;
+}
+input#button {
+    clear: both;
+    float: left;
+    width: 150px;
+    height: 40px;
+    font-size: 20px;
+    background-color: #004687;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+input#button:hover {
+    background-color: #122049;
+}
+.rbuttons {
+    width: 100%;
+    float: left;
+}
+.rbuttons > *{
+    margin-bottom: 10px;
+}
+.roof {
+    display: block;
+    text-align: center;
+    width: 300px;
+    height: 80px;
+    background-color: #014687;
+    line-height: 80px;
+    vertical-align: text;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    clear: both;
+    font-size: 26px;
+    color: #fff;
+    text-decoration: none;
+}
+.roof:hover {
+    background-color: #122049;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    width: 150px;
+}
+td, th:nth-child(1) {
+    width: 100px;
+}
+td, th:nth-child(2) {
+    width: 50px;
+}
+td, th:nth-child(3) {
+    width: 50px;
+}
+td, th:nth-child(4) {
+    width: 50px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}

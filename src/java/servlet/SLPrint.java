@@ -49,16 +49,13 @@ public class SLPrint extends HttpServlet {
 
         // Sessions
         HttpSession session = request.getSession();
-        String rooftype = session.getAttribute("roof").toString();
+        //String rooftype = session.getAttribute("").toString();
         
 
+        
         result.Calculator cl = new result.Calculator();
-        if (rooftype == "rejst") {
-            cl.calculateResultLifted(MAL, 0, 0, 0, false, 0, 0);
-        }
-        else {
-            cl.calculateResultFlat(MAL, 0, 0, true, 0, 0);
-        }
+        cl.calculateResultLifted(MAL, 270, 300, 15, true, 200, 200);
+        // cl.calculateResultFlat(MAL, 0, 0, true, 0, 0);
 
         // setter arraylisternes attributer
         request.setAttribute("allC", CAL);

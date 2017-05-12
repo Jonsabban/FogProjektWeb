@@ -12,7 +12,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Material List</title>
-        <link href="WebStyle.css" rel="stylesheet" type="text/css"/>
+        <link href="AltWebStyle.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
          <header><h1>Johannes Fog - Carport Builder</h1></header>
