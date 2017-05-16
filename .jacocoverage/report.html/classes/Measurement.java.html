@@ -8,13 +8,13 @@
 
     public String createDividerH(int centerX, int centerY) {
 
-<span class="nc" id="L11">        return &quot;&lt;line x1=&quot; + centerX + &quot; y1=&quot; + (centerY - 5) + &quot; x2=&quot; + centerX + &quot; y2=&quot; + (centerY + 5) + &quot; /&gt;&quot;;</span>
+<span class="fc" id="L11">        return &quot;&lt;line x1=&quot; + centerX + &quot; y1=&quot; + (centerY - 5) + &quot; x2=&quot; + centerX + &quot; y2=&quot; + (centerY + 5) + &quot; /&gt;&quot;;</span>
 
     }
 
     public String createDividerV(int centerX, int centerY) {
 
-<span class="nc" id="L17">        return &quot;&lt;line x1=&quot; + (centerX - 5) + &quot; y1=&quot; + centerY + &quot; x2=&quot; + (centerX + 5) + &quot; y2=&quot; + centerY + &quot; /&gt;&quot;;</span>
+<span class="fc" id="L17">        return &quot;&lt;line x1=&quot; + (centerX - 5) + &quot; y1=&quot; + centerY + &quot; x2=&quot; + (centerX + 5) + &quot; y2=&quot; + centerY + &quot; /&gt;&quot;;</span>
 
     }
 
@@ -39,14 +39,14 @@
 
     public String createMeasurementV(String pathName, int pathStartX, int pathStartY, int pathEnd, int distance) {
               
-<span class="nc" id="L42">        return &quot;&lt;path id='&quot; + pathName + &quot;' d= 'M&quot; + pathStartX + &quot; &quot; + pathStartY + &quot; v-&quot; + pathEnd + &quot;'/&gt;&quot;</span>
+<span class="fc" id="L42">        return &quot;&lt;path id='&quot; + pathName + &quot;' d= 'M&quot; + pathStartX + &quot; &quot; + pathStartY + &quot; v-&quot; + pathEnd + &quot;'/&gt;&quot;</span>
                 + &quot;&lt;text&gt;&quot;
                 + &quot;&lt;textPath xlink:href='#&quot; + pathName + &quot;' startOffset='50%'&gt;&quot;
                 + &quot;&lt;tspan dy='-5' text-anchor='middle' &gt;&quot; + distance + &quot; cm &lt;/tspan&gt;&quot;
                 + &quot;&lt;/textPath&gt;&quot;
                 + &quot;&lt;/text&gt;&quot;
-<span class="nc" id="L48">                + createDividerV(pathStartX, pathStartY)</span>
-<span class="nc" id="L49">                + createDividerV(pathStartX, pathStartY - pathEnd);</span>
+<span class="fc" id="L48">                + createDividerV(pathStartX, pathStartY)</span>
+<span class="fc" id="L49">                + createDividerV(pathStartX, pathStartY - pathEnd);</span>
 
     }
 }

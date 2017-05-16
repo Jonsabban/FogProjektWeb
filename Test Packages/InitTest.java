@@ -23,7 +23,6 @@ import static org.junit.Assert.*;
  */
 public class InitTest {
 
-    private final Facade facade;
     private final DBFacade dbfacade;
     
     Connection con;
@@ -34,7 +33,6 @@ public class InitTest {
     private static String PWD = "root";
     
     public InitTest() {
-        this.facade = new Facade();
         this.dbfacade = new DBFacade();
     }
 

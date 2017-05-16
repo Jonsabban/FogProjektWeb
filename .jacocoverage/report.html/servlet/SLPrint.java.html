@@ -49,25 +49,22 @@ import javax.servlet.http.HttpSession;
 
         // Sessions
 <span class="nc" id="L51">        HttpSession session = request.getSession();</span>
-<span class="nc" id="L52">        String rooftype = session.getAttribute(&quot;roof&quot;).toString();</span>
+        //String rooftype = session.getAttribute(&quot;&quot;).toString();
         
 
-<span class="nc" id="L55">        result.Calculator cl = new result.Calculator();</span>
-<span class="nc bnc" id="L56" title="All 2 branches missed.">        if (rooftype == &quot;rejst&quot;) {</span>
-<span class="nc" id="L57">            cl.calculateResultLifted(MAL, 0, 0, 0, false, 0, 0);</span>
-        }
-        else {
-<span class="nc" id="L60">            cl.calculateResultFlat(MAL, 0, 0, true, 0, 0);</span>
-        }
+        
+<span class="nc" id="L56">        result.Calculator cl = new result.Calculator();</span>
+<span class="nc" id="L57">        cl.calculateResultLifted(MAL, 270, 300, 15, true, 200, 200);</span>
+        // cl.calculateResultFlat(MAL, 0, 0, true, 0, 0);
 
         // setter arraylisternes attributer
-<span class="nc" id="L64">        request.setAttribute(&quot;allC&quot;, CAL);</span>
-<span class="nc" id="L65">        request.setAttribute(&quot;allM&quot;, MAL);</span>
+<span class="nc" id="L61">        request.setAttribute(&quot;allC&quot;, CAL);</span>
+<span class="nc" id="L62">        request.setAttribute(&quot;allM&quot;, MAL);</span>
 
         // henviser til printList siden
-<span class="nc" id="L68">        RequestDispatcher rd = request.getRequestDispatcher(&quot;/printList.jsp&quot;);</span>
-<span class="nc" id="L69">        rd.forward(request, response);</span>
-<span class="nc" id="L70">    }</span>
+<span class="nc" id="L65">        RequestDispatcher rd = request.getRequestDispatcher(&quot;/printList.jsp&quot;);</span>
+<span class="nc" id="L66">        rd.forward(request, response);</span>
+<span class="nc" id="L67">    }</span>
 
 // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;HttpServlet methods. Click on the + sign on the left to edit the code.&quot;&gt;
     /**
@@ -81,8 +78,8 @@ import javax.servlet.http.HttpSession;
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-<span class="nc" id="L84">        processRequest(request, response);</span>
-<span class="nc" id="L85">    }</span>
+<span class="nc" id="L81">        processRequest(request, response);</span>
+<span class="nc" id="L82">    }</span>
 
     /**
      * Handles the HTTP &lt;code&gt;POST&lt;/code&gt; method.
@@ -95,8 +92,8 @@ import javax.servlet.http.HttpSession;
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-<span class="nc" id="L98">        processRequest(request, response);</span>
-<span class="nc" id="L99">    }</span>
+<span class="nc" id="L95">        processRequest(request, response);</span>
+<span class="nc" id="L96">    }</span>
 
     /**
      * Returns a short description of the servlet.
@@ -105,7 +102,7 @@ import javax.servlet.http.HttpSession;
      */
     @Override
     public String getServletInfo() {
-<span class="nc" id="L108">        return &quot;Short description&quot;;</span>
+<span class="nc" id="L105">        return &quot;Short description&quot;;</span>
     }// &lt;/editor-fold&gt;
 
 }

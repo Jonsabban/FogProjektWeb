@@ -18,10 +18,10 @@ public class Facade implements FacadeInterface {
     private DataAccessObject dao;
     private GenerateBlueprints gb;
  
-<span class="fc" id="L21">    public Facade() {</span>
-<span class="fc" id="L22">        this.dao = new ImplDataAccess();</span>
-<span class="fc" id="L23">        this.gb = new GenerateBlueprints();</span>
-<span class="fc" id="L24">    }</span>
+<span class="nc" id="L21">    public Facade() {</span>
+<span class="nc" id="L22">        this.dao = new ImplDataAccess();</span>
+<span class="nc" id="L23">        this.gb = new GenerateBlueprints();</span>
+<span class="nc" id="L24">    }</span>
 
     @Override
     public String outlineTop(int height, int width) {
