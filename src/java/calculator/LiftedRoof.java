@@ -82,6 +82,16 @@ public class LiftedRoof {
          return sternSideAntal;
         }
         
+        //Stern - Skur
+        public int sternSideSkur(int skurLength){
+            int sternSideSkur = (skurLength * 2) + 120;
+            return sternSideSkur;
+        }
+        
+        public int sternSideSkurAntal(){
+            int sternSideSkurAntal = 1;
+            return sternSideSkurAntal;
+        }
         //Byg Selv Spær - Færdigskåret
         public int færdigByggetAntal(){
         int færdigByggetAntal = 1;
@@ -429,7 +439,12 @@ public class LiftedRoof {
            return løsholterGavleAntal;
         }
         
-        public int beklædningSkur(int skurLength, int skurWidth){
+        public int beklædningSkur(){
+            int beklædningSkur = 210;
+            return beklædningSkur;
+        }
+        
+        public int beklædningSkurAntal(int skurLength, int skurWidth){
            int beklædningSkur = ((skurLength + skurWidth) / 4) + 6;
            return beklædningSkur;
         }
@@ -462,6 +477,16 @@ public class LiftedRoof {
         public int tHængsel(){
            int tHængsel = 2;
            return tHængsel;
+        }
+        
+        public int bræddebolte(){
+            int bræddebolte = 20;
+            return bræddebolte;
+        }
+        
+        public int firkantskiver(){
+            int firkantskiver = 20;
+            return firkantskiver;
         }
         
         public int vinkelbeslag(){
