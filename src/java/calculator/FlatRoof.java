@@ -167,6 +167,17 @@ public class FlatRoof {
             return vindkrydsAmount;
         }
         
+        public int stalddørsGreb(){
+           int stalddørsGreb = 1;
+           return stalddørsGreb;
+        }
+        
+        public int tHængsel(){
+           int tHængsel = 2;
+           return tHængsel;
+        }
+        
+        
         //Output String
 //        String result = "Understern For/bagside: " +understernFB + "\n" + "Understern Sider: " + understernSide + "\n" + "Overstern Forside: " + oversternF + "\n" + "Overstern sider: " +oversternSide + "\n" + "Remme: " + remmeSide + "\n" + "Spær: " + spær + "\n" + "Vandbræt forside: " + vandbrætF + "\n" + "Vandbræt sider: " + vandbrætSide + "\n" + "Antal tagplader: " + tagplader + "\n" + "Tagplade længde: " + tagpladeLength + "\n" + "Skruepakker: " + skruePakker + "\n" + "Tagskruer i alt: " + tagSkruer + "\n" + "Antal vindkryds: " + vindkrydsAmount + "\n" + "Bræddebolte: " + bræddebolte;
         
