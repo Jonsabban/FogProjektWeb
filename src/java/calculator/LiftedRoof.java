@@ -36,7 +36,7 @@ public class LiftedRoof {
                 vindskeder = 480;
             }
         
-            if (hypotenuse * 2 > 600 && hypotenuse * 2 <= 660) {
+            if (hypotenuse * 2 > 600) {
                 vindskeder = 540;
             }
             return vindskeder;
@@ -302,7 +302,7 @@ public class LiftedRoof {
         //Tag
         public int dobbelt(int length, int width, int angle){ 
         int dobbelt = 0;
-        int vindskeder = vindskedeAntal(width, angle);
+        int vindskeder = vindskeder(width, angle);
         int dobbeltSide = length / 30; 
         if (vindskeder <= 240)
             {

@@ -32,7 +32,7 @@ public class Calculator {
                 }
                 // id 19 
                 if (i == 2) {
-                   list.get(i).setLength(l.sternSideSkur(length));
+                   list.get(i).setLength(l.sternSideSkur(skurlength));
                    list.get(i).setAmount(l.sternSideSkurAntal());
                 }
                 // id 20
