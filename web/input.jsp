@@ -23,7 +23,6 @@
                         <option value="<c:out value="${length}" />"><c:out value="${length}" /> cm</option>
                        
                     </c:forEach>
-                         <option value="550">550</option>
                 </select>
 
                 <h3>width:</h3>
@@ -32,7 +31,6 @@
                         <option value="<c:out value="${width}" />"><c:out value="${width}" /> cm</option>
                         
                     </c:forEach>
-                        <option value="670">670</option>
                 </select>
 
 

@@ -56,7 +56,7 @@ public class ImplDataAccess implements DataAccessObject {
         try {
             DBConnector db = new DBConnector();
             Statement stmt = db.getConnection().createStatement();
-            String sql = "select * from materials";
+            String sql = "select * from materials ORDER BY matID asc";
             Material material = null;
             try {
                 ResultSet rs = stmt.executeQuery(sql);
