@@ -20,7 +20,7 @@ public class Measurement {
 
     public String createMeasurementH(String pathName, int pathStartX, int pathStartY, int pathEnd, int distance) {
         
-        //for small distances
+        //for small distances so distance mark are still visable
         String distString = distance + "cm";
         if (distance < 30) {
             distString = distance + "";

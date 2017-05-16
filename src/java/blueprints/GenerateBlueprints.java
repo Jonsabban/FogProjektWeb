@@ -40,10 +40,7 @@ public class GenerateBlueprints {
         int mid = (height + 200) / 2;
         String stem = "<rect x='100' y='" + (mid - 1) + "' height='2' width='" 
                 + width + "' style='fill:rgb(255,255,255);stroke-width:1px;stroke:rgb(0,0,0)' />";
-        
-        // "<path d='M100 " + (mid - 1) + " L" + (width+100) + " " 
-        // + (mid - 1) + " L" + (width+100) + " " + (mid + 1) + " L100 " 
-        // + (mid + 1) + "'  />"
+
         return stem;
     }
     
@@ -122,9 +119,7 @@ public class GenerateBlueprints {
             else if(spaerDistance > 0) {
                 measurement = m.createMeasurementH("spaerEnd", spaerDistance - 55, 90, (width % 55), (width % 55));
                 measureArrayTop.add(measurement);
-            }
-                
-             
+            } 
         }
 
         return spaer;

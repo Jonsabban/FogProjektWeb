@@ -14,133 +14,130 @@ import java.util.ArrayList;
  * @author Jonas
  */
 public class Facade implements FacadeInterface {
-
-    private DataAccessObject dao;
-    private GenerateBlueprints gb;
+        private GenerateBlueprints gb;
  
-<span class="nc" id="L21">    public Facade() {</span>
-<span class="nc" id="L22">        this.dao = new ImplDataAccess();</span>
-<span class="nc" id="L23">        this.gb = new GenerateBlueprints();</span>
-<span class="nc" id="L24">    }</span>
+<span class="fc" id="L19">    public Facade() {</span>
+<span class="fc" id="L20">        this.gb = new GenerateBlueprints();</span>
+<span class="fc" id="L21">    }</span>
 
     @Override
     public String outlineTop(int height, int width) {
-<span class="nc" id="L28">        return gb.outlineTop(height, width);</span>
+<span class="fc" id="L25">        return gb.outlineTop(height, width);</span>
     }
 
     @Override
     public String stem(int height, int width) {
-<span class="nc" id="L33">        return gb.stem(height, width);</span>
+<span class="fc" id="L30">        return gb.stem(height, width);</span>
     }
 
     @Override
     public ArrayList&lt;String&gt; taglaegteUp(int height, int width) {
-<span class="nc" id="L38">        return gb.taglaegteUp(height, width);</span>
+<span class="fc" id="L35">        return gb.taglaegteUp(height, width);</span>
     }
 
     @Override
     public ArrayList&lt;String&gt; taglaegteDown(int height, int width) {
-<span class="nc" id="L43">        return gb.taglaegteDown(height, width);</span>
+<span class="fc" id="L40">        return gb.taglaegteDown(height, width);</span>
     }
 
     @Override
     public ArrayList&lt;String&gt; createSpaerFlat(int height, int width) {
-<span class="nc" id="L48">        return gb.createSpaerFlat(height, width);</span>
+<span class="fc" id="L45">        return gb.createSpaerFlat(height, width);</span>
     }
 
     @Override
     public ArrayList&lt;String&gt; postsTop(int width, boolean rejsning, boolean shed) {
-<span class="nc" id="L53">        return gb.postsTop(width, rejsning, shed);</span>
+<span class="nc" id="L50">        return gb.postsTop(width, rejsning, shed);</span>
     }
 
     @Override
     public ArrayList&lt;String&gt; postsBottom(int height, int width, boolean rejsning, boolean shed) {
-<span class="nc" id="L58">        return gb.postsBottom(height, width, rejsning, shed);</span>
+<span class="nc" id="L55">        return gb.postsBottom(height, width, rejsning, shed);</span>
     }
 
     @Override
     public String bjaelkeTopFlat(int width) {
-<span class="nc" id="L63">        return gb.bjaelkeTopFlat(width);</span>
+<span class="nc" id="L60">        return gb.bjaelkeTopFlat(width);</span>
     }
 
     @Override
     public String bjaelkeBottomFlat(int width, int height) {
-<span class="nc" id="L68">        return gb.bjaelkeBottomFlat(width, height);</span>
+<span class="nc" id="L65">        return gb.bjaelkeBottomFlat(width, height);</span>
     }
 
     @Override
     public ArrayList&lt;String&gt; createSpaerRejsning(int height, int width) {
-<span class="nc" id="L73">        return gb.createSpaerRejsning(height, width);</span>
+<span class="nc" id="L70">        return gb.createSpaerRejsning(height, width);</span>
     }
 
     @Override
     public String bjaelkeTopRejsning(int width) {
-<span class="nc" id="L78">        return gb.bjaelkeTopRejsning(width);</span>
+<span class="nc" id="L75">        return gb.bjaelkeTopRejsning(width);</span>
     }
 
     @Override
     public String bjaelkeBottomRejsning(int width, int height) {
-<span class="nc" id="L83">        return gb.bjaelkeBottomRejsning(width, height);</span>
+<span class="nc" id="L80">        return gb.bjaelkeBottomRejsning(width, height);</span>
     }
 
     @Override
     public String vindkryds(int height, int width) {
-<span class="nc" id="L88">        return gb.vindkryds(height, width);</span>
+<span class="nc" id="L85">        return gb.vindkryds(height, width);</span>
     }
 
     @Override
     public String sideFlatRoof(int width) {
-<span class="nc" id="L93">        return gb.sideFlatRoof(width);</span>
+<span class="nc" id="L90">        return gb.sideFlatRoof(width);</span>
     }
 
     @Override
     public String sideFlatRoof2(int width) {
-<span class="nc" id="L98">        return gb.sideFlatRoof2(width);</span>
+<span class="nc" id="L95">        return gb.sideFlatRoof2(width);</span>
     }
 
     @Override
     public ArrayList&lt;String&gt; supportPosts(int width, boolean rejsning, boolean shed, int roofHeight) {
-<span class="nc" id="L103">        return gb.supportPosts(width, rejsning, shed, roofHeight);</span>
+<span class="nc" id="L100">        return gb.supportPosts(width, rejsning, shed, roofHeight);</span>
     }
 
     @Override
     public ArrayList&lt;String&gt; getMeasurementsTop() {
-<span class="nc" id="L108">        return gb.getMeasurementsTop();</span>
+<span class="nc" id="L105">        return gb.getMeasurementsTop();</span>
     }
 
     @Override
     public ArrayList&lt;String&gt; getMeasurementsSide() {
-<span class="nc" id="L113">        return gb.getMeasurementsSide();</span>
+<span class="nc" id="L110">        return gb.getMeasurementsSide();</span>
     }
 
     @Override
     public String shedOutline(int height, int width, boolean rejsning) {
-<span class="nc" id="L118">        return gb.shedOutline(height, width, rejsning);</span>
+<span class="nc" id="L115">        return gb.shedOutline(height, width, rejsning);</span>
     }
 
     @Override
     public String shedStolper(int height, int width, boolean rejsning) {
-<span class="nc" id="L123">        return gb.shedStolper(height, width, rejsning);</span>
+<span class="nc" id="L120">        return gb.shedStolper(height, width, rejsning);</span>
     }
 
     @Override
     public ArrayList&lt;String&gt; shedSide(int width, boolean rejsning, int roofHeight) {
-<span class="nc" id="L128">        return gb.shedSide(width, rejsning, roofHeight);</span>
+<span class="nc" id="L125">        return gb.shedSide(width, rejsning, roofHeight);</span>
     }
 
     @Override
     public ArrayList&lt;String&gt; roofboards(int totalWidth, int roofHeight) {
-<span class="nc" id="L133">        return gb.roofboards(totalWidth, roofHeight);</span>
+<span class="nc" id="L130">        return gb.roofboards(totalWidth, roofHeight);</span>
     }
 
     @Override
     public String roofHorizontal(int width, int roofHeight) {
-<span class="nc" id="L138">        return gb.roofHorizontal(width, roofHeight);</span>
+<span class="nc" id="L135">        return gb.roofHorizontal(width, roofHeight);</span>
     }
 
     @Override
     public String roofEnds(int width, int roofHeight) {
-<span class="nc" id="L143">        return gb.roofEnds(width, roofHeight);</span>
+<span class="nc" id="L140">        return gb.roofEnds(width, roofHeight);</span>
     }
 
 }

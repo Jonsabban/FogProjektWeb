@@ -14,12 +14,9 @@ import java.util.ArrayList;
  * @author Jonas
  */
 public class Facade implements FacadeInterface {
-
-    private DataAccessObject dao;
-    private GenerateBlueprints gb;
+        private GenerateBlueprints gb;
  
     public Facade() {
-        this.dao = new ImplDataAccess();
         this.gb = new GenerateBlueprints();
     }
 

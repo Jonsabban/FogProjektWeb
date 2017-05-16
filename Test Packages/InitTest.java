@@ -47,7 +47,7 @@ public class InitTest {
 
     @Before
     public void setUp() {
-                try {
+        try {
             String url = String.format("jdbc:mysql://%s:3306/%s", HOST, DBNAME);
             Class.forName(DRIVER);
             con = DriverManager.getConnection(url, ID, PWD);
@@ -77,7 +77,6 @@ public class InitTest {
         //test if method fails when a Username already exists
         assertFalse(dbfacade.createUser("hans", "123asd123", "...", 0, 0, "..."));
     }
-    
     @Test
     public void createUserSuccess() throws userAlreadyExistsException {
         dbfacade.createUser("jon", "123456", "apple123", 0, 0, "nope");

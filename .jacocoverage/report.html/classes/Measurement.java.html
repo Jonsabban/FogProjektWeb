@@ -20,20 +20,20 @@
 
     public String createMeasurementH(String pathName, int pathStartX, int pathStartY, int pathEnd, int distance) {
         
-        //for small distances
-<span class="nc" id="L24">        String distString = distance + &quot;cm&quot;;</span>
-<span class="nc bnc" id="L25" title="All 2 branches missed.">        if (distance &lt; 30) {</span>
-<span class="nc" id="L26">            distString = distance + &quot;&quot;;</span>
+        //for small distances so distance mark are still visable
+<span class="fc" id="L24">        String distString = distance + &quot;cm&quot;;</span>
+<span class="fc bfc" id="L25" title="All 2 branches covered.">        if (distance &lt; 30) {</span>
+<span class="fc" id="L26">            distString = distance + &quot;&quot;;</span>
         }
         
-<span class="nc" id="L29">        return &quot;&lt;path id='&quot; + pathName + &quot;' d= 'M&quot; + pathStartX + &quot; &quot; + pathStartY + &quot; h&quot; + pathEnd + &quot;'/&gt;&quot;</span>
+<span class="fc" id="L29">        return &quot;&lt;path id='&quot; + pathName + &quot;' d= 'M&quot; + pathStartX + &quot; &quot; + pathStartY + &quot; h&quot; + pathEnd + &quot;'/&gt;&quot;</span>
                 + &quot;&lt;text&gt;&quot;
                 + &quot;&lt;textPath xlink:href='#&quot; + pathName + &quot;' startOffset='50%'&gt;&quot;
                 + &quot;&lt;tspan dy='-5' text-anchor='middle' &gt;&quot; + distString + &quot; &lt;/tspan&gt;&quot;
                 + &quot;&lt;/textPath&gt;&quot;
                 + &quot;&lt;/text&gt;&quot;
-<span class="nc" id="L35">                + createDividerH(pathStartX, pathStartY)</span>
-<span class="nc" id="L36">                + createDividerH(pathStartX + pathEnd , pathStartY);</span>
+<span class="fc" id="L35">                + createDividerH(pathStartX, pathStartY)</span>
+<span class="fc" id="L36">                + createDividerH(pathStartX + pathEnd , pathStartY);</span>
 
     }
 
