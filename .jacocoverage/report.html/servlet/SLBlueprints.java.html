@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>SLBlueprints.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;FogProjectWeb&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">servlet</a> &gt; <span class="el_source">SLBlueprints.java</span></div><h1>SLBlueprints.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package servlet;
+
+import calculator.LiftedRoof;
+import facade.Facade;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ *
+ * @author alexander
+ */
+@WebServlet(name = &quot;SLBlueprints&quot;, urlPatterns = {&quot;/SLBlueprints&quot;})
+<span class="nc" id="L25">public class SLBlueprints extends HttpServlet {</span>
+
+    /**
+     * Processes requests for both HTTP &lt;code&gt;GET&lt;/code&gt; and &lt;code&gt;POST&lt;/code&gt;
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+<span class="nc" id="L38">        response.setContentType(&quot;text/html;charset=UTF-8&quot;);</span>
+        
+        //Getting length and width from input.jsp
+<span class="nc" id="L41">        int height = Integer.parseInt(request.getParameter(&quot;ddLength&quot;));</span>
+<span class="nc" id="L42">        int width = Integer.parseInt(request.getParameter(&quot;ddWidth&quot;));</span>
+<span class="nc" id="L43">        int angle = Integer.parseInt(request.getParameter(&quot;angle&quot;));</span>
+        
+<span class="nc" id="L45">        Facade facade = new Facade();</span>
+        
+        boolean rejsning;
+<span class="nc" id="L48">        String roof = &quot;rejst&quot;;</span>
+<span class="nc bnc" id="L49" title="All 2 branches missed.">        if (roof.equalsIgnoreCase(request.getParameter(&quot;ddRoof&quot;)))</span>
+<span class="nc" id="L50">            rejsning = true;</span>
+        else
+<span class="nc" id="L52">            rejsning = false;</span>
+        
+        // TODO: Get roof height from Martin
+<span class="nc" id="L55">        int roofHeight = (int) Math.round(LiftedRoof.hypotenuse(height, angle));</span>
+        
+        boolean shed;
+<span class="nc" id="L58">        String shedString = &quot;yes&quot;;</span>
+<span class="nc bnc" id="L59" title="All 2 branches missed.">        if (shedString.equalsIgnoreCase(request.getParameter(&quot;choice&quot;)))</span>
+<span class="nc" id="L60">            shed = true;</span>
+        else
+<span class="nc" id="L62">            shed = false;</span>
+        
+        
+        
+        // Total width will change if a shed is chosen
+<span class="nc" id="L67">        int totalWidth = width;</span>
+        
+        // Adding shed and changeing total width to fit a shed
+<span class="nc bnc" id="L70" title="All 2 branches missed.">        if(shed == true) {</span>
+<span class="nc" id="L71">            totalWidth += 220;</span>
+<span class="nc" id="L72">            String shedOutline = facade.shedOutline(height, totalWidth, rejsning);</span>
+<span class="nc" id="L73">            request.setAttribute(&quot;shedOutline&quot;, shedOutline);</span>
+<span class="nc" id="L74">            String shedStolper = facade.shedStolper(height, totalWidth, rejsning);</span>
+<span class="nc" id="L75">            request.setAttribute(&quot;shedStolper&quot;, shedStolper);</span>
+<span class="nc" id="L76">            ArrayList&lt;String&gt; shedSide = facade.shedSide(totalWidth, rejsning, roofHeight);</span>
+<span class="nc" id="L77">            request.setAttribute(&quot;shedSide&quot;, shedSide);</span>
+            
+        }
+        
+<span class="nc" id="L81">        String outline = facade.outlineTop(height, totalWidth);</span>
+<span class="nc" id="L82">        request.setAttribute(&quot;outline&quot;, outline);</span>
+        
+        
+<span class="nc bnc" id="L85" title="All 2 branches missed.">        if (rejsning == true) {</span>
+            // *** TOP ***
+            // Creating stem
+<span class="nc" id="L88">            String stem = facade.stem(height, totalWidth);</span>
+<span class="nc" id="L89">            request.setAttribute(&quot;stem&quot;, stem);</span>
+            // Creating taglaegter up 
+<span class="nc" id="L91">            ArrayList&lt;String&gt; tlUp = facade.taglaegteUp(height, totalWidth);</span>
+<span class="nc" id="L92">            request.setAttribute(&quot;tlUp&quot;, tlUp);</span>
+            // Creating taglaegter down
+<span class="nc" id="L94">            ArrayList&lt;String&gt; tlDown = facade.taglaegteDown(height, totalWidth);</span>
+<span class="nc" id="L95">            request.setAttribute(&quot;tlDown&quot;, tlDown);</span>
+            // Creating spaer
+<span class="nc" id="L97">            ArrayList&lt;String&gt; spaer = facade.createSpaerRejsning(height, totalWidth);</span>
+<span class="nc" id="L98">            request.setAttribute(&quot;spaer&quot;, spaer);</span>
+            // Creating the top bjaelke
+<span class="nc" id="L100">            String bjaelkeTop = facade.bjaelkeTopRejsning(totalWidth);</span>
+<span class="nc" id="L101">            request.setAttribute(&quot;bjaelkeTop&quot;, bjaelkeTop);</span>
+            // Creating the bottom bjaelke
+<span class="nc" id="L103">            String bjaelkeBund = facade.bjaelkeBottomRejsning(totalWidth, height);</span>
+<span class="nc" id="L104">            request.setAttribute(&quot;bjaelkeBund&quot;, bjaelkeBund);</span>
+            // Creating top posts
+<span class="nc" id="L106">            ArrayList&lt;String&gt; postsTop = facade.postsTop(width, rejsning, shed);</span>
+<span class="nc" id="L107">            request.setAttribute(&quot;postsTop&quot;, postsTop);</span>
+            // Creating bottom posts
+<span class="nc" id="L109">            ArrayList&lt;String&gt; postsBottom = facade.postsBottom(height, width, rejsning, shed); </span>
+<span class="nc" id="L110">            request.setAttribute(&quot;postsBottom&quot;, postsBottom);</span>
+            
+            // *** SIDE ***
+            
+<span class="nc" id="L114">            ArrayList&lt;String&gt; posts = facade.supportPosts(width, rejsning, shed, roofHeight);</span>
+<span class="nc" id="L115">            request.setAttribute(&quot;supportPosts&quot;, posts);</span>
+<span class="nc" id="L116">            ArrayList&lt;String&gt; roofBoards = facade.roofboards(totalWidth, roofHeight);</span>
+<span class="nc" id="L117">            request.setAttribute(&quot;roofBoards&quot;, roofBoards);</span>
+<span class="nc" id="L118">            String roofHorizontal = facade.roofHorizontal(totalWidth, roofHeight);</span>
+<span class="nc" id="L119">            request.setAttribute(&quot;roofHorizontal&quot;, roofHorizontal);</span>
+<span class="nc" id="L120">            String roofEnds = facade.roofEnds(totalWidth, roofHeight);</span>
+<span class="nc" id="L121">            request.setAttribute(&quot;roofEnds&quot;, roofEnds);</span>
+            
+            
+<span class="nc" id="L124">        }</span>
+        else {
+            // *** TOP ***
+            // Creating vindkryds
+<span class="nc" id="L128">            String vindkryds = facade.vindkryds(height, width);</span>
+<span class="nc" id="L129">            request.setAttribute(&quot;vindkryds&quot;, vindkryds);</span>
+<span class="nc" id="L130">            ArrayList&lt;String&gt; spaer = facade.createSpaerFlat(height, totalWidth);</span>
+<span class="nc" id="L131">            request.setAttribute(&quot;spaer&quot;, spaer);</span>
+            // Creating the top bjaelke
+<span class="nc" id="L133">            String bjaelkeTop = facade.bjaelkeTopFlat(totalWidth);</span>
+<span class="nc" id="L134">            request.setAttribute(&quot;bjaelkeTop&quot;, bjaelkeTop);</span>
+            // Creating the bottom bjaelke
+<span class="nc" id="L136">            String bjaelkeBund = facade.bjaelkeBottomFlat(totalWidth, height);</span>
+<span class="nc" id="L137">            request.setAttribute(&quot;bjaelkeBund&quot;, bjaelkeBund);</span>
+            // Creating top posts
+<span class="nc" id="L139">            ArrayList&lt;String&gt; postsTop = facade.postsTop(width, rejsning, shed);</span>
+<span class="nc" id="L140">            request.setAttribute(&quot;postsTop&quot;, postsTop);</span>
+            // Creating bottom posts
+<span class="nc" id="L142">            ArrayList&lt;String&gt; postsBottom = facade.postsBottom(height, width, rejsning, shed); </span>
+<span class="nc" id="L143">            request.setAttribute(&quot;postsBottom&quot;, postsBottom);</span>
+            
+            // *** SIDE ***
+<span class="nc" id="L146">            String sideFlatRoof = facade.sideFlatRoof(totalWidth);</span>
+<span class="nc" id="L147">            request.setAttribute(&quot;sideFlatRoof&quot;, sideFlatRoof);</span>
+<span class="nc" id="L148">            String sideFlatRoof2 = facade.sideFlatRoof2(totalWidth);</span>
+<span class="nc" id="L149">            request.setAttribute(&quot;sideFlatRoof2&quot;, sideFlatRoof2);</span>
+<span class="nc" id="L150">            ArrayList&lt;String&gt; posts = facade.supportPosts(width, rejsning, shed, roofHeight);</span>
+<span class="nc" id="L151">            request.setAttribute(&quot;supportPosts&quot;, posts);</span>
+        }
+        
+<span class="nc" id="L154">        ArrayList&lt;String&gt; measurementsSide = facade.getMeasurementsSide();</span>
+<span class="nc" id="L155">        ArrayList&lt;String&gt; measurementsTop = facade.getMeasurementsTop();</span>
+        
+<span class="nc" id="L157">        request.setAttribute(&quot;measurementsSide&quot;, measurementsSide);</span>
+<span class="nc" id="L158">        request.setAttribute(&quot;measurementsTop&quot;, measurementsTop);</span>
+        
+
+<span class="nc" id="L161">        RequestDispatcher rd = request.getRequestDispatcher(&quot;/blueprints.jsp&quot;);</span>
+<span class="nc" id="L162">        rd.forward(request, response);</span>
+        
+<span class="nc" id="L164">        }</span>
+
+    // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;HttpServlet methods. Click on the + sign on the left to edit the code.&quot;&gt;
+    /**
+     * Handles the HTTP &lt;code&gt;GET&lt;/code&gt; method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+<span class="nc" id="L178">        processRequest(request, response);</span>
+<span class="nc" id="L179">    }</span>
+
+    /**
+     * Handles the HTTP &lt;code&gt;POST&lt;/code&gt; method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+<span class="nc" id="L192">        processRequest(request, response);</span>
+<span class="nc" id="L193">    }</span>
+
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
+    @Override
+    public String getServletInfo() {
+<span class="nc" id="L202">        return &quot;Short description&quot;;</span>
+    }// &lt;/editor-fold&gt;
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>ImplDataAccess.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;FogProjectWeb&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">data</a> &gt; <span class="el_source">ImplDataAccess.java</span></div><h1>ImplDataAccess.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package data;
+
+import classes.Category;
+import classes.Customer;
+import classes.Material;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+/**
+ *
+ * @author vfgya
+ */
+<span class="fc" id="L23">public class ImplDataAccess implements DataAccessObject {</span>
+
+    // en metode som henter all kategorierne fra databaserne
+    @Override
+    public ArrayList&lt;Category&gt; getAllCategories() {
+<span class="fc" id="L28">        ArrayList&lt;Category&gt; categories = new ArrayList&lt;&gt;();</span>
+        try {
+<span class="fc" id="L30">            DBConnector db = new DBConnector();</span>
+<span class="fc" id="L31">            Statement stmt = db.getConnection().createStatement();</span>
+<span class="fc" id="L32">            String sql = &quot;select * from category&quot;;</span>
+<span class="fc" id="L33">            Category category = null;</span>
+
+<span class="fc" id="L35">            ResultSet rs = stmt.executeQuery(sql);</span>
+<span class="fc bfc" id="L36" title="All 2 branches covered.">            while (rs.next()) {</span>
+<span class="fc" id="L37">                int cId = rs.getInt(&quot;caID&quot;);</span>
+<span class="fc" id="L38">                String title = rs.getString(&quot;caTitle&quot;);</span>
+<span class="fc" id="L39">                category = new Category(cId, title);</span>
+<span class="fc" id="L40">                categories.add(category);</span>
+<span class="fc" id="L41">            }</span>
+
+<span class="nc" id="L43">        } catch (SQLException ex) {</span>
+<span class="nc" id="L44">            Logger.getLogger(ImplDataAccess.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="fc" id="L45">        }</span>
+<span class="fc" id="L46">        return categories;</span>
+    }
+
+    // en metode som henter all materialerne fra databaserne
+    @Override
+    public ArrayList&lt;Material&gt; getAllMaterials() {
+<span class="fc" id="L52">        ArrayList&lt;Material&gt; materials = new ArrayList&lt;&gt;();</span>
+        try {
+<span class="fc" id="L54">            DBConnector db = new DBConnector();</span>
+<span class="fc" id="L55">            Statement stmt = db.getConnection().createStatement();</span>
+<span class="fc" id="L56">            String sql = &quot;select * from materials ORDER BY matID asc&quot;;</span>
+<span class="fc" id="L57">            Material material = null;</span>
+
+<span class="fc" id="L59">            ResultSet rs = stmt.executeQuery(sql);</span>
+<span class="fc bfc" id="L60" title="All 2 branches covered.">            while (rs.next()) {</span>
+<span class="fc" id="L61">                int mId = rs.getInt(&quot;matID&quot;);</span>
+<span class="fc" id="L62">                String type = rs.getString(&quot;matType&quot;);</span>
+<span class="fc" id="L63">                String mPackage = rs.getString(&quot;matPackage&quot;);</span>
+<span class="fc" id="L64">                String desc = rs.getString(&quot;matDescription&quot;);</span>
+<span class="fc" id="L65">                int caId = rs.getInt(&quot;FkCaID&quot;);</span>
+<span class="fc" id="L66">                material = new Material(mId, type, 0, 0, mPackage, desc, caId);</span>
+<span class="fc" id="L67">                materials.add(material);</span>
+<span class="fc" id="L68">            }</span>
+
+<span class="nc" id="L70">        } catch (SQLException ex) {</span>
+<span class="nc" id="L71">            Logger.getLogger(ImplDataAccess.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="fc" id="L72">        }</span>
+<span class="fc" id="L73">        return materials;</span>
+    }
+
+    @Override
+    public Customer getUser(String username, String password) {
+<span class="fc" id="L78">        Customer customer = null;</span>
+<span class="fc" id="L79">        DBConnector db = new DBConnector();</span>
+        try {
+
+<span class="fc" id="L82">            String sql = &quot;select * from customers where cName = ? and cPasword = ?&quot;;</span>
+<span class="fc" id="L83">            PreparedStatement stmt = db.getConnection().prepareStatement(sql);</span>
+<span class="fc" id="L84">            stmt.setString(1, username);</span>
+<span class="fc" id="L85">            stmt.setString(2, password);</span>
+
+<span class="fc" id="L87">            ResultSet rs = stmt.executeQuery();</span>
+<span class="fc bfc" id="L88" title="All 2 branches covered.">            while (rs.next()) {</span>
+<span class="fc" id="L89">                int cid = rs.getInt(&quot;cId&quot;);</span>
+<span class="fc" id="L90">                String cName = rs.getString(&quot;cName&quot;);</span>
+<span class="fc" id="L91">                customer = new Customer(cid, cName, null, null, 0, 0, null);</span>
+<span class="fc" id="L92">            }</span>
+<span class="nc" id="L93">        } catch (SQLException ex) {</span>
+<span class="nc" id="L94">            Logger.getLogger(ImplDataAccess.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="fc" id="L95">        }</span>
+<span class="fc" id="L96">        return customer;</span>
+    }
+
+    @Override
+    public void createUser(String name, String password, String address, int zipcode, int phone, String email) {
+<span class="fc" id="L101">        DBConnector db = new DBConnector();</span>
+        try {
+<span class="fc" id="L103">            String sql = &quot;insert into customers (cName,cAddress,cZipcode,cPhone,cEmail,cPasword) values(?,?,?,?,?,?)&quot;;</span>
+<span class="fc" id="L104">            PreparedStatement stmt = db.getConnection().prepareStatement(sql);</span>
+
+<span class="fc" id="L106">            String eP = Encrypt.sha256(password);</span>
+
+<span class="fc" id="L108">            stmt.setString(1, name);</span>
+<span class="fc" id="L109">            stmt.setString(2, address);</span>
+<span class="fc" id="L110">            stmt.setInt(3, zipcode);</span>
+<span class="fc" id="L111">            stmt.setInt(4, phone);</span>
+<span class="fc" id="L112">            stmt.setString(5, email);</span>
+<span class="fc" id="L113">            stmt.setString(6, eP);</span>
+
+<span class="fc" id="L115">            stmt.executeUpdate();</span>
+
+<span class="nc" id="L117">        } catch (SQLException ex) {</span>
+<span class="nc" id="L118">            Logger.getLogger(ImplDataAccess.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="fc" id="L119">        }</span>
+<span class="fc" id="L120">    }</span>
+
+    @Override
+    public ArrayList&lt;Integer&gt; getAllLengths() {
+<span class="fc" id="L124">        ArrayList&lt;Integer&gt; lengths = new ArrayList&lt;&gt;();</span>
+        try {
+<span class="fc" id="L126">            DBConnector db = new DBConnector();</span>
+<span class="fc" id="L127">            Statement stmt = db.getConnection().createStatement();</span>
+<span class="fc" id="L128">            String sql = &quot;select lnumber from length&quot;;</span>
+
+<span class="fc" id="L130">            ResultSet rs = stmt.executeQuery(sql);</span>
+<span class="fc bfc" id="L131" title="All 2 branches covered.">            while (rs.next()) {</span>
+<span class="fc" id="L132">                int l = rs.getInt(&quot;lnumber&quot;);</span>
+<span class="fc" id="L133">                lengths.add(l);</span>
+<span class="fc" id="L134">            }</span>
+
+<span class="nc" id="L136">        } catch (SQLException ex) {</span>
+<span class="nc" id="L137">            Logger.getLogger(ImplDataAccess.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="fc" id="L138">        }</span>
+<span class="fc" id="L139">        return lengths;</span>
+    }
+
+    @Override
+    public ArrayList&lt;Integer&gt; getAllWidths() {
+<span class="fc" id="L144">        ArrayList&lt;Integer&gt; widths = new ArrayList&lt;&gt;();</span>
+        try {
+<span class="fc" id="L146">            DBConnector db = new DBConnector();</span>
+<span class="fc" id="L147">            Statement stmt = db.getConnection().createStatement();</span>
+<span class="fc" id="L148">            String sql = &quot;select wnumber from width&quot;;</span>
+
+<span class="fc" id="L150">            ResultSet rs = stmt.executeQuery(sql);</span>
+<span class="fc bfc" id="L151" title="All 2 branches covered.">            while (rs.next()) {</span>
+<span class="fc" id="L152">                int w = rs.getInt(&quot;wnumber&quot;);</span>
+<span class="fc" id="L153">                widths.add(w);</span>
+<span class="fc" id="L154">            }</span>
+
+<span class="nc" id="L156">        } catch (SQLException ex) {</span>
+<span class="nc" id="L157">            Logger.getLogger(ImplDataAccess.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="fc" id="L158">        }</span>
+<span class="fc" id="L159">        return widths;</span>
+    }
+
+    @Override
+    public ArrayList&lt;String&gt; getAllUserNames() {
+<span class="fc" id="L164">        ArrayList&lt;String&gt; customers = new ArrayList&lt;&gt;();</span>
+        try {
+<span class="fc" id="L166">            DBConnector db = new DBConnector();</span>
+<span class="fc" id="L167">            Statement stmt = db.getConnection().createStatement();</span>
+<span class="fc" id="L168">            String sql = &quot;select cName from customers&quot;;</span>
+
+<span class="fc" id="L170">            ResultSet rs = stmt.executeQuery(sql);</span>
+<span class="fc bfc" id="L171" title="All 2 branches covered.">            while (rs.next()) {</span>
+<span class="fc" id="L172">                String name = rs.getString(&quot;cName&quot;);</span>
+<span class="fc" id="L173">                customers.add(name);</span>
+<span class="fc" id="L174">            }</span>
+
+<span class="nc" id="L176">        } catch (SQLException ex) {</span>
+<span class="nc" id="L177">            Logger.getLogger(ImplDataAccess.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="fc" id="L178">        }</span>
+<span class="fc" id="L179">        return customers;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>
