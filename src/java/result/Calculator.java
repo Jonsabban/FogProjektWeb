@@ -5,9 +5,6 @@ import calculator.LiftedRoof;
 import classes.Material;
 import java.util.ArrayList;
 
-import classes.Material;
-import java.util.ArrayList;
-
 /**
  *
  * @author vfgya_000
