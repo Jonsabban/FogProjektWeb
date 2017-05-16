@@ -12,7 +12,7 @@ public class DBConnector {
     private static String driver = "com.mysql.jdbc.Driver";
     private static String URL = "jdbc:mysql://localhost:3306/fogproject";
     private static String id = "root";
-    private static String pw = "1234";
+    private static String pw = "root";
 
     public Connection getConnection() {
         Connection con = null;
@@ -29,11 +29,4 @@ public class DBConnector {
         return con;
     }
 
-    public void releaseConnection(Connection con) {
-        try {
-            con.close();
-        } catch (Exception e) {
-            System.err.println(e);
-        }
-    }
 }

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Measurement.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;FogProjectWeb&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">classes</a> &gt; <span class="el_source">Measurement.java</span></div><h1>Measurement.java</h1><pre class="source lang-java linenums">package classes;
+
+/**
+ *
+ * @author Jonas
+ */
+<span class="fc" id="L7">public class Measurement {</span>
+
+    public String createDividerH(int centerX, int centerY) {
+
+<span class="fc" id="L11">        return &quot;&lt;line x1=&quot; + centerX + &quot; y1=&quot; + (centerY - 5) + &quot; x2=&quot; + centerX + &quot; y2=&quot; + (centerY + 5) + &quot; /&gt;&quot;;</span>
+
+    }
+
+    public String createDividerV(int centerX, int centerY) {
+
+<span class="fc" id="L17">        return &quot;&lt;line x1=&quot; + (centerX - 5) + &quot; y1=&quot; + centerY + &quot; x2=&quot; + (centerX + 5) + &quot; y2=&quot; + centerY + &quot; /&gt;&quot;;</span>
+
+    }
+
+    public String createMeasurementH(String pathName, int pathStartX, int pathStartY, int pathEnd, int distance) {
+        
+        //for small distances
+<span class="nc" id="L24">        String distString = distance + &quot;cm&quot;;</span>
+<span class="nc bnc" id="L25" title="All 2 branches missed.">        if (distance &lt; 30) {</span>
+<span class="nc" id="L26">            distString = distance + &quot;&quot;;</span>
+        }
+        
+<span class="nc" id="L29">        return &quot;&lt;path id='&quot; + pathName + &quot;' d= 'M&quot; + pathStartX + &quot; &quot; + pathStartY + &quot; h&quot; + pathEnd + &quot;'/&gt;&quot;</span>
+                + &quot;&lt;text&gt;&quot;
+                + &quot;&lt;textPath xlink:href='#&quot; + pathName + &quot;' startOffset='50%'&gt;&quot;
+                + &quot;&lt;tspan dy='-5' text-anchor='middle' &gt;&quot; + distString + &quot; &lt;/tspan&gt;&quot;
+                + &quot;&lt;/textPath&gt;&quot;
+                + &quot;&lt;/text&gt;&quot;
+<span class="nc" id="L35">                + createDividerH(pathStartX, pathStartY)</span>
+<span class="nc" id="L36">                + createDividerH(pathStartX + pathEnd , pathStartY);</span>
+
+    }
+
+    public String createMeasurementV(String pathName, int pathStartX, int pathStartY, int pathEnd, int distance) {
+              
+<span class="fc" id="L42">        return &quot;&lt;path id='&quot; + pathName + &quot;' d= 'M&quot; + pathStartX + &quot; &quot; + pathStartY + &quot; v-&quot; + pathEnd + &quot;'/&gt;&quot;</span>
+                + &quot;&lt;text&gt;&quot;
+                + &quot;&lt;textPath xlink:href='#&quot; + pathName + &quot;' startOffset='50%'&gt;&quot;
+                + &quot;&lt;tspan dy='-5' text-anchor='middle' &gt;&quot; + distance + &quot; cm &lt;/tspan&gt;&quot;
+                + &quot;&lt;/textPath&gt;&quot;
+                + &quot;&lt;/text&gt;&quot;
+<span class="fc" id="L48">                + createDividerV(pathStartX, pathStartY)</span>
+<span class="fc" id="L49">                + createDividerV(pathStartX, pathStartY - pathEnd);</span>
+
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>
