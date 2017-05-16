@@ -35,8 +35,8 @@ public class Calculator {
                 }
                 // id 19 - ???
                 if (i == 3) {
-                    list.get(i).setLength();
-                    list.get(i).setAmount();
+//                    list.get(i).setLength();
+//                    list.get(i).setAmount();
                 }
                 // id 20
                 if (i == 4) {
@@ -93,7 +93,7 @@ public class Calculator {
                 }
                 // id 31
                 if (i == 15) {
-                    list.get(i).setLength(l.);
+                    //list.get(i).setLength(l.);
                 }
             } else if (skur == false) {
                 // id 17
@@ -162,7 +162,7 @@ public class Calculator {
                 }
                 // id 31
                 if (i == 15) {
-                    list.get(i).setLength(l.);
+                    //list.get(i).setLength(l.);
                 }
             }
         }
@@ -172,8 +172,8 @@ public class Calculator {
         for (int i = 0; i < list.size(); i++) {
             if (skur == true) {
                 if (i == 1) {
-                    list.get(i).setLength();
-                    list.get(i).setAmount();
+                    //list.get(i).setLength();
+                   // list.get(i).setAmount();
                 }
             } else if (skur == false) {
 

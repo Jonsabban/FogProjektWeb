@@ -125,13 +125,6 @@ public class ImplDataAccess implements DataAccessObject {
         }
     }
         
-    @Override
-    public void deleteUser(String name, String password) {
-        try {
-            
-        } catch (Exception e) {
-        }
-    }
 
     @Override
     public ArrayList<Integer> getAllLengths() {
