@@ -16,7 +16,7 @@
     <body>
         <header><h1>Johannes Fog - Carport Builder</h1></header>
         <div id="container">
-            <form action="SLBlueprints" method="GET">
+            <form action="SLBlueprints" method="post">
                 <h3>length:</h3>
                 <select class="dd" name="ddLength">
                     <c:forEach items="${lengths}" var="length">
