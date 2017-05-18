@@ -116,7 +116,7 @@ public class GenerateBlueprints {
             spaernb += 1;
             if(spaerDistance <= (width + 100))
                 measureArrayTop.add(measurement);
-            else if(spaerDistance > 0) {
+            else if((width + 100) - (spaerDistance - 55) > 0 ) {
                 measurement = m.createMeasurementH("spaerEnd", spaerDistance - 55, 90, (width % 55), (width % 55));
                 measureArrayTop.add(measurement);
             } 
@@ -129,7 +129,7 @@ public class GenerateBlueprints {
         ArrayList<String> spaer = new ArrayList();
         String measurement;
 
-        int spaerDistance = 120;
+        int spaerDistance = 100;
         int spaernb = 1;
 
         while (spaerDistance < (width + 100)) {
@@ -144,7 +144,7 @@ public class GenerateBlueprints {
             spaernb += 1;
             if(spaerDistance <= (width + 100))
                 measureArrayTop.add(measurement);
-            else if(spaerDistance > 0) {
+            else if((width + 100) - (spaerDistance - 90) > 0 ) {
                 measurement = m.createMeasurementH("spaerEnd", spaerDistance - 90, 90, (width % 90), (width % 90));
                 measureArrayTop.add(measurement);
             }
@@ -153,7 +153,7 @@ public class GenerateBlueprints {
         return spaer;
     }
     
-    public ArrayList<String> postsTop( int width, boolean rejsning, boolean shed) {
+    public ArrayList<String> postsTop(int width, boolean rejsning, boolean shed) {
         ArrayList<String> postsTop = new ArrayList();
         int y;
         int xStart;
@@ -241,7 +241,7 @@ public class GenerateBlueprints {
         String bottom;
         String measurement;
         
-        int startY = height + 62; //Spørg hvorfor xD
+        int startY = height + 62;
         bottom = "<path d='M100 " + startY + " L" + (width + 100) + " " + startY + " L" + (width + 100) + " " + (startY + 6) + " L100 " + (startY + 6) + " Z' />";
         
         
@@ -321,6 +321,7 @@ public class GenerateBlueprints {
         int xEnd;
         int top = 108;
         int boardHeight = 212;
+        int ground = 341;
         
         if (rejsning == true) {
             xStart = 190;
@@ -357,14 +358,16 @@ public class GenerateBlueprints {
                 + between + "' y='"+top+"' style='fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)' />");
         }
         //Measurements and ground lines
+        if (rejsning == true)
+            ground = 440;
         //if there is a 3rd post
         if ((xEnd - xStart) > 310) {
         int between = (xEnd + xStart)/2;
         
-        measurePost1 = m.createMeasurementH("post1", 100, 341, xStart - 100, xStart - 100);
-        measurePost2 = m.createMeasurementH("post2", xStart, 341, between - xStart, between - xStart);
-        measurePost3 = m.createMeasurementH("post3", between, 341, xEnd - between , xEnd - between);
-        measureToEnd = m.createMeasurementH("post4", xEnd, 341, (width + 100 ) - xEnd , (width + 100 ) - xEnd);
+        measurePost1 = m.createMeasurementH("post1", 100, ground, xStart - 100, xStart - 100);
+        measurePost2 = m.createMeasurementH("post2", xStart, ground, between - xStart, between - xStart);
+        measurePost3 = m.createMeasurementH("post3", between, ground, xEnd - between , xEnd - between);
+        measureToEnd = m.createMeasurementH("post4", xEnd, ground, (width + 100 ) - xEnd , (width + 100 ) - xEnd);
         
         measureArraySide.add(measurePost1);
         measureArraySide.add(measurePost2);
@@ -373,19 +376,13 @@ public class GenerateBlueprints {
     }
          //if there is 2 posts
         else {
-        measurePost1 = m.createMeasurementH("post1", 100, 341, 50, 50);
-        measurePost2 = m.createMeasurementH("post2", 150, 341, xEnd - 150, xEnd - 150);
-        measureToEnd = m.createMeasurementH("toEnd", xEnd, 341, width+100 - xEnd, width+100 - xEnd);
+        measurePost1 = m.createMeasurementH("post1", 100, ground, 50, 50);
+        measurePost2 = m.createMeasurementH("post2", 150, ground, xEnd - 150, xEnd - 150);
+        measureToEnd = m.createMeasurementH("toEnd", xEnd, ground, width+100 - xEnd, width+100 - xEnd);
 
         measureArraySide.add(measurePost1);
         measureArraySide.add(measurePost2);
         measureArraySide.add(measureToEnd);
-       // if there is a shed on the carport
-        if (shed == true) {
-            
-            
-            
-        }
     }
          return posts;
     }

@@ -116,7 +116,7 @@ import java.util.ArrayList;
 <span class="fc" id="L116">            spaernb += 1;</span>
 <span class="fc bfc" id="L117" title="All 2 branches covered.">            if(spaerDistance &lt;= (width + 100))</span>
 <span class="fc" id="L118">                measureArrayTop.add(measurement);</span>
-<span class="pc bpc" id="L119" title="1 of 2 branches missed.">            else if(spaerDistance &gt; 0) {</span>
+<span class="pc bpc" id="L119" title="1 of 2 branches missed.">            else if((width + 100) - (spaerDistance - 55) &gt; 0 ) {</span>
 <span class="fc" id="L120">                measurement = m.createMeasurementH(&quot;spaerEnd&quot;, spaerDistance - 55, 90, (width % 55), (width % 55));</span>
 <span class="fc" id="L121">                measureArrayTop.add(measurement);</span>
             } 
@@ -126,161 +126,161 @@ import java.util.ArrayList;
     }
     
     public ArrayList&lt;String&gt; createSpaerRejsning(int height, int width) {
-<span class="nc" id="L129">        ArrayList&lt;String&gt; spaer = new ArrayList();</span>
+<span class="fc" id="L129">        ArrayList&lt;String&gt; spaer = new ArrayList();</span>
         String measurement;
 
-<span class="nc" id="L132">        int spaerDistance = 120;</span>
-<span class="nc" id="L133">        int spaernb = 1;</span>
+<span class="fc" id="L132">        int spaerDistance = 100;</span>
+<span class="fc" id="L133">        int spaernb = 1;</span>
 
-<span class="nc bnc" id="L135" title="All 2 branches missed.">        while (spaerDistance &lt; (width + 100)) {</span>
+<span class="fc bfc" id="L135" title="All 2 branches covered.">        while (spaerDistance &lt; (width + 100)) {</span>
 
-<span class="nc" id="L137">            spaer.add(&quot;&lt;path d='M&quot; + spaerDistance + &quot; 100 L&quot; + spaerDistance </span>
+<span class="fc" id="L137">            spaer.add(&quot;&lt;path d='M&quot; + spaerDistance + &quot; 100 L&quot; + spaerDistance </span>
                     + &quot; &quot; + (height + 100) + &quot; L&quot; + (spaerDistance + 5) + &quot; &quot; 
                     + (height + 100) + &quot; L&quot; + (spaerDistance + 5) + &quot; 100' /&gt;&quot;);
             
-<span class="nc" id="L141">            measurement = m.createMeasurementH(&quot;spaer&quot; + spaernb, spaerDistance, 90, 90, 90);</span>
+<span class="fc" id="L141">            measurement = m.createMeasurementH(&quot;spaer&quot; + spaernb, spaerDistance, 90, 90, 90);</span>
             
-<span class="nc" id="L143">            spaerDistance += 90;</span>
-<span class="nc" id="L144">            spaernb += 1;</span>
-<span class="nc bnc" id="L145" title="All 2 branches missed.">            if(spaerDistance &lt;= (width + 100))</span>
-<span class="nc" id="L146">                measureArrayTop.add(measurement);</span>
-<span class="nc bnc" id="L147" title="All 2 branches missed.">            else if(spaerDistance &gt; 0) {</span>
-<span class="nc" id="L148">                measurement = m.createMeasurementH(&quot;spaerEnd&quot;, spaerDistance - 90, 90, (width % 90), (width % 90));</span>
-<span class="nc" id="L149">                measureArrayTop.add(measurement);</span>
+<span class="fc" id="L143">            spaerDistance += 90;</span>
+<span class="fc" id="L144">            spaernb += 1;</span>
+<span class="fc bfc" id="L145" title="All 2 branches covered.">            if(spaerDistance &lt;= (width + 100))</span>
+<span class="fc" id="L146">                measureArrayTop.add(measurement);</span>
+<span class="pc bpc" id="L147" title="1 of 2 branches missed.">            else if((width + 100) - (spaerDistance - 90) &gt; 0 ) {</span>
+<span class="fc" id="L148">                measurement = m.createMeasurementH(&quot;spaerEnd&quot;, spaerDistance - 90, 90, (width % 90), (width % 90));</span>
+<span class="fc" id="L149">                measureArrayTop.add(measurement);</span>
             }
         }
 
-<span class="nc" id="L153">        return spaer;</span>
+<span class="fc" id="L153">        return spaer;</span>
     }
     
-    public ArrayList&lt;String&gt; postsTop( int width, boolean rejsning, boolean shed) {
-<span class="nc" id="L157">        ArrayList&lt;String&gt; postsTop = new ArrayList();</span>
+    public ArrayList&lt;String&gt; postsTop(int width, boolean rejsning, boolean shed) {
+<span class="fc" id="L157">        ArrayList&lt;String&gt; postsTop = new ArrayList();</span>
         int y;
         int xStart;
         int xEnd;
         
-<span class="nc bnc" id="L162" title="All 2 branches missed.">        if (rejsning == true) {</span>
-<span class="nc" id="L163">            y = 120;</span>
-<span class="nc" id="L164">            xStart = 190;</span>
-<span class="nc bnc" id="L165" title="All 2 branches missed.">            if (shed == true)</span>
+<span class="fc bfc" id="L162" title="All 2 branches covered.">        if (rejsning == true) {</span>
+<span class="fc" id="L163">            y = 120;</span>
+<span class="fc" id="L164">            xStart = 190;</span>
+<span class="pc bpc" id="L165" title="1 of 2 branches missed.">            if (shed == true)</span>
 <span class="nc" id="L166">                xEnd = width - 20;</span>
             else
-<span class="nc" id="L168">            xEnd = width + 70;</span>
+<span class="fc" id="L168">            xEnd = width + 70;</span>
         }
         else {
-<span class="nc" id="L171">            y = 130;</span>
-<span class="nc" id="L172">            xStart = 200;</span>
-<span class="nc bnc" id="L173" title="All 2 branches missed.">            if (shed == true)</span>
-<span class="nc" id="L174">                xEnd = width - 30;</span>
+<span class="fc" id="L171">            y = 130;</span>
+<span class="fc" id="L172">            xStart = 200;</span>
+<span class="fc bfc" id="L173" title="All 2 branches covered.">            if (shed == true)</span>
+<span class="fc" id="L174">                xEnd = width - 30;</span>
             else
-<span class="nc" id="L176">                xEnd = width + 50;</span>
+<span class="fc" id="L176">                xEnd = width + 50;</span>
         }
         
-<span class="nc" id="L179">        postsTop.add(&quot;&lt;rect width='10' height='10' x='&quot; + xStart + &quot;' y='&quot; </span>
+<span class="fc" id="L179">        postsTop.add(&quot;&lt;rect width='10' height='10' x='&quot; + xStart + &quot;' y='&quot; </span>
                 + y + &quot;' style='fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)' /&gt;&quot;);
-<span class="nc" id="L181">        postsTop.add(&quot;&lt;rect width='10' height='10' x='&quot; + xEnd </span>
+<span class="fc" id="L181">        postsTop.add(&quot;&lt;rect width='10' height='10' x='&quot; + xEnd </span>
                 + &quot;' y='&quot; + y + &quot;' style='fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)' /&gt;&quot;);
         
         
-<span class="nc bnc" id="L185" title="All 2 branches missed.">        if ((xEnd - xStart) &gt; 310) {</span>
-<span class="nc" id="L186">            int between = (xEnd + xStart)/2;</span>
-<span class="nc" id="L187">            postsTop.add(&quot;&lt;rect width='10' height='10' x='&quot; </span>
+<span class="fc bfc" id="L185" title="All 2 branches covered.">        if ((xEnd - xStart) &gt; 310) {</span>
+<span class="fc" id="L186">            int between = (xEnd + xStart)/2;</span>
+<span class="fc" id="L187">            postsTop.add(&quot;&lt;rect width='10' height='10' x='&quot; </span>
                 + between + &quot;' y='&quot; + y + &quot;' style='fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)' /&gt;&quot;);
         }
                 
-<span class="nc" id="L191">        return postsTop;</span>
+<span class="fc" id="L191">        return postsTop;</span>
     }
     
     public ArrayList&lt;String&gt; postsBottom(int height, int width, boolean rejsning, boolean shed) {
-<span class="nc" id="L195">        ArrayList&lt;String&gt; postsBottom = new ArrayList();</span>
+<span class="fc" id="L195">        ArrayList&lt;String&gt; postsBottom = new ArrayList();</span>
         int y;
         int xStart;
         int xEnd;
         
-<span class="nc bnc" id="L200" title="All 2 branches missed.">        if (rejsning == true) {</span>
-<span class="nc" id="L201">            y = height + 70;</span>
-<span class="nc" id="L202">            xStart = 190;</span>
+<span class="fc bfc" id="L200" title="All 2 branches covered.">        if (rejsning == true) {</span>
+<span class="fc" id="L201">            y = height + 70;</span>
+<span class="fc" id="L202">            xStart = 190;</span>
             
-<span class="nc bnc" id="L204" title="All 2 branches missed.">            if (shed == true)</span>
-<span class="nc" id="L205">                xEnd = width - 20;</span>
+<span class="pc bpc" id="L204" title="1 of 2 branches missed.">            if (shed == true)</span>
+<span class="fc" id="L205">                xEnd = width - 20;</span>
             else
 <span class="nc" id="L207">                xEnd = width + 70;</span>
             
         }
         else {
-<span class="nc" id="L211">            y = height + 60;</span>
-<span class="nc" id="L212">            xStart = 200;</span>
+<span class="fc" id="L211">            y = height + 60;</span>
+<span class="fc" id="L212">            xStart = 200;</span>
             
-<span class="nc bnc" id="L214" title="All 2 branches missed.">            if (shed == true)</span>
-<span class="nc" id="L215">                xEnd = width - 30;</span>
+<span class="fc bfc" id="L214" title="All 2 branches covered.">            if (shed == true)</span>
+<span class="fc" id="L215">                xEnd = width - 30;</span>
             else
-<span class="nc" id="L217">                xEnd = width + 50;</span>
+<span class="fc" id="L217">                xEnd = width + 50;</span>
         }
         
-<span class="nc" id="L220">        postsBottom.add(&quot;&lt;rect width='10' height='10' x='&quot; + xStart + &quot;' y='&quot; </span>
+<span class="fc" id="L220">        postsBottom.add(&quot;&lt;rect width='10' height='10' x='&quot; + xStart + &quot;' y='&quot; </span>
                 + y  + &quot;' style='fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)' /&gt;&quot;);
-<span class="nc" id="L222">        postsBottom.add(&quot;&lt;rect width='10' height='10' x='&quot; + xEnd </span>
+<span class="fc" id="L222">        postsBottom.add(&quot;&lt;rect width='10' height='10' x='&quot; + xEnd </span>
                 + &quot;' y='&quot; + y + &quot;' style='fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)' /&gt;&quot;);
         
-<span class="nc bnc" id="L225" title="All 2 branches missed.">        if ((xEnd - xStart) &gt; 310) {</span>
-<span class="nc" id="L226">            int between = (xEnd + xStart)/2;</span>
-<span class="nc" id="L227">            postsBottom.add(&quot;&lt;rect width='10' height='10' x='&quot; </span>
+<span class="fc bfc" id="L225" title="All 2 branches covered.">        if ((xEnd - xStart) &gt; 310) {</span>
+<span class="fc" id="L226">            int between = (xEnd + xStart)/2;</span>
+<span class="fc" id="L227">            postsBottom.add(&quot;&lt;rect width='10' height='10' x='&quot; </span>
                 + between + &quot;' y='&quot; + y + &quot;' style='fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)' /&gt;&quot;);
         }
-<span class="nc" id="L230">        return postsBottom;</span>
+<span class="fc" id="L230">        return postsBottom;</span>
     }
     
     public String bjaelkeTopFlat(int width) {
         String top;
-<span class="nc" id="L235">        top = &quot;&lt;path d='M100 132 L&quot; + (width + 100) + &quot; 132 L&quot; + (width + 100) + &quot; 138 L100 138 Z' /&gt;&quot;;</span>
+<span class="fc" id="L235">        top = &quot;&lt;path d='M100 132 L&quot; + (width + 100) + &quot; 132 L&quot; + (width + 100) + &quot; 138 L100 138 Z' /&gt;&quot;;</span>
         
-<span class="nc" id="L237">        return top;</span>
+<span class="fc" id="L237">        return top;</span>
     }
     
     public String bjaelkeBottomFlat(int width, int height) {
         String bottom;
         String measurement;
         
-<span class="nc" id="L244">        int startY = height + 62; //Spørg hvorfor xD</span>
-<span class="nc" id="L245">        bottom = &quot;&lt;path d='M100 &quot; + startY + &quot; L&quot; + (width + 100) + &quot; &quot; + startY + &quot; L&quot; + (width + 100) + &quot; &quot; + (startY + 6) + &quot; L100 &quot; + (startY + 6) + &quot; Z' /&gt;&quot;;</span>
+<span class="fc" id="L244">        int startY = height + 62;</span>
+<span class="fc" id="L245">        bottom = &quot;&lt;path d='M100 &quot; + startY + &quot; L&quot; + (width + 100) + &quot; &quot; + startY + &quot; L&quot; + (width + 100) + &quot; &quot; + (startY + 6) + &quot; L100 &quot; + (startY + 6) + &quot; Z' /&gt;&quot;;</span>
         
         
-<span class="nc" id="L248">        measurement = m.createMeasurementV(&quot;beams&quot;, 90, startY+8, height-62, height-72);</span>
-<span class="nc" id="L249">        measureArrayTop.add(measurement);</span>
+<span class="fc" id="L248">        measurement = m.createMeasurementV(&quot;beams&quot;, 90, startY+8, height-62, height-72);</span>
+<span class="fc" id="L249">        measureArrayTop.add(measurement);</span>
         
-<span class="nc" id="L251">        return bottom;</span>
+<span class="fc" id="L251">        return bottom;</span>
     }
     
     public String bjaelkeTopRejsning(int width) {
         String top;
-<span class="nc" id="L256">        top = &quot;&lt;path d='M115 122 L&quot; + (width + 100) + &quot; 122 L&quot; + (width + 100) + &quot; 128 L115 128 Z' /&gt;&quot;;</span>
+<span class="fc" id="L256">        top = &quot;&lt;path d='M115 122 L&quot; + (width + 100) + &quot; 122 L&quot; + (width + 100) + &quot; 128 L115 128 Z' /&gt;&quot;;</span>
         
         
-<span class="nc" id="L259">        return top;</span>
+<span class="fc" id="L259">        return top;</span>
     }
     
     public String bjaelkeBottomRejsning(int width, int height) {
         String bottom;
         String measurement;
         
-<span class="nc" id="L266">        int startY = height + 72; //Spørg hvorfor xD</span>
-<span class="nc" id="L267">        bottom = &quot;&lt;path d='M115 &quot; + startY + &quot; L&quot; + (width + 100) + &quot; &quot; + startY + &quot; L&quot; + (width + 100) + &quot; &quot; + (startY+6) + &quot; L115 &quot; + (startY+6) + &quot; Z' /&gt;&quot;;</span>
+<span class="fc" id="L266">        int startY = height + 72; //Spørg hvorfor xD</span>
+<span class="fc" id="L267">        bottom = &quot;&lt;path d='M115 &quot; + startY + &quot; L&quot; + (width + 100) + &quot; &quot; + startY + &quot; L&quot; + (width + 100) + &quot; &quot; + (startY+6) + &quot; L115 &quot; + (startY+6) + &quot; Z' /&gt;&quot;;</span>
         
         
-<span class="nc" id="L270">        measurement = m.createMeasurementV(&quot;beams&quot;, 90, startY+8, height-62, height-72);</span>
-<span class="nc" id="L271">        measureArrayTop.add(measurement);</span>
+<span class="fc" id="L270">        measurement = m.createMeasurementV(&quot;beams&quot;, 90, startY+8, height-62, height-72);</span>
+<span class="fc" id="L271">        measureArrayTop.add(measurement);</span>
         
-<span class="nc" id="L273">        return bottom;</span>
+<span class="fc" id="L273">        return bottom;</span>
     }
     
     public String vindkryds(int height, int width) {
         String end;
-<span class="nc" id="L278">        int Y = (height + 100) - 38;</span>
-<span class="nc" id="L279">        end = &quot;&lt;path stroke-dasharray='5,5' d='M155 135 L&quot; + (width + 45) </span>
+<span class="fc" id="L278">        int Y = (height + 100) - 38;</span>
+<span class="fc" id="L279">        end = &quot;&lt;path stroke-dasharray='5,5' d='M155 135 L&quot; + (width + 45) </span>
                 + &quot; &quot; + Y + &quot; L&quot; + (width + 50) + &quot; &quot; + Y + &quot; L160 135 Z' /&gt; \n&quot;
                 + &quot;&lt;path stroke-dasharray='5,5' d='M155 &quot; + Y + &quot; L&quot; 
                 + (width + 45) + &quot; 135 L&quot; + (width + 50) + &quot; 135 L160 &quot; + Y + &quot; Z' /&gt;&quot;;
-<span class="nc" id="L283">        return end;</span>
+<span class="fc" id="L283">        return end;</span>
     }
 
     public String sideFlatRoof(int width) {
@@ -288,15 +288,15 @@ import java.util.ArrayList;
         String roofPath;
         String measurement;
 
-<span class="nc" id="L291">        int length = width;</span>
-<span class="nc" id="L292">        double angel = (length / 100) * 0.98;</span>
+<span class="fc" id="L291">        int length = width;</span>
+<span class="fc" id="L292">        double angel = (length / 100) * 0.98;</span>
 
-<span class="nc" id="L294">        roofPath = &quot;&lt;path id='roof' d=' M100 100 l&quot; + length + &quot; &quot; + angel + &quot; v7 l-&quot; + length + &quot; -&quot; + angel + &quot; z'/&gt;&quot;;</span>
-<span class="nc" id="L295">        measurement = m.createMeasurementV(&quot;sideFlatRoof&quot;, 50, 330, 230, 230);</span>
-<span class="nc" id="L296">        measureArraySide.add(measurement);</span>
-<span class="nc" id="L297">        measurement = m.createMeasurementV(&quot;sideFlatRoofEnd&quot;, width + 120, 322, 220, 230 - (length /100 * 2));</span>
-<span class="nc" id="L298">        measureArraySide.add(measurement);</span>
-<span class="nc" id="L299">        return roofPath;</span>
+<span class="fc" id="L294">        roofPath = &quot;&lt;path id='roof' d=' M100 100 l&quot; + length + &quot; &quot; + angel + &quot; v7 l-&quot; + length + &quot; -&quot; + angel + &quot; z'/&gt;&quot;;</span>
+<span class="fc" id="L295">        measurement = m.createMeasurementV(&quot;sideFlatRoof&quot;, 50, 330, 230, 230);</span>
+<span class="fc" id="L296">        measureArraySide.add(measurement);</span>
+<span class="fc" id="L297">        measurement = m.createMeasurementV(&quot;sideFlatRoofEnd&quot;, width + 120, 322, 220, 230 - (length /100 * 2));</span>
+<span class="fc" id="L298">        measureArraySide.add(measurement);</span>
+<span class="fc" id="L299">        return roofPath;</span>
     }
 
     public String sideFlatRoof2(int width) {
@@ -304,117 +304,114 @@ import java.util.ArrayList;
         String roofPath2;
         String measurement;
 
-<span class="nc" id="L307">        int length = width - 4;</span>
-<span class="nc" id="L308">        double angel = (width / 100) * 0.98;</span>
+<span class="fc" id="L307">        int length = width - 4;</span>
+<span class="fc" id="L308">        double angel = (width / 100) * 0.98;</span>
 
-<span class="nc" id="L310">        roofPath2 = &quot;&lt;path id='roof2' d=' M102 107 l&quot; + length + &quot; &quot; + angel + &quot; v7 l-&quot; + length + &quot; -&quot; + angel + &quot; z'/&gt;&quot;;</span>
-<span class="nc" id="L311">        measurement = m.createMeasurementV(&quot;sideFlatRoof2&quot;, 80, 330, 220, 210);</span>
+<span class="fc" id="L310">        roofPath2 = &quot;&lt;path id='roof2' d=' M102 107 l&quot; + length + &quot; &quot; + angel + &quot; v7 l-&quot; + length + &quot; -&quot; + angel + &quot; z'/&gt;&quot;;</span>
+<span class="fc" id="L311">        measurement = m.createMeasurementV(&quot;sideFlatRoof2&quot;, 80, 330, 220, 210);</span>
 
-<span class="nc" id="L313">        measureArraySide.add(measurement);</span>
+<span class="fc" id="L313">        measureArraySide.add(measurement);</span>
 
-<span class="nc" id="L315">        return roofPath2;</span>
+<span class="fc" id="L315">        return roofPath2;</span>
     }
 
     public ArrayList&lt;String&gt; supportPosts(int width, boolean rejsning, boolean shed, int roofHeight) {
         
         int xStart;
         int xEnd;
-<span class="nc" id="L322">        int top = 108;</span>
-<span class="nc" id="L323">        int boardHeight = 212;</span>
+<span class="fc" id="L322">        int top = 108;</span>
+<span class="fc" id="L323">        int boardHeight = 212;</span>
+<span class="fc" id="L324">        int ground = 341;</span>
         
-<span class="nc bnc" id="L325" title="All 2 branches missed.">        if (rejsning == true) {</span>
-<span class="nc" id="L326">            xStart = 190;</span>
-<span class="nc" id="L327">            top += roofHeight + 20;</span>
+<span class="fc bfc" id="L326" title="All 2 branches covered.">        if (rejsning == true) {</span>
+<span class="fc" id="L327">            xStart = 190;</span>
+<span class="fc" id="L328">            top += roofHeight + 20;</span>
             
-<span class="nc bnc" id="L329" title="All 2 branches missed.">            if (shed == true)</span>
-<span class="nc" id="L330">                xEnd = width - 30;</span>
+<span class="pc bpc" id="L330" title="1 of 2 branches missed.">            if (shed == true)</span>
+<span class="fc" id="L331">                xEnd = width - 30;</span>
             else
-<span class="nc" id="L332">            xEnd = width + 60;</span>
+<span class="nc" id="L333">            xEnd = width + 60;</span>
         }
         else {
-<span class="nc" id="L335">            xStart = 150;</span>
+<span class="fc" id="L336">            xStart = 150;</span>
             
-<span class="nc bnc" id="L337" title="All 2 branches missed.">            if (shed == true)</span>
-<span class="nc" id="L338">                xEnd = width - 40;</span>
+<span class="pc bpc" id="L338" title="1 of 2 branches missed.">            if (shed == true)</span>
+<span class="nc" id="L339">                xEnd = width - 40;</span>
             else
-<span class="nc" id="L340">                xEnd = width + 40;</span>
+<span class="fc" id="L341">                xEnd = width + 40;</span>
         }
         
-<span class="nc" id="L343">        ArrayList&lt;String&gt; posts = new ArrayList();</span>
+<span class="fc" id="L344">        ArrayList&lt;String&gt; posts = new ArrayList();</span>
         String measurePost1;
         String measurePost2;
         String measurePost3;
         String measureToEnd;
         
-<span class="nc" id="L349">        posts.add(&quot;&lt;rect width='10' height='&quot;+boardHeight+&quot;' x='&quot; + xStart </span>
+<span class="fc" id="L350">        posts.add(&quot;&lt;rect width='10' height='&quot;+boardHeight+&quot;' x='&quot; + xStart </span>
                 + &quot;' y='&quot;+top+&quot;' style='fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)' /&gt;&quot;);
-<span class="nc" id="L351">        posts.add(&quot;&lt;rect width='10' height='&quot;+boardHeight+&quot;' x='&quot; + xEnd </span>
+<span class="fc" id="L352">        posts.add(&quot;&lt;rect width='10' height='&quot;+boardHeight+&quot;' x='&quot; + xEnd </span>
                 + &quot;' y='&quot;+top+&quot;' style='fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)' /&gt;&quot;);
         
-<span class="nc bnc" id="L354" title="All 2 branches missed.">        if ((xEnd - xStart) &gt; 310) {</span>
-<span class="nc" id="L355">            int between = (xEnd + xStart)/2;</span>
-<span class="nc" id="L356">            posts.add(&quot;&lt;rect width='10' height='&quot;+boardHeight+&quot;' x='&quot; </span>
+<span class="fc bfc" id="L355" title="All 2 branches covered.">        if ((xEnd - xStart) &gt; 310) {</span>
+<span class="fc" id="L356">            int between = (xEnd + xStart)/2;</span>
+<span class="fc" id="L357">            posts.add(&quot;&lt;rect width='10' height='&quot;+boardHeight+&quot;' x='&quot; </span>
                 + between + &quot;' y='&quot;+top+&quot;' style='fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)' /&gt;&quot;);
         }
         //Measurements and ground lines
+<span class="fc bfc" id="L361" title="All 2 branches covered.">        if (rejsning == true)</span>
+<span class="fc" id="L362">            ground = 440;</span>
         //if there is a 3rd post
-<span class="nc bnc" id="L361" title="All 2 branches missed.">        if ((xEnd - xStart) &gt; 310) {</span>
-<span class="nc" id="L362">        int between = (xEnd + xStart)/2;</span>
+<span class="fc bfc" id="L364" title="All 2 branches covered.">        if ((xEnd - xStart) &gt; 310) {</span>
+<span class="fc" id="L365">        int between = (xEnd + xStart)/2;</span>
         
-<span class="nc" id="L364">        measurePost1 = m.createMeasurementH(&quot;post1&quot;, 100, 341, xStart - 100, xStart - 100);</span>
-<span class="nc" id="L365">        measurePost2 = m.createMeasurementH(&quot;post2&quot;, xStart, 341, between - xStart, between - xStart);</span>
-<span class="nc" id="L366">        measurePost3 = m.createMeasurementH(&quot;post3&quot;, between, 341, xEnd - between , xEnd - between);</span>
-<span class="nc" id="L367">        measureToEnd = m.createMeasurementH(&quot;post4&quot;, xEnd, 341, (width + 100 ) - xEnd , (width + 100 ) - xEnd);</span>
+<span class="fc" id="L367">        measurePost1 = m.createMeasurementH(&quot;post1&quot;, 100, ground, xStart - 100, xStart - 100);</span>
+<span class="fc" id="L368">        measurePost2 = m.createMeasurementH(&quot;post2&quot;, xStart, ground, between - xStart, between - xStart);</span>
+<span class="fc" id="L369">        measurePost3 = m.createMeasurementH(&quot;post3&quot;, between, ground, xEnd - between , xEnd - between);</span>
+<span class="fc" id="L370">        measureToEnd = m.createMeasurementH(&quot;post4&quot;, xEnd, ground, (width + 100 ) - xEnd , (width + 100 ) - xEnd);</span>
         
-<span class="nc" id="L369">        measureArraySide.add(measurePost1);</span>
-<span class="nc" id="L370">        measureArraySide.add(measurePost2);</span>
-<span class="nc" id="L371">        measureArraySide.add(measurePost3);</span>
-<span class="nc" id="L372">        measureArraySide.add(measureToEnd);</span>
-<span class="nc" id="L373">    }</span>
+<span class="fc" id="L372">        measureArraySide.add(measurePost1);</span>
+<span class="fc" id="L373">        measureArraySide.add(measurePost2);</span>
+<span class="fc" id="L374">        measureArraySide.add(measurePost3);</span>
+<span class="fc" id="L375">        measureArraySide.add(measureToEnd);</span>
+<span class="fc" id="L376">    }</span>
          //if there is 2 posts
         else {
-<span class="nc" id="L376">        measurePost1 = m.createMeasurementH(&quot;post1&quot;, 100, 341, 50, 50);</span>
-<span class="nc" id="L377">        measurePost2 = m.createMeasurementH(&quot;post2&quot;, 150, 341, xEnd - 150, xEnd - 150);</span>
-<span class="nc" id="L378">        measureToEnd = m.createMeasurementH(&quot;toEnd&quot;, xEnd, 341, width+100 - xEnd, width+100 - xEnd);</span>
+<span class="fc" id="L379">        measurePost1 = m.createMeasurementH(&quot;post1&quot;, 100, ground, 50, 50);</span>
+<span class="fc" id="L380">        measurePost2 = m.createMeasurementH(&quot;post2&quot;, 150, ground, xEnd - 150, xEnd - 150);</span>
+<span class="fc" id="L381">        measureToEnd = m.createMeasurementH(&quot;toEnd&quot;, xEnd, ground, width+100 - xEnd, width+100 - xEnd);</span>
 
-<span class="nc" id="L380">        measureArraySide.add(measurePost1);</span>
-<span class="nc" id="L381">        measureArraySide.add(measurePost2);</span>
-<span class="nc" id="L382">        measureArraySide.add(measureToEnd);</span>
-       // if there is a shed on the carport
-<span class="nc bnc" id="L384" title="All 2 branches missed.">        if (shed == true) {</span>
-            
-            
-            
-        }
+<span class="fc" id="L383">        measureArraySide.add(measurePost1);</span>
+<span class="fc" id="L384">        measureArraySide.add(measurePost2);</span>
+<span class="fc" id="L385">        measureArraySide.add(measureToEnd);</span>
     }
-<span class="nc" id="L390">         return posts;</span>
+<span class="fc" id="L387">         return posts;</span>
     }
 
     public ArrayList&lt;String&gt; getMeasurementsTop() {
 
-<span class="nc" id="L395">        return measureArrayTop;</span>
+<span class="fc" id="L392">        return measureArrayTop;</span>
     }
 
     public ArrayList&lt;String&gt; getMeasurementsSide() {
 
-<span class="nc" id="L400">        return measureArraySide;</span>
+<span class="nc" id="L397">        return measureArraySide;</span>
     }
 
     public String shedOutline(int height, int width, boolean rejsning) {
         
         int yTop;
         int yBottom;
-<span class="nc bnc" id="L407" title="All 2 branches missed.">        if (rejsning == true){</span>
-<span class="nc" id="L408">            yTop = 120;</span>
-<span class="nc" id="L409">            yBottom = height + 80;</span>
+<span class="fc bfc" id="L404" title="All 2 branches covered.">        if (rejsning == true){</span>
+<span class="fc" id="L405">            yTop = 120;</span>
+<span class="fc" id="L406">            yBottom = height + 80;</span>
         }
         else {
-<span class="nc" id="L412">            yTop = 130;</span>
-<span class="nc" id="L413">            yBottom = height + 70;</span>
+<span class="fc" id="L409">            yTop = 130;</span>
+<span class="fc" id="L410">            yBottom = height + 70;</span>
         }
        
         
-<span class="nc" id="L417">        String outline = &quot;&lt;path d='M&quot; + (width - 150) + &quot; &quot; + yTop + &quot; L&quot; </span>
+<span class="fc" id="L414">        String outline = &quot;&lt;path d='M&quot; + (width - 150) + &quot; &quot; + yTop + &quot; L&quot; </span>
                 + (width + 70) + &quot; &quot; + yTop + &quot; L&quot; + (width + 70) + &quot; &quot; 
                 + yBottom + &quot; L&quot; + (width - 150) + &quot; &quot; + yBottom 
                 + &quot; Z ' stroke-width='2' stroke-dasharray='6,2' /&gt; \n &quot;
@@ -422,24 +419,24 @@ import java.util.ArrayList;
                 + (width + 69) + &quot; &quot; + (yTop + 1) + &quot; L&quot; + (width + 69) + &quot; &quot; 
                 + (yBottom - 1) + &quot; L&quot; + (width - 149) + &quot; &quot; + (yBottom - 1) 
                 + &quot; Z stroke-width='1' /&gt;&quot;; 
-<span class="nc" id="L425">        return outline;</span>
+<span class="fc" id="L422">        return outline;</span>
     }
 
     public String shedStolper(int height, int width, boolean rejsning) {
         String end;
-<span class="nc" id="L430">        int mid = (height + 200) / 2;</span>
+<span class="fc" id="L427">        int mid = (height + 200) / 2;</span>
         int yTop;
         int yBottom;
-<span class="nc bnc" id="L433" title="All 2 branches missed.">        if (rejsning == true){</span>
-<span class="nc" id="L434">            yTop = 121;</span>
-<span class="nc" id="L435">            yBottom = height + 69;</span>
+<span class="pc bpc" id="L430" title="1 of 2 branches missed.">        if (rejsning == true){</span>
+<span class="nc" id="L431">            yTop = 121;</span>
+<span class="nc" id="L432">            yBottom = height + 69;</span>
         }
         else {
-<span class="nc" id="L438">            yTop = 131;</span>
-<span class="nc" id="L439">            yBottom = height + 59;</span>
+<span class="fc" id="L435">            yTop = 131;</span>
+<span class="fc" id="L436">            yBottom = height + 59;</span>
         }
                 
-<span class="nc" id="L442">        String posts = &quot;&lt;rect width='10' height='10' x='&quot; + (width - 149) + &quot;' y='&quot; </span>
+<span class="fc" id="L439">        String posts = &quot;&lt;rect width='10' height='10' x='&quot; + (width - 149) + &quot;' y='&quot; </span>
                 + yTop  + &quot;' style='fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)' /&gt; \n &quot;
                 + &quot;&lt;rect width='10' height='10' x='&quot; + (width + 59) + &quot;' y='&quot; 
                 + yTop  + &quot;' style='fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)' /&gt; \n&quot;
@@ -448,83 +445,83 @@ import java.util.ArrayList;
                 + &quot;&lt;rect width='10' height='10' x='&quot; + (width + 59) + &quot;' y='&quot; 
                 + yBottom  + &quot;' style='fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)' /&gt; \n&quot;;
         
-<span class="nc" id="L451">        String flatStolper = &quot;&lt;rect width='10' height='10' x='&quot; + (width - 149) + &quot;' y='&quot; </span>
+<span class="fc" id="L448">        String flatStolper = &quot;&lt;rect width='10' height='10' x='&quot; + (width - 149) + &quot;' y='&quot; </span>
                 + (mid - 5)  + &quot;' style='fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)' /&gt; \n&quot;
                 + &quot;&lt;rect width='10' height='10' x='&quot; + (width + 59) + &quot;' y='&quot; 
                 + (mid - 5) + &quot;' style='fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)' /&gt;&quot;;
         
-<span class="nc bnc" id="L456" title="All 2 branches missed.">        if (rejsning == false)</span>
-<span class="nc" id="L457">            end = posts + flatStolper;</span>
+<span class="pc bpc" id="L453" title="1 of 2 branches missed.">        if (rejsning == false)</span>
+<span class="fc" id="L454">            end = posts + flatStolper;</span>
         else
-<span class="nc" id="L459">            end = posts;</span>
+<span class="nc" id="L456">            end = posts;</span>
         
-<span class="nc" id="L461">        return end;</span>
+<span class="fc" id="L458">        return end;</span>
     }
 
     public ArrayList&lt;String&gt; shedSide(int width, boolean rejsning, int roofHeight) {
-<span class="nc" id="L465">        ArrayList&lt;String&gt; shedSide = new ArrayList();</span>
-<span class="nc" id="L466">        int bp = width - 150;</span>
-<span class="nc" id="L467">        int top = 108;</span>
+<span class="fc" id="L462">        ArrayList&lt;String&gt; shedSide = new ArrayList();</span>
+<span class="fc" id="L463">        int bp = width - 150;</span>
+<span class="fc" id="L464">        int top = 108;</span>
         
-<span class="nc bnc" id="L469" title="All 2 branches missed.">        if (rejsning == true)</span>
-<span class="nc" id="L470">            top += roofHeight + 20;</span>
+<span class="fc bfc" id="L466" title="All 2 branches covered.">        if (rejsning == true)</span>
+<span class="fc" id="L467">            top += roofHeight + 20;</span>
         
-<span class="nc" id="L472">        int boardHeight = 210;</span>
-<span class="nc" id="L473">        boolean boardSide = true;</span>
+<span class="fc" id="L469">        int boardHeight = 210;</span>
+<span class="fc" id="L470">        boolean boardSide = true;</span>
         
-<span class="nc bnc" id="L475" title="All 2 branches missed.">        while (bp &lt;= width + 70) {</span>
+<span class="fc bfc" id="L472" title="All 2 branches covered.">        while (bp &lt;= width + 70) {</span>
 
-<span class="nc bnc" id="L477" title="All 2 branches missed.">            if (boardSide == true){</span>
-<span class="nc" id="L478">                shedSide.add(&quot;&lt;path d='M&quot; + bp + &quot; &quot;+top+&quot; L&quot; </span>
+<span class="fc bfc" id="L474" title="All 2 branches covered.">            if (boardSide == true){</span>
+<span class="fc" id="L475">                shedSide.add(&quot;&lt;path d='M&quot; + bp + &quot; &quot;+top+&quot; L&quot; </span>
                     + bp + &quot; &quot;+(top+boardHeight)+&quot; L&quot; + (bp + 8) + &quot; &quot;+(top+boardHeight)+&quot; L&quot; + (bp + 8) + &quot; &quot;+top+&quot; Z' /&gt;&quot;);
-<span class="nc" id="L480">                bp += 8;</span>
-<span class="nc" id="L481">                boardSide = false;</span>
+<span class="fc" id="L477">                bp += 8;</span>
+<span class="fc" id="L478">                boardSide = false;</span>
             }
             else {
-<span class="nc" id="L484">                shedSide.add(&quot;&lt;path d='M&quot; + bp + &quot; &quot;+top+&quot; L&quot; </span>
+<span class="fc" id="L481">                shedSide.add(&quot;&lt;path d='M&quot; + bp + &quot; &quot;+top+&quot; L&quot; </span>
                     + bp + &quot; &quot;+(top+boardHeight)+&quot; L&quot; + (bp + 4) + &quot; &quot;+(top+boardHeight)+&quot; L&quot; + (bp + 4) + &quot; &quot;+top+&quot; Z' /&gt;&quot;);
-<span class="nc" id="L486">                bp += 4;</span>
-<span class="nc" id="L487">                boardSide = true;</span>
+<span class="fc" id="L483">                bp += 4;</span>
+<span class="fc" id="L484">                boardSide = true;</span>
             }
             
             }
             
-<span class="nc" id="L492">        return shedSide;</span>
+<span class="fc" id="L489">        return shedSide;</span>
     }
 
     public ArrayList&lt;String&gt; roofboards(int totalWidth, int roofHeight) {
-<span class="nc" id="L496">        ArrayList&lt;String&gt; roofBoards = new ArrayList();</span>
-<span class="nc" id="L497">        int bp = 105;</span>
-<span class="nc bnc" id="L498" title="All 2 branches missed.">        while (bp &lt;= totalWidth + 95) {</span>
-<span class="nc" id="L499">            roofBoards.add(&quot;&lt;path d='M&quot; + bp + &quot; 105 L&quot; </span>
+<span class="nc" id="L493">        ArrayList&lt;String&gt; roofBoards = new ArrayList();</span>
+<span class="nc" id="L494">        int bp = 105;</span>
+<span class="nc bnc" id="L495" title="All 2 branches missed.">        while (bp &lt;= totalWidth + 95) {</span>
+<span class="nc" id="L496">            roofBoards.add(&quot;&lt;path d='M&quot; + bp + &quot; 105 L&quot; </span>
                 + bp + &quot; &quot;+(roofHeight + 110)+&quot; L&quot; + (bp + 8) + &quot; &quot;+(roofHeight + 110)+&quot; L&quot; + (bp + 8) + &quot; 105 Z' /&gt;&quot;);
-<span class="nc" id="L501">                bp += 8;</span>
+<span class="nc" id="L498">                bp += 8;</span>
         }
-<span class="nc" id="L503">        return roofBoards;</span>
+<span class="nc" id="L500">        return roofBoards;</span>
     }
 
     public String roofHorizontal(int width, int roofHeight) {
         String end;
-<span class="nc" id="L508">        int totalWidth = width + 100;</span>
-<span class="nc" id="L509">        int top = 110;</span>
-<span class="nc" id="L510">        int boardStart = top + roofHeight;</span>
-<span class="nc" id="L511">        String rooftop = &quot;&lt;path d='M100 100 L&quot;+(totalWidth+2)+&quot; 100 L&quot;+(totalWidth+2)+&quot; 105 L100 105 Z' /&gt;\n&quot;; </span>
-<span class="nc" id="L512">        String topBoard = &quot;&lt;path d='M100 &quot;+boardStart+&quot; L&quot;+(totalWidth+2)+&quot; &quot;+boardStart+&quot; L&quot;+(totalWidth+2)+&quot; &quot;+(boardStart+10)+&quot; L100 &quot;+(boardStart+10)+&quot; Z' /&gt; \n &quot;;</span>
-<span class="nc" id="L513">        String bottomBoard = &quot;&lt;path d='M130 &quot;+(boardStart+10)+&quot; L&quot;+(totalWidth-26)+&quot; &quot;+(boardStart+10)+&quot; L&quot;+(totalWidth-26)+&quot; &quot;+(boardStart+20)+&quot; L130 &quot;+(boardStart+20)+&quot; Z' /&gt;&quot;;</span>
+<span class="nc" id="L505">        int totalWidth = width + 100;</span>
+<span class="nc" id="L506">        int top = 110;</span>
+<span class="nc" id="L507">        int boardStart = top + roofHeight;</span>
+<span class="nc" id="L508">        String rooftop = &quot;&lt;path d='M100 100 L&quot;+(totalWidth+2)+&quot; 100 L&quot;+(totalWidth+2)+&quot; 105 L100 105 Z' /&gt;\n&quot;; </span>
+<span class="nc" id="L509">        String topBoard = &quot;&lt;path d='M100 &quot;+boardStart+&quot; L&quot;+(totalWidth+2)+&quot; &quot;+boardStart+&quot; L&quot;+(totalWidth+2)+&quot; &quot;+(boardStart+10)+&quot; L100 &quot;+(boardStart+10)+&quot; Z' /&gt; \n &quot;;</span>
+<span class="nc" id="L510">        String bottomBoard = &quot;&lt;path d='M130 &quot;+(boardStart+10)+&quot; L&quot;+(totalWidth-26)+&quot; &quot;+(boardStart+10)+&quot; L&quot;+(totalWidth-26)+&quot; &quot;+(boardStart+20)+&quot; L130 &quot;+(boardStart+20)+&quot; Z' /&gt;&quot;;</span>
         
-<span class="nc" id="L515">        end = rooftop + topBoard + bottomBoard;</span>
+<span class="nc" id="L512">        end = rooftop + topBoard + bottomBoard;</span>
         
-<span class="nc" id="L517">        return end;</span>
+<span class="nc" id="L514">        return end;</span>
     }
 
     public String roofEnds(int width, int roofHeight) {
         
-<span class="nc" id="L522">        int totalWidth = width + 96;</span>
+<span class="nc" id="L519">        int totalWidth = width + 96;</span>
         
-<span class="nc" id="L524">        String front = &quot;&lt;rect x='98' y='98' height='&quot;+(roofHeight+15)+&quot;' width='8' style='fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)'/&gt; \n&quot;;</span>
-<span class="nc" id="L525">        String back = &quot;&lt;rect x='&quot;+totalWidth+&quot;' y='98' height='&quot;+(roofHeight+15)+&quot;' width='8' style='fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)' /&gt;&quot;;</span>
-<span class="nc" id="L526">        String end = front + back;</span>
-<span class="nc" id="L527">        return end;</span>
+<span class="nc" id="L521">        String front = &quot;&lt;rect x='98' y='98' height='&quot;+(roofHeight+15)+&quot;' width='8' style='fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)'/&gt; \n&quot;;</span>
+<span class="nc" id="L522">        String back = &quot;&lt;rect x='&quot;+totalWidth+&quot;' y='98' height='&quot;+(roofHeight+15)+&quot;' width='8' style='fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)' /&gt;&quot;;</span>
+<span class="nc" id="L523">        String end = front + back;</span>
+<span class="nc" id="L524">        return end;</span>
     }
 
 }

@@ -52,7 +52,7 @@ public class InitTest {
             Class.forName(DRIVER);
             con = DriverManager.getConnection(url, ID, PWD);
 
-            try (Statement stmt = con.createStatement()) {             
+            try (Statement stmt = con.createStatement()) {
                 stmt.execute("Delete from customers");
                 stmt.execute("insert into customers select * from customerstest");
             }                      
@@ -79,9 +79,9 @@ public class InitTest {
     }
     @Test
     public void createUserSuccess() throws userAlreadyExistsException {
-        dbfacade.createUser("jon", "123456", "apple123", 0, 0, "nope");
-        Customer user = dbfacade.getUser("jon", "123456");
-        assertEquals(user.getcName(), "jon");
+        dbfacade.createUser("test", "123456", "apple123", 0, 0, "nope");
+        Customer user = dbfacade.getUser("test", "123456");
+        assertEquals(user.getcName(), "test");
     }
     @Test
     public void getAllCategories() {
