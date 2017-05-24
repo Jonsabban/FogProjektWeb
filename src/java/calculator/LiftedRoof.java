@@ -3,7 +3,6 @@ package calculator;
 
 public class LiftedRoof {
     
-    public double A;
     
     //Calculates materials for carport with lifted roof.
    
@@ -36,7 +35,7 @@ public class LiftedRoof {
                 vindskeder = 480;
             }
         
-            if (hypotenuse * 2 > 600) {
+            if (hypotenuse * 2 > 600 && hypotenuse * 2 <= 660) {
                 vindskeder = 540;
             }
             return vindskeder;
@@ -64,7 +63,7 @@ public class LiftedRoof {
                 vindskedeAntal += 2;
             }
         // Used for blueprint
-        A = sideA;
+        
         return vindskedeAntal;    
         }
         
@@ -119,11 +118,14 @@ public class LiftedRoof {
         return stolper;
         }
         
-        public int stolperAntal(boolean skur){
+        public int stolperAntal(int length, boolean skur){
         int stolperAntal = 4;
         if (skur = true)
         {
             stolperAntal += 5; 
+        }
+        if (length >= 540){
+            stolperAntal +=2;
         }
         return stolperAntal;
         }
@@ -195,8 +197,9 @@ public class LiftedRoof {
         return taglægterRækkerInt;
         }
         
-        public int taglægterSpær(int length){
+        public int taglægterSpær(int length, int skurLength){
         int taglægterSpær = 0;
+        length += skurLength;
         if (length <= 300){
             taglægterSpær = 300;
         }
@@ -239,9 +242,9 @@ public class LiftedRoof {
         return taglægterSpær; 
         }
         
-        public int taglægterSpærAntal(int length, int width, int angle){
+        public int taglægterSpærAntal(int length, int width, int angle, int skurLength){
             double taglægterSpærAntal = taglægterRækker(width, angle);
-            int taglægteSpær = taglægterSpær(length);
+            int taglægteSpær = taglægterSpær(length, skurLength);
             if (taglægteSpær > 540){
             taglægterSpærAntal = taglægterSpærAntal * 1.5;
             }
@@ -300,10 +303,10 @@ public class LiftedRoof {
         }
         
         //Tag
-        public int dobbelt(int length, int width, int angle){ 
+        public int dobbelt(int length, int width, int angle, int skurLength){ 
         int dobbelt = 0;
-        int vindskeder = vindskeder(width, angle);
-        int dobbeltSide = length / 30; 
+        int vindskeder = vindskedeAntal(width, angle);
+        int dobbeltSide = (length +skurLength) / 30; 
         if (vindskeder <= 240)
             {
             dobbelt = 3 * dobbeltSide;
@@ -367,9 +370,9 @@ public class LiftedRoof {
             return beslagsSkruer;
         }
         
-        public int taglægterSkruerPakker(int length, int width, int angle){
-            int taglægterSpær = taglægterSpær(length);
-            int taglægterSpærAntal = taglægterSpærAntal(length, width, angle);
+        public int taglægterSkruerPakker(int length, int width, int angle, int skurLength){
+            int taglægterSpær = taglægterSpær(length, skurLength);
+            int taglægterSpærAntal = taglægterSpærAntal(length, width, angle, skurLength);
             double taglægteTotal = taglægterSpær * taglægterSpærAntal;
             int taglægteSkruePakker = 0;
             int loopCount = 0;
@@ -380,11 +383,11 @@ public class LiftedRoof {
             }
         return taglægteSkruePakker;
         }
-        public int inderBeklædPakker(int length, int width, int angle){
+        public int inderBeklædPakker(int length, int width, int angle, int skurLength){
             int loopCount = 0;
             int inderBeklædPakker = 0;
-            int taglægterSpær = taglægterSpær(length);
-            int taglægterSpærAntal = taglægterSpærAntal(length, width, angle);
+            int taglægterSpær = taglægterSpær(length, skurLength);
+            int taglægterSpærAntal = taglægterSpærAntal(length, width, angle, skurLength);
             double taglægteTotal = taglægterSpær * taglægterSpærAntal;
             int beklædningTotal = gavlLength(width) * gavlAntal(width);
             for(int i = 0; loopCount <= taglægteTotal; i++)
@@ -395,10 +398,10 @@ public class LiftedRoof {
             return inderBeklædPakker;
         }
         
-        public int yderBeklædPakker(int length, int width, int angle){
+        public int yderBeklædPakker(int length, int width, int angle, int skurLength){
             int loopCount = 0;
-            int taglægterSpær = taglægterSpær(length);
-            int taglægterSpærAntal = taglægterSpærAntal(length, width, angle);
+            int taglægterSpær = taglægterSpær(length, skurLength);
+            int taglægterSpærAntal = taglægterSpærAntal(length, width, angle, skurLength);
             double taglægteTotal = taglægterSpær * taglægterSpærAntal;
             int yderBeklædPakker = 0;
             for(int i = 0; loopCount <= taglægteTotal; i++)

@@ -3,6 +3,7 @@ package calculator;
 import static java.lang.Math.sqrt;
 
 public class FlatRoof {
+    LiftedRoof l = new LiftedRoof();
     //Calculates materials for carport with flat roof.
         //Stern
         public int understernFB(int width){
@@ -67,18 +68,25 @@ public class FlatRoof {
         }
         
         //Spær og skruer
-        public int spær(int length){
+        public int spær(int width){
+            int spær = 0;
+            for (int i = 0; spær <= width; i++){
+                spær += 30;
+            }
+            return spær;
+        }
+        public int spærAntal(int length){
             int spær = (length/55) + 1;
             return length;
         }
         
         public int spærSkruerV(int length){
-            int spærSkruerV = spær(length);
+            int spærSkruerV = spærAntal(length);
             return spærSkruerV;
         }
         
         public int spærSkruerH(int length){
-            int spærSkruerH = spær(length);
+            int spærSkruerH = spærAntal(length);
             return spærSkruerH;
         }
         
@@ -88,31 +96,32 @@ public class FlatRoof {
             return vandbrætF;
         }
         
+        public int vandbrætFAntal(){
+            int antal = oversternFAntal();
+            return antal;
+        }
+        
         public int vandbrætSide(int length){
             int vandbrætSide = oversternSide(length);
             return vandbrætSide;
         }
         
+        public int vandbrætSideAntal(){
+            int antal = oversternSideAntal();
+            return antal;
+        }
+        
         
         //Tagplader og skruer
-        public int tagplader(int length, int width){
+        public int tagplader(int length, int width, int skurLength){
             int tagplader = width / 100;
-            if (length > 600){
+            if (length + skurLength > 600){
                 tagplader *=2;
             }
             return tagplader;
         }
         
-        public int skruePakker(int length, int width){
-            double tagSkruer = (((double)length / 100) * ((double)width / 100)) * 12;
-            int skruePakker = 0;
-            int loopCount = 0;
-            for(int i = 0; loopCount <= tagSkruer; i++)
-            {
-                loopCount += 200;
-                skruePakker++;
-            }
-        
+        public int tagpladerLength(int length){
             int tagpladeLength = 0;
             if(length <= 240)
             {
@@ -150,6 +159,19 @@ public class FlatRoof {
             {
                 tagpladeLength = 420;
             }
+            return tagpladeLength;
+        }
+        
+        public int skruePakker(int length, int width){
+            double tagSkruer = (((double)length / 100) * ((double)width / 100)) * 12;
+            int skruePakker = 0;
+            int loopCount = 0;
+            for(int i = 0; loopCount <= tagSkruer; i++)
+            {
+                loopCount += 200;
+                skruePakker++;
+            }
+        
             
             return skruePakker;
         }
@@ -177,11 +199,42 @@ public class FlatRoof {
            return tHængsel;
         }
         
+        public int indersteBeklædAmount(int skurLength, int skurWidth){
+            int indersteBeklædning = 0;
+            int beklædning = l.beklædningSkurAntal(skurLength, skurWidth);
+            int loopCount = 0;
+            for (int i = 0; loopCount <= beklædning; i++){
+                loopCount += 100;
+                indersteBeklædning += 1;
+            }
+            return indersteBeklædning;
+        }
         
-        //Output String
-//        String result = "Understern For/bagside: " +understernFB + "\n" + "Understern Sider: " + understernSide + "\n" + "Overstern Forside: " + oversternF + "\n" + "Overstern sider: " +oversternSide + "\n" + "Remme: " + remmeSide + "\n" + "Spær: " + spær + "\n" + "Vandbræt forside: " + vandbrætF + "\n" + "Vandbræt sider: " + vandbrætSide + "\n" + "Antal tagplader: " + tagplader + "\n" + "Tagplade længde: " + tagpladeLength + "\n" + "Skruepakker: " + skruePakker + "\n" + "Tagskruer i alt: " + tagSkruer + "\n" + "Antal vindkryds: " + vindkrydsAmount + "\n" + "Bræddebolte: " + bræddebolte;
+        public int ydersteBeklædAmount(int skurLength, int skurWidth){
+            int indersteBeklædning = 0;
+            int beklædning = l.beklædningSkurAntal(skurLength, skurWidth);
+            int loopCount = 0;
+            for (int i = 0; loopCount <= beklædning; i++){
+                loopCount += 100;
+                indersteBeklædning += 1;
+            }
+            return indersteBeklædning;
+        }
+        
+        public int hulbånd(){
+            int hulbånd = 2;
+            return hulbånd;
+        }
+        
+        public int sternSkruer(){
+            int skruer = 1;
+            return skruer;
+        }
+        
+        public int beslagsSkruer(){
+            int skruer = 3;
+            return skruer;
+        }
         
         
-//        return result;
-//    }
 }
