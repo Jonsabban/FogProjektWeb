@@ -44,6 +44,7 @@ public class SLlogin extends HttpServlet {
         String cword = request.getParameter("password");
         
         HttpSession session = request.getSession();
+        session.setAttribute("id", 0);
         
         try {
             Customer cs = facade.getUser(cname, cword);

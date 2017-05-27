@@ -14,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -38,6 +39,14 @@ public class SLInput extends HttpServlet {
             throws ServletException, IOException {
         
         DBFacade facade = new DBFacade();
+        
+        HttpSession session = request.getSession();
+        
+        if (session.getAttribute("id").equals(0))
+        {
+            RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
+            rd.forward(request, response);
+        }
         
         ArrayList<Integer> lengths = facade.getAllLengths();
         ArrayList<Integer> widths = facade.getAllWidths();

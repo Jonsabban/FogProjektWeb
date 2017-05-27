@@ -54,12 +54,21 @@ public class SLPrint extends HttpServlet {
         boolean rooftype = (boolean) session.getAttribute("roof");
         int angle = (int) session.getAttribute("angle");
         boolean shed = (boolean) session.getAttribute("shed");
+        
+        int skurW = 210;
+        int skurL = 360;
+        
+        if (shed == false)
+        {
+            skurW = 0;
+            skurL = 0;
+        }
 
         result.Calculator cl = new result.Calculator();
         if (rooftype == true) {
-            cl.calculateResultLifted(MAL, length, width, angle, shed, 210, 360);
+            cl.calculateResultLifted(MAL, length, width, angle, shed, skurW, skurL);
         } else {
-            cl.calculateResultFlat(MAL, length, width, shed, 210, 360);
+            cl.calculateResultFlat(MAL, length, width, shed, skurW, skurL);
         }
 
         // setter arraylisternes attributer
