@@ -8,6 +8,7 @@ package servlet;
 import classes.Category;
 import classes.Material;
 import data.DataAccessObject;
+import facade.DBFacade;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -41,11 +42,12 @@ public class SLPrint extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        data.DataAccessObject dao = new data.ImplDataAccess();
+        
+        DBFacade facade = new DBFacade();
 
         // variabler med arraylisterne
-        ArrayList<Category> CAL = dao.getAllCategories();
-        ArrayList<Material> MAL = dao.getAllMaterials();
+        ArrayList<Category> CAL = facade.getAllCategories();
+        ArrayList<Material> MAL = facade.getAllMaterials();
 
         // Sessions
         HttpSession session = request.getSession();

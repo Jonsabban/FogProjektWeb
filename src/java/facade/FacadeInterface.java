@@ -43,4 +43,8 @@ public interface FacadeInterface {
     public ArrayList<String> roofboards(int totalWidth, int roofHeight);
     public String roofHorizontal(int width, int roofHeight);
     public String roofEnds(int width, int roofHeight);
+    
+    //Material List
+    public void calculateResultLifted(ArrayList<Material> list, int length, int width, int angle, boolean skur, int skurlength, int skurwidth);
+    public void calculateResultFlat(ArrayList<Material> list, int length, int width, boolean skur, int skurlength, int skurwidth);
 }

@@ -140,4 +140,14 @@ public class Facade implements FacadeInterface {
         return gb.roofEnds(width, roofHeight);
     }
 
+    @Override
+    public void calculateResultLifted(ArrayList<Material> list, int length, int width, int angle, boolean skur, int skurlength, int skurwidth) {
+        
+    }
+
+    @Override
+    public void calculateResultFlat(ArrayList<Material> list, int length, int width, boolean skur, int skurlength, int skurwidth) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }
