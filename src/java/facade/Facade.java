@@ -15,10 +15,11 @@ import java.util.ArrayList;
  * @author Jonas
  */
 public class Facade implements FacadeInterface {
-        private GenerateBlueprints gb;
-        private DBFacade DB;
-        private Calculator calc;
- 
+
+    private GenerateBlueprints gb;
+    private DBFacade DB;
+    private Calculator calc;
+
     public Facade() {
         this.gb = new GenerateBlueprints();
         this.DB = new DBFacade();
@@ -146,12 +147,23 @@ public class Facade implements FacadeInterface {
 
     @Override
     public void calculateResultLifted(ArrayList<Material> list, int length, int width, int angle, boolean skur, int skurlength, int skurwidth) {
-        calc.calculateResultLifted(DB.getAllMaterials(), length, width, angle, skur, skurlength, skurwidth);
+        list = DB.getAllMaterials();
+        try {
+            calc.calculateResultLifted(list, length, width, angle, skur, skurlength, skurwidth);
+        } catch (Exception e) {
+            System.out.println("fejl i LiftedRoof");
+        }
+
     }
 
     @Override
     public void calculateResultFlat(ArrayList<Material> list, int length, int width, boolean skur, int skurlength, int skurwidth) {
-        calc.calculateResultFlat(DB.getAllMaterials(), length, width, skur, skurlength, skurwidth);
+        list = DB.getAllMaterials();
+        try {
+            calc.calculateResultFlat(list, length, width, skur, skurlength, skurwidth);
+        } catch (Exception e) {
+            System.out.println("fejl i FlatRoof");
+        }
     }
 
 }

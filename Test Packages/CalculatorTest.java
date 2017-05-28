@@ -36,4 +36,19 @@ public class CalculatorTest {
     //
     // @Test
     // public void hello() {}
+    
+    @Test
+    public void calcTest() {
+        
+       
+        
+        
+        
+    }
+    
+    
+    
 }
+
+
+

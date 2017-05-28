@@ -10,9 +10,8 @@ import java.util.ArrayList;
 
 
 public class Calculator {
-    private FlatRoof f = new FlatRoof();
-    private LiftedRoof l = new LiftedRoof();
-    
+    FlatRoof f = new FlatRoof();
+    LiftedRoof l = new LiftedRoof();
 
     public void calculateResultLifted(ArrayList<Material> list, int length, int width, int angle, boolean skur, int skurlength, int skurwidth) {
         for (int i = 0; i < list.size(); i++) {

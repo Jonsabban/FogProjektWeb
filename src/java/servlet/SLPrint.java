@@ -71,9 +71,9 @@ public class SLPrint extends HttpServlet {
         }
         
         if (rooftype == true) {
-            facade.calculateResultLifted(MAL, 600, 600, 15, false, 200, 200);
+            calc.calculateResultLifted(MAL, length, width, angle, shed, skurW, skurL);
         } else {
-            facade.calculateResultFlat(MAL, length, width, shed, skurW, skurL);
+            calc.calculateResultFlat(MAL, length, width, shed, skurW, skurL);
         }
 
         // setter arraylisternes attributer
