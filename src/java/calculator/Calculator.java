@@ -1,6 +1,7 @@
 package calculator;
 
 import classes.Material;
+import facade.DBFacade;
 import java.util.ArrayList;
 
 /**
@@ -14,6 +15,11 @@ public class Calculator {
     LiftedRoof l = new LiftedRoof();
 
     public void calculateResultLifted(ArrayList<Material> list, int length, int width, int angle, boolean skur, int skurlength, int skurwidth) {
+        if (list.isEmpty())
+        {
+            DBFacade DB = new DBFacade();
+            list = DB.getAllMaterials();
+        }
         for (int i = 0; i < list.size(); i++) {
             if (skur == true) {
                 // id 17
