@@ -1,6 +1,7 @@
 package facade;
 
 import blueprints.GenerateBlueprints;
+import calculator.Calculator;
 import classes.Category;
 import classes.Customer;
 import classes.Material;
@@ -15,9 +16,12 @@ import java.util.ArrayList;
  */
 public class Facade implements FacadeInterface {
         private GenerateBlueprints gb;
+        private DBFacade DB;
+        private Calculator calc;
  
     public Facade() {
         this.gb = new GenerateBlueprints();
+        this.DB = new DBFacade();
     }
 
     @Override
@@ -142,12 +146,12 @@ public class Facade implements FacadeInterface {
 
     @Override
     public void calculateResultLifted(ArrayList<Material> list, int length, int width, int angle, boolean skur, int skurlength, int skurwidth) {
-        
+        calc.calculateResultLifted(DB.getAllMaterials(), length, width, angle, skur, skurlength, skurwidth);
     }
 
     @Override
     public void calculateResultFlat(ArrayList<Material> list, int length, int width, boolean skur, int skurlength, int skurwidth) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        calc.calculateResultFlat(DB.getAllMaterials(), length, width, skur, skurlength, skurwidth);
     }
 
 }

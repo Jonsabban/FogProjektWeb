@@ -1,7 +1,5 @@
-package result;
+package calculator;
 
-import calculator.FlatRoof;
-import calculator.LiftedRoof;
 import classes.Material;
 import java.util.ArrayList;
 
@@ -12,9 +10,8 @@ import java.util.ArrayList;
 
 
 public class Calculator {
-    
-    calculator.FlatRoof f = new FlatRoof();
-    calculator.LiftedRoof l = new LiftedRoof();
+    private FlatRoof f = new FlatRoof();
+    private LiftedRoof l = new LiftedRoof();
     
 
     public void calculateResultLifted(ArrayList<Material> list, int length, int width, int angle, boolean skur, int skurlength, int skurwidth) {

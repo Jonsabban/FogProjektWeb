@@ -5,10 +5,12 @@
  */
 package servlet;
 
+import calculator.Calculator;
 import classes.Category;
 import classes.Material;
 import data.DataAccessObject;
 import facade.DBFacade;
+import facade.Facade;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -43,11 +45,13 @@ public class SLPrint extends HttpServlet {
             throws ServletException, IOException {
 
         
-        DBFacade facade = new DBFacade();
+        DBFacade DBfacade = new DBFacade();
+        Facade facade = new Facade();
+        Calculator calc = new Calculator();
 
         // variabler med arraylisterne
-        ArrayList<Category> CAL = facade.getAllCategories();
-        ArrayList<Material> MAL = facade.getAllMaterials();
+        ArrayList<Category> CAL = DBfacade.getAllCategories();
+        ArrayList<Material> MAL = DBfacade.getAllMaterials();
 
         // Sessions
         HttpSession session = request.getSession();
@@ -65,12 +69,11 @@ public class SLPrint extends HttpServlet {
             skurW = 0;
             skurL = 0;
         }
-
-        result.Calculator cl = new result.Calculator();
+        
         if (rooftype == true) {
-            cl.calculateResultLifted(MAL, length, width, angle, shed, skurW, skurL);
+            facade.calculateResultLifted(MAL, 600, 600, 15, false, 200, 200);
         } else {
-            cl.calculateResultFlat(MAL, length, width, shed, skurW, skurL);
+            facade.calculateResultFlat(MAL, length, width, shed, skurW, skurL);
         }
 
         // setter arraylisternes attributer
