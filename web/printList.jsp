@@ -21,7 +21,7 @@
         <c:forEach items="${allC}" var="cList">
         <table style="width:100%">
             <tr>
-                <th>Beskrivelse</th>
+                <th>Titel</th>
                 <th>Længde</th> 
                 <th>Antal</th>
                 <th>Enhed</th>
