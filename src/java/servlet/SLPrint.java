@@ -47,7 +47,6 @@ public class SLPrint extends HttpServlet {
         
         DBFacade DBfacade = new DBFacade();
         Facade facade = new Facade();
-        Calculator calc = new Calculator();
 
         // variabler med arraylisterne
         ArrayList<Category> CAL = DBfacade.getAllCategories();
@@ -71,9 +70,9 @@ public class SLPrint extends HttpServlet {
         }
         
         if (rooftype == true) {
-            calc.calculateResultLifted(MAL, length, width, angle, shed, skurW, skurL);
+            facade.calculateResultLifted(MAL, length, width, angle, shed, skurW, skurL);
         } else {
-            calc.calculateResultFlat(MAL, length, width, shed, skurW, skurL);
+            facade.calculateResultFlat(MAL, length, width, shed, skurW, skurL);
         }
 
         // setter arraylisternes attributer

@@ -25,6 +25,7 @@ public class Facade implements FacadeInterface
     {
         this.gb = new GenerateBlueprints();
         this.DB = new DBFacade();
+        this.calc = new Calculator();
     }
 
     @Override
@@ -174,14 +175,24 @@ public class Facade implements FacadeInterface
     @Override
     public void calculateResultLifted(ArrayList<Material> list, int length, int width, int angle, boolean skur, int skurlength, int skurwidth)
     {
-        calc.calculateResultLifted(list, length, width, angle, skur, skurlength, skurwidth);
+        try {
+            calc.calculateResultLifted(list, length, width, angle, skur, skurlength, skurwidth);
+        } catch (Exception e) {
+            System.out.println("LiftedRoof Fails");
+        }
+        
 
     }
 
     @Override
     public void calculateResultFlat(ArrayList<Material> list, int length, int width, boolean skur, int skurlength, int skurwidth)
     {
-        calc.calculateResultFlat(list, length, width, skur, skurlength, skurwidth);
+        try {
+           calc.calculateResultFlat(list, length, width, skur, skurlength, skurwidth); 
+        } catch (Exception e) {
+            System.out.println("FlatRoof Fails");
+        }
+        
     }
 
 }
