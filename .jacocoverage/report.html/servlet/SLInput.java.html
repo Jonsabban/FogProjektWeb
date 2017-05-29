@@ -14,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -23,7 +24,7 @@ import javax.servlet.http.HttpServletResponse;
         = {
             &quot;/SLInput&quot;
         })
-<span class="nc" id="L26">public class SLInput extends HttpServlet {</span>
+<span class="nc" id="L27">public class SLInput extends HttpServlet {</span>
 
     /**
      * Processes requests for both HTTP &lt;code&gt;GET&lt;/code&gt; and &lt;code&gt;POST&lt;/code&gt;
@@ -37,17 +38,25 @@ import javax.servlet.http.HttpServletResponse;
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-<span class="nc" id="L40">        DBFacade facade = new DBFacade();</span>
+<span class="nc" id="L41">        DBFacade facade = new DBFacade();</span>
         
-<span class="nc" id="L42">        ArrayList&lt;Integer&gt; lengths = facade.getAllLengths();</span>
-<span class="nc" id="L43">        ArrayList&lt;Integer&gt; widths = facade.getAllWidths();</span>
+<span class="nc" id="L43">        HttpSession session = request.getSession();</span>
         
-<span class="nc" id="L45">        request.setAttribute(&quot;lengths&quot;, lengths);</span>
-<span class="nc" id="L46">        request.setAttribute(&quot;widths&quot;, widths);</span>
+<span class="nc bnc" id="L45" title="All 2 branches missed.">        if (session.getAttribute(&quot;id&quot;).equals(0))</span>
+        {
+<span class="nc" id="L47">            RequestDispatcher rd = request.getRequestDispatcher(&quot;/login.jsp&quot;);</span>
+<span class="nc" id="L48">            rd.forward(request, response);</span>
+        }
         
-<span class="nc" id="L48">        RequestDispatcher rd = request.getRequestDispatcher(&quot;/input.jsp&quot;);</span>
-<span class="nc" id="L49">        rd.forward(request, response);</span>
-<span class="nc" id="L50">    }</span>
+<span class="nc" id="L51">        ArrayList&lt;Integer&gt; lengths = facade.getAllLengths();</span>
+<span class="nc" id="L52">        ArrayList&lt;Integer&gt; widths = facade.getAllWidths();</span>
+        
+<span class="nc" id="L54">        request.setAttribute(&quot;lengths&quot;, lengths);</span>
+<span class="nc" id="L55">        request.setAttribute(&quot;widths&quot;, widths);</span>
+        
+<span class="nc" id="L57">        RequestDispatcher rd = request.getRequestDispatcher(&quot;/input.jsp&quot;);</span>
+<span class="nc" id="L58">        rd.forward(request, response);</span>
+<span class="nc" id="L59">    }</span>
 
     // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;HttpServlet methods. Click on the + sign on the left to edit the code.&quot;&gt;
     /**
@@ -61,8 +70,8 @@ import javax.servlet.http.HttpServletResponse;
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-<span class="nc" id="L64">        processRequest(request, response);</span>
-<span class="nc" id="L65">    }</span>
+<span class="nc" id="L73">        processRequest(request, response);</span>
+<span class="nc" id="L74">    }</span>
 
     /**
      * Handles the HTTP &lt;code&gt;POST&lt;/code&gt; method.
@@ -75,8 +84,8 @@ import javax.servlet.http.HttpServletResponse;
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-<span class="nc" id="L78">        processRequest(request, response);</span>
-<span class="nc" id="L79">    }</span>
+<span class="nc" id="L87">        processRequest(request, response);</span>
+<span class="nc" id="L88">    }</span>
 
     /**
      * Returns a short description of the servlet.
@@ -85,7 +94,7 @@ import javax.servlet.http.HttpServletResponse;
      */
     @Override
     public String getServletInfo() {
-<span class="nc" id="L88">        return &quot;Short description&quot;;</span>
+<span class="nc" id="L97">        return &quot;Short description&quot;;</span>
     }// &lt;/editor-fold&gt;
 
 }

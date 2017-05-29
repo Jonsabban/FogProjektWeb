@@ -1,71 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>LiftedRoof.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;FogProjectWeb&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">calculator</a> &gt; <span class="el_source">LiftedRoof.java</span></div><h1>LiftedRoof.java</h1><pre class="source lang-java linenums">package calculator;
 
 
-<span class="nc" id="L4">public class LiftedRoof {</span>
+<span class="fc" id="L4">public class LiftedRoof {</span>
     
-    public double A;
     
     //Calculates materials for carport with lifted roof.
    
         //Vindskede
         public int vindskeder(int width, int angle)
         {
-<span class="nc" id="L13">            double angleToRadian = Math.toRadians(angle);</span>
-<span class="nc" id="L14">            int vindskeder = 0;</span>
-<span class="nc" id="L15">            double sideB = (double) width / 2;</span>
-<span class="nc" id="L16">            double sideA = Math.tan(angleToRadian) * sideB; </span>
-<span class="nc" id="L17">            double hypotenuse = Math.sqrt((sideB * sideB) + (sideA * sideA));</span>
+<span class="fc" id="L12">            double angleToRadian = Math.toRadians(angle);</span>
+<span class="fc" id="L13">            int vindskeder = 0;</span>
+<span class="fc" id="L14">            double sideB = (double) width / 2;</span>
+<span class="fc" id="L15">            double sideA = Math.tan(angleToRadian) * sideB; </span>
+<span class="fc" id="L16">            double hypotenuse = Math.sqrt((sideB * sideB) + (sideA * sideA));</span>
         
-<span class="nc bnc" id="L19" title="All 2 branches missed.">            if (hypotenuse * 2 &lt;= 360) {</span>
-<span class="nc" id="L20">                vindskeder = 420;</span>
+<span class="pc bpc" id="L18" title="1 of 2 branches missed.">            if (hypotenuse * 2 &lt;= 360) {</span>
+<span class="nc" id="L19">                vindskeder = 420;</span>
             }
         
-<span class="nc bnc" id="L23" title="All 4 branches missed.">            if (hypotenuse * 2 &gt; 360 &amp;&amp; hypotenuse * 2 &lt;= 420) {</span>
-<span class="nc" id="L24">                vindskeder = 480;</span>
+<span class="pc bpc" id="L22" title="2 of 4 branches missed.">            if (hypotenuse * 2 &gt; 360 &amp;&amp; hypotenuse * 2 &lt;= 420) {</span>
+<span class="nc" id="L23">                vindskeder = 480;</span>
             }
         
-<span class="nc bnc" id="L27" title="All 4 branches missed.">            if (hypotenuse * 2 &gt; 420 &amp;&amp; hypotenuse * 2 &lt;= 480) {</span>
-<span class="nc" id="L28">                vindskeder = 540;</span>
+<span class="pc bpc" id="L26" title="2 of 4 branches missed.">            if (hypotenuse * 2 &gt; 420 &amp;&amp; hypotenuse * 2 &lt;= 480) {</span>
+<span class="nc" id="L27">                vindskeder = 540;</span>
             }
         
-<span class="nc bnc" id="L31" title="All 4 branches missed.">            if (hypotenuse * 2 &gt; 480 &amp;&amp; hypotenuse * 2 &lt;= 540) {</span>
-<span class="nc" id="L32">                vindskeder = 420;</span>
+<span class="pc bpc" id="L30" title="2 of 4 branches missed.">            if (hypotenuse * 2 &gt; 480 &amp;&amp; hypotenuse * 2 &lt;= 540) {</span>
+<span class="nc" id="L31">                vindskeder = 420;</span>
             }
         
-<span class="nc bnc" id="L35" title="All 4 branches missed.">            if (hypotenuse * 2 &gt; 540 &amp;&amp; hypotenuse * 2 &lt;= 600) {</span>
-<span class="nc" id="L36">                vindskeder = 480;</span>
+<span class="pc bpc" id="L34" title="2 of 4 branches missed.">            if (hypotenuse * 2 &gt; 540 &amp;&amp; hypotenuse * 2 &lt;= 600) {</span>
+<span class="fc" id="L35">                vindskeder = 480;</span>
             }
         
-<span class="nc bnc" id="L39" title="All 2 branches missed.">            if (hypotenuse * 2 &gt; 600) {</span>
-<span class="nc" id="L40">                vindskeder = 540;</span>
+<span class="pc bpc" id="L38" title="3 of 4 branches missed.">            if (hypotenuse * 2 &gt; 600 &amp;&amp; hypotenuse * 2 &lt;= 660) {</span>
+<span class="nc" id="L39">                vindskeder = 540;</span>
             }
-<span class="nc" id="L42">            return vindskeder;</span>
+<span class="fc" id="L41">            return vindskeder;</span>
         }
         
         //Hypotenuse til plantegning
         public static double hypotenuse(int width, int angle)
         {
-<span class="nc" id="L48">            double angleToRadian = Math.toRadians(angle);</span>
-<span class="nc" id="L49">            int vindskeder = 0;</span>
-<span class="nc" id="L50">            double sideB = (double) width / 2;</span>
-<span class="nc" id="L51">            double sideA = Math.tan(angleToRadian) * sideB; </span>
-<span class="nc" id="L52">            double hypotenuse = Math.sqrt((sideB * sideB) + (sideA * sideA));</span>
-<span class="nc" id="L53">            return sideA;</span>
+<span class="nc" id="L47">            double angleToRadian = Math.toRadians(angle);</span>
+<span class="nc" id="L48">            int vindskeder = 0;</span>
+<span class="nc" id="L49">            double sideB = (double) width / 2;</span>
+<span class="nc" id="L50">            double sideA = Math.tan(angleToRadian) * sideB; </span>
+<span class="nc" id="L51">            double hypotenuse = Math.sqrt((sideB * sideB) + (sideA * sideA));</span>
+<span class="nc" id="L52">            return sideA;</span>
         }
         
         public int vindskedeAntal(int width, int angle){
-<span class="nc" id="L57">            int vindskedeAntal = 2;</span>
-<span class="nc" id="L58">            double angleToRadian = Math.toRadians(angle);</span>
-<span class="nc" id="L59">            int vindskeder = 0;</span>
-<span class="nc" id="L60">            double sideB = (double) width / 2;</span>
-<span class="nc" id="L61">            double sideA = Math.tan(angleToRadian) * sideB; </span>
-<span class="nc" id="L62">            double hypotenuse = Math.sqrt((sideB * sideB) + (sideA * sideA));</span>
-<span class="nc bnc" id="L63" title="All 2 branches missed.">            if (hypotenuse &gt; 480){</span>
-<span class="nc" id="L64">                vindskedeAntal += 2;</span>
+<span class="fc" id="L56">            int vindskedeAntal = 2;</span>
+<span class="fc" id="L57">            double angleToRadian = Math.toRadians(angle);</span>
+<span class="fc" id="L58">            int vindskeder = 0;</span>
+<span class="fc" id="L59">            double sideB = (double) width / 2;</span>
+<span class="fc" id="L60">            double sideA = Math.tan(angleToRadian) * sideB; </span>
+<span class="fc" id="L61">            double hypotenuse = Math.sqrt((sideB * sideB) + (sideA * sideA));</span>
+<span class="pc bpc" id="L62" title="1 of 2 branches missed.">            if (hypotenuse &gt; 480){</span>
+<span class="nc" id="L63">                vindskedeAntal += 2;</span>
             }
         // Used for blueprint
-<span class="nc" id="L67">        A = sideA;</span>
-<span class="nc" id="L68">        return vindskedeAntal;    </span>
+        
+<span class="fc" id="L67">        return vindskedeAntal;    </span>
         }
         
         
@@ -73,425 +72,429 @@
         
         //Stern
         public int sternSide(int length){
-<span class="nc" id="L76">            int sternSide = length + 90;</span>
-<span class="nc" id="L77">            return sternSide;</span>
+<span class="fc" id="L75">            int sternSide = length + 90;</span>
+<span class="fc" id="L76">            return sternSide;</span>
         }
 
         public int sternSideAntal(){
-<span class="nc" id="L81">         int sternSideAntal = 2;</span>
-<span class="nc" id="L82">         return sternSideAntal;</span>
+<span class="fc" id="L80">         int sternSideAntal = 2;</span>
+<span class="fc" id="L81">         return sternSideAntal;</span>
         }
         
         //Stern - Skur
         public int sternSideSkur(int skurLength){
-<span class="nc" id="L87">            int sternSideSkur = (skurLength * 2) + 120;</span>
-<span class="nc" id="L88">            return sternSideSkur;</span>
+<span class="fc" id="L86">            int sternSideSkur = (skurLength * 2) + 120;</span>
+<span class="fc" id="L87">            return sternSideSkur;</span>
         }
         
         public int sternSideSkurAntal(){
-<span class="nc" id="L92">            int sternSideSkurAntal = 1;</span>
-<span class="nc" id="L93">            return sternSideSkurAntal;</span>
+<span class="fc" id="L91">            int sternSideSkurAntal = 1;</span>
+<span class="fc" id="L92">            return sternSideSkurAntal;</span>
         }
         //Byg Selv Spær - Færdigskåret
         public int færdigByggetAntal(){
-<span class="nc" id="L97">        int færdigByggetAntal = 1;</span>
-<span class="nc" id="L98">        return færdigByggetAntal;</span>
+<span class="fc" id="L96">        int færdigByggetAntal = 1;</span>
+<span class="fc" id="L97">        return færdigByggetAntal;</span>
         }
         
         public int antalSpær(int length){
-<span class="nc" id="L102">        int antalSpær = (length/89) + 1;</span>
-<span class="nc" id="L103">        return antalSpær;</span>
+<span class="nc" id="L101">        int antalSpær = (length/89) + 1;</span>
+<span class="nc" id="L102">        return antalSpær;</span>
         }
         
         
         public int skruerSpærV(int length){
-<span class="nc" id="L108">        int skruerSpærV = (length/89) + 1;</span>
-<span class="nc" id="L109">        return skruerSpærV;</span>
+<span class="fc" id="L107">        int skruerSpærV = (length/89) + 1;</span>
+<span class="fc" id="L108">        return skruerSpærV;</span>
         }
         public int skruerSpærH(int length){
-<span class="nc" id="L112">        int skruerSpærH = (length/89) + 1;</span>
-<span class="nc" id="L113">        return skruerSpærH;</span>
+<span class="fc" id="L111">        int skruerSpærH = (length/89) + 1;</span>
+<span class="fc" id="L112">        return skruerSpærH;</span>
         }
         
         //Stolper
         public int stolperLength(){
-<span class="nc" id="L118">        int stolper = 300;</span>
-<span class="nc" id="L119">        return stolper;</span>
+<span class="fc" id="L117">        int stolper = 300;</span>
+<span class="fc" id="L118">        return stolper;</span>
         }
         
-        public int stolperAntal(boolean skur){
-<span class="nc" id="L123">        int stolperAntal = 4;</span>
-<span class="nc bnc" id="L124" title="All 2 branches missed.">        if (skur = true)</span>
+        public int stolperAntal(int length, boolean skur){
+<span class="fc" id="L122">        int stolperAntal = 4;</span>
+<span class="pc bpc" id="L123" title="1 of 2 branches missed.">        if (skur = true)</span>
         {
-<span class="nc" id="L126">            stolperAntal += 5; </span>
+<span class="fc" id="L125">            stolperAntal += 5; </span>
         }
-<span class="nc" id="L128">        return stolperAntal;</span>
+<span class="pc bpc" id="L127" title="1 of 2 branches missed.">        if (length &gt;= 540){</span>
+<span class="nc" id="L128">            stolperAntal +=2;</span>
+        }
+<span class="fc" id="L130">        return stolperAntal;</span>
         }
         
         
         //Remme
         public int remme(int length){
-<span class="nc" id="L134">        int remme = length - 30;</span>
-<span class="nc" id="L135">        return remme;</span>
+<span class="fc" id="L136">        int remme = length - 30;</span>
+<span class="fc" id="L137">        return remme;</span>
         }
         
         public int remmeAntal(){
-<span class="nc" id="L139">        int remmeAntal = 2;</span>
-<span class="nc" id="L140">        return remmeAntal;</span>
+<span class="fc" id="L141">        int remmeAntal = 2;</span>
+<span class="fc" id="L142">        return remmeAntal;</span>
         }
         
         
         //Vandbræt
         public int vandbræt(int width, int angle){
-<span class="nc" id="L146">        int vandbræt = vindskeder(width, angle);</span>
-<span class="nc" id="L147">        return vandbræt;</span>
+<span class="fc" id="L148">        int vandbræt = vindskeder(width, angle);</span>
+<span class="fc" id="L149">        return vandbræt;</span>
         }
         
         public int vandbrætAntal(int width, int angle){
-<span class="nc" id="L151">        int vandbrætAntal = vindskedeAntal(width, angle);</span>
-<span class="nc" id="L152">        return vandbrætAntal;</span>
+<span class="fc" id="L153">        int vandbrætAntal = vindskedeAntal(width, angle);</span>
+<span class="fc" id="L154">        return vandbrætAntal;</span>
         }
         
         //Beklædning af gavle
         public int gavlAntal(int width){
-<span class="nc" id="L157">        int gavlAntal = ((width / 10) / 2) + 2;</span>
-<span class="nc" id="L158">        return gavlAntal;</span>
+<span class="fc" id="L159">        int gavlAntal = ((width / 10) / 2) + 2;</span>
+<span class="fc" id="L160">        return gavlAntal;</span>
         }
         
         public int gavlLength(int width){
-<span class="nc" id="L162">        double gavlCalc = ((width / 2) * 2) + 80;</span>
-<span class="nc" id="L163">        int gavlLength = 0;</span>
-<span class="nc bnc" id="L164" title="All 2 branches missed.">        if (gavlCalc &lt;= 180){</span>
-<span class="nc" id="L165">            gavlLength = 180;</span>
+<span class="fc" id="L164">        double gavlCalc = ((width / 2) * 2) + 80;</span>
+<span class="fc" id="L165">        int gavlLength = 0;</span>
+<span class="pc bpc" id="L166" title="1 of 2 branches missed.">        if (gavlCalc &lt;= 180){</span>
+<span class="nc" id="L167">            gavlLength = 180;</span>
         }
-<span class="nc bnc" id="L167" title="All 4 branches missed.">        if (gavlCalc &gt; 180 &amp;&amp; gavlCalc &lt;= 210){</span>
-<span class="nc" id="L168">            gavlLength = 210;</span>
+<span class="pc bpc" id="L169" title="2 of 4 branches missed.">        if (gavlCalc &gt; 180 &amp;&amp; gavlCalc &lt;= 210){</span>
+<span class="nc" id="L170">            gavlLength = 210;</span>
         }
-<span class="nc bnc" id="L170" title="All 4 branches missed.">        if (gavlCalc &gt; 210 &amp;&amp; gavlCalc &lt;= 240){</span>
-<span class="nc" id="L171">            gavlLength = 240;</span>
+<span class="pc bpc" id="L172" title="2 of 4 branches missed.">        if (gavlCalc &gt; 210 &amp;&amp; gavlCalc &lt;= 240){</span>
+<span class="nc" id="L173">            gavlLength = 240;</span>
         }
-<span class="nc bnc" id="L173" title="All 4 branches missed.">        if (gavlCalc &gt; 240 &amp;&amp; gavlCalc &lt;= 270){</span>
-<span class="nc" id="L174">            gavlLength = 270;</span>
+<span class="pc bpc" id="L175" title="2 of 4 branches missed.">        if (gavlCalc &gt; 240 &amp;&amp; gavlCalc &lt;= 270){</span>
+<span class="nc" id="L176">            gavlLength = 270;</span>
         }
-<span class="nc bnc" id="L176" title="All 4 branches missed.">        if (gavlCalc &gt; 270 &amp;&amp; gavlCalc &lt;= 300){</span>
-<span class="nc" id="L177">            gavlLength = 300;</span>
+<span class="pc bpc" id="L178" title="2 of 4 branches missed.">        if (gavlCalc &gt; 270 &amp;&amp; gavlCalc &lt;= 300){</span>
+<span class="nc" id="L179">            gavlLength = 300;</span>
         }
-<span class="nc bnc" id="L179" title="All 4 branches missed.">        if (gavlCalc &gt; 300 &amp;&amp; gavlCalc &lt;= 360){</span>
-<span class="nc" id="L180">            gavlLength = 360;</span>
+<span class="pc bpc" id="L181" title="2 of 4 branches missed.">        if (gavlCalc &gt; 300 &amp;&amp; gavlCalc &lt;= 360){</span>
+<span class="nc" id="L182">            gavlLength = 360;</span>
         }
-<span class="nc bnc" id="L182" title="All 2 branches missed.">        if (gavlCalc &lt; 360){</span>
-<span class="nc" id="L183">            gavlLength = 420;</span>
+<span class="pc bpc" id="L184" title="1 of 2 branches missed.">        if (gavlCalc &lt; 360){</span>
+<span class="nc" id="L185">            gavlLength = 420;</span>
         }
-<span class="nc" id="L185">        return gavlLength;</span>
+<span class="fc" id="L187">        return gavlLength;</span>
         }
         //Taglægter
         public int taglægterRækker(int width, int angle){
-<span class="nc" id="L189">        double angleToRadian = Math.toRadians(angle);</span>
-<span class="nc" id="L190">        double sideB = (double) width / 2;</span>
-<span class="nc" id="L191">        double sideA = Math.tan(angleToRadian) * sideB; </span>
-<span class="nc" id="L192">        double hypotenuse = Math.sqrt((sideB * sideB) + (sideA * sideA));</span>
-<span class="nc" id="L193">        double taglægterRækker = (hypotenuse / 31) + 1;</span>
-<span class="nc" id="L194">        int taglægterRækkerInt = (int) taglægterRækker;</span>
-<span class="nc" id="L195">        return taglægterRækkerInt;</span>
+<span class="fc" id="L191">        double angleToRadian = Math.toRadians(angle);</span>
+<span class="fc" id="L192">        double sideB = (double) width / 2;</span>
+<span class="fc" id="L193">        double sideA = Math.tan(angleToRadian) * sideB; </span>
+<span class="fc" id="L194">        double hypotenuse = Math.sqrt((sideB * sideB) + (sideA * sideA));</span>
+<span class="fc" id="L195">        double taglægterRækker = (hypotenuse / 31) + 1;</span>
+<span class="fc" id="L196">        int taglægterRækkerInt = (int) taglægterRækker;</span>
+<span class="fc" id="L197">        return taglægterRækkerInt;</span>
         }
         
-        public int taglægterSpær(int length){
-<span class="nc" id="L199">        int taglægterSpær = 0;</span>
-<span class="nc bnc" id="L200" title="All 2 branches missed.">        if (length &lt;= 300){</span>
-<span class="nc" id="L201">            taglægterSpær = 300;</span>
+        public int taglægterSpær(int length, int skurLength){
+<span class="fc" id="L201">        int taglægterSpær = 0;</span>
+<span class="fc" id="L202">        length += skurLength;</span>
+<span class="pc bpc" id="L203" title="1 of 2 branches missed.">        if (length &lt;= 300){</span>
+<span class="nc" id="L204">            taglægterSpær = 300;</span>
         }
-<span class="nc bnc" id="L203" title="All 4 branches missed.">        if (length &gt; 300 &amp;&amp; length &lt;= 330){</span>
-<span class="nc" id="L204">            taglægterSpær = 330;</span>
+<span class="pc bpc" id="L206" title="2 of 4 branches missed.">        if (length &gt; 300 &amp;&amp; length &lt;= 330){</span>
+<span class="nc" id="L207">            taglægterSpær = 330;</span>
         }
-<span class="nc bnc" id="L206" title="All 4 branches missed.">        if (length &gt; 330 &amp;&amp; length &lt;= 360){</span>
-<span class="nc" id="L207">            taglægterSpær = 360;</span>
+<span class="pc bpc" id="L209" title="2 of 4 branches missed.">        if (length &gt; 330 &amp;&amp; length &lt;= 360){</span>
+<span class="nc" id="L210">            taglægterSpær = 360;</span>
         }
-<span class="nc bnc" id="L209" title="All 4 branches missed.">        if (length &gt; 360 &amp;&amp; length &lt;= 390){</span>
-<span class="nc" id="L210">            taglægterSpær = 390;</span>
+<span class="pc bpc" id="L212" title="2 of 4 branches missed.">        if (length &gt; 360 &amp;&amp; length &lt;= 390){</span>
+<span class="nc" id="L213">            taglægterSpær = 390;</span>
         }
-<span class="nc bnc" id="L212" title="All 4 branches missed.">        if (length &gt; 390 &amp;&amp; length &lt;= 420){</span>
-<span class="nc" id="L213">            taglægterSpær = 420;</span>
+<span class="pc bpc" id="L215" title="2 of 4 branches missed.">        if (length &gt; 390 &amp;&amp; length &lt;= 420){</span>
+<span class="nc" id="L216">            taglægterSpær = 420;</span>
         }
-<span class="nc bnc" id="L215" title="All 4 branches missed.">        if (length &gt; 420 &amp;&amp; length &lt;= 450){</span>
-<span class="nc" id="L216">            taglægterSpær = 450;</span>
+<span class="pc bpc" id="L218" title="2 of 4 branches missed.">        if (length &gt; 420 &amp;&amp; length &lt;= 450){</span>
+<span class="nc" id="L219">            taglægterSpær = 450;</span>
         }
-<span class="nc bnc" id="L218" title="All 4 branches missed.">        if (length &gt; 450 &amp;&amp; length &lt;= 480){</span>
-<span class="nc" id="L219">            taglægterSpær = 480;</span>
+<span class="pc bpc" id="L221" title="2 of 4 branches missed.">        if (length &gt; 450 &amp;&amp; length &lt;= 480){</span>
+<span class="nc" id="L222">            taglægterSpær = 480;</span>
         }
-<span class="nc bnc" id="L221" title="All 4 branches missed.">        if (length &gt; 480 &amp;&amp; length &lt;= 510){</span>
-<span class="nc" id="L222">            taglægterSpær = 510;</span>
+<span class="pc bpc" id="L224" title="2 of 4 branches missed.">        if (length &gt; 480 &amp;&amp; length &lt;= 510){</span>
+<span class="nc" id="L225">            taglægterSpær = 510;</span>
         }
-<span class="nc bnc" id="L224" title="All 4 branches missed.">        if (length &gt; 510 &amp;&amp; length &lt;= 540){</span>
-<span class="nc" id="L225">            taglægterSpær = 540;</span>
+<span class="pc bpc" id="L227" title="2 of 4 branches missed.">        if (length &gt; 510 &amp;&amp; length &lt;= 540){</span>
+<span class="nc" id="L228">            taglægterSpær = 540;</span>
         }
-<span class="nc bnc" id="L227" title="All 4 branches missed.">        if (length &gt; 540 &amp;&amp; length &lt;= 600){</span>
-<span class="nc" id="L228">            taglægterSpær = 420;</span>
+<span class="pc bpc" id="L230" title="2 of 4 branches missed.">        if (length &gt; 540 &amp;&amp; length &lt;= 600){</span>
+<span class="nc" id="L231">            taglægterSpær = 420;</span>
         }
-<span class="nc bnc" id="L230" title="All 4 branches missed.">        if (length &gt; 600 &amp;&amp; length &lt;= 660){</span>
-<span class="nc" id="L231">            taglægterSpær = 450;</span>
+<span class="pc bpc" id="L233" title="2 of 4 branches missed.">        if (length &gt; 600 &amp;&amp; length &lt;= 660){</span>
+<span class="nc" id="L234">            taglægterSpær = 450;</span>
         }
-<span class="nc bnc" id="L233" title="All 4 branches missed.">        if (length &gt; 660 &amp;&amp; length &lt;= 720){</span>
-<span class="nc" id="L234">            taglægterSpær = 510;</span>
+<span class="pc bpc" id="L236" title="2 of 4 branches missed.">        if (length &gt; 660 &amp;&amp; length &lt;= 720){</span>
+<span class="fc" id="L237">            taglægterSpær = 510;</span>
         }
-<span class="nc bnc" id="L236" title="All 4 branches missed.">        if (length &gt; 720 &amp;&amp; length &lt;= 780){</span>
-<span class="nc" id="L237">            taglægterSpær = 540;</span>
+<span class="pc bpc" id="L239" title="3 of 4 branches missed.">        if (length &gt; 720 &amp;&amp; length &lt;= 780){</span>
+<span class="nc" id="L240">            taglægterSpær = 540;</span>
         }
-<span class="nc" id="L239">        return taglægterSpær; </span>
+<span class="fc" id="L242">        return taglægterSpær; </span>
         }
         
-        public int taglægterSpærAntal(int length, int width, int angle){
-<span class="nc" id="L243">            double taglægterSpærAntal = taglægterRækker(width, angle);</span>
-<span class="nc" id="L244">            int taglægteSpær = taglægterSpær(length);</span>
-<span class="nc bnc" id="L245" title="All 2 branches missed.">            if (taglægteSpær &gt; 540){</span>
-<span class="nc" id="L246">            taglægterSpærAntal = taglægterSpærAntal * 1.5;</span>
+        public int taglægterSpærAntal(int length, int width, int angle, int skurLength){
+<span class="fc" id="L246">            double taglægterSpærAntal = taglægterRækker(width, angle);</span>
+<span class="fc" id="L247">            int taglægteSpær = taglægterSpær(length, skurLength);</span>
+<span class="pc bpc" id="L248" title="1 of 2 branches missed.">            if (taglægteSpær &gt; 540){</span>
+<span class="nc" id="L249">            taglægterSpærAntal = taglægterSpærAntal * 1.5;</span>
             }
-<span class="nc" id="L248">            int taglægterSpærAntalInt = (int) taglægterSpærAntal;</span>
-<span class="nc" id="L249">            return taglægterSpærAntalInt;</span>
+<span class="fc" id="L251">            int taglægterSpærAntalInt = (int) taglægterSpærAntal;</span>
+<span class="fc" id="L252">            return taglægterSpærAntalInt;</span>
         }
         
         //Toplægter
         public int toplægte(int length){
-<span class="nc" id="L254">        int toplægte = 0;</span>
-<span class="nc bnc" id="L255" title="All 2 branches missed.">        if (length &lt;= 300){</span>
-<span class="nc" id="L256">            toplægte = 300;</span>
+<span class="fc" id="L257">        int toplægte = 0;</span>
+<span class="pc bpc" id="L258" title="1 of 2 branches missed.">        if (length &lt;= 300){</span>
+<span class="nc" id="L259">            toplægte = 300;</span>
         }
-<span class="nc bnc" id="L258" title="All 4 branches missed.">        if (length &gt; 300 &amp;&amp; length &lt;= 330){</span>
-<span class="nc" id="L259">            toplægte = 360;</span>
+<span class="pc bpc" id="L261" title="2 of 4 branches missed.">        if (length &gt; 300 &amp;&amp; length &lt;= 330){</span>
+<span class="nc" id="L262">            toplægte = 360;</span>
         }
-<span class="nc bnc" id="L261" title="All 4 branches missed.">        if (length &gt; 330 &amp;&amp; length &lt;= 360){</span>
-<span class="nc" id="L262">            toplægte = 390;</span>
+<span class="pc bpc" id="L264" title="2 of 4 branches missed.">        if (length &gt; 330 &amp;&amp; length &lt;= 360){</span>
+<span class="nc" id="L265">            toplægte = 390;</span>
         }
-<span class="nc bnc" id="L264" title="All 4 branches missed.">        if (length &gt; 360 &amp;&amp; length &lt;= 390){</span>
-<span class="nc" id="L265">            toplægte = 420;</span>
+<span class="pc bpc" id="L267" title="2 of 4 branches missed.">        if (length &gt; 360 &amp;&amp; length &lt;= 390){</span>
+<span class="nc" id="L268">            toplægte = 420;</span>
         }
-<span class="nc bnc" id="L267" title="All 4 branches missed.">        if (length &gt; 390 &amp;&amp; length &lt;= 420){</span>
-<span class="nc" id="L268">            toplægte = 450;</span>
+<span class="pc bpc" id="L270" title="2 of 4 branches missed.">        if (length &gt; 390 &amp;&amp; length &lt;= 420){</span>
+<span class="nc" id="L271">            toplægte = 450;</span>
         }
-<span class="nc bnc" id="L270" title="All 4 branches missed.">        if (length &gt; 420 &amp;&amp; length &lt;= 450){</span>
-<span class="nc" id="L271">            toplægte = 480;</span>
+<span class="pc bpc" id="L273" title="2 of 4 branches missed.">        if (length &gt; 420 &amp;&amp; length &lt;= 450){</span>
+<span class="nc" id="L274">            toplægte = 480;</span>
         }
-<span class="nc bnc" id="L273" title="All 4 branches missed.">        if (length &gt; 450 &amp;&amp; length &lt;= 480){</span>
-<span class="nc" id="L274">            toplægte = 510;</span>
+<span class="pc bpc" id="L276" title="2 of 4 branches missed.">        if (length &gt; 450 &amp;&amp; length &lt;= 480){</span>
+<span class="nc" id="L277">            toplægte = 510;</span>
         }
-<span class="nc bnc" id="L276" title="All 4 branches missed.">        if (length &gt; 480 &amp;&amp; length &lt;= 510){</span>
-<span class="nc" id="L277">            toplægte = 540;</span>
+<span class="pc bpc" id="L279" title="2 of 4 branches missed.">        if (length &gt; 480 &amp;&amp; length &lt;= 510){</span>
+<span class="fc" id="L280">            toplægte = 540;</span>
         }
-<span class="nc bnc" id="L279" title="All 4 branches missed.">        if (length &gt; 510 &amp;&amp; length &lt;= 600){</span>
-<span class="nc" id="L280">            toplægte = 300;</span>
+<span class="pc bpc" id="L282" title="3 of 4 branches missed.">        if (length &gt; 510 &amp;&amp; length &lt;= 600){</span>
+<span class="nc" id="L283">            toplægte = 300;</span>
         }
-<span class="nc bnc" id="L282" title="All 4 branches missed.">        if (length &gt; 600 &amp;&amp; length &lt;= 660){</span>
-<span class="nc" id="L283">            toplægte = 360;</span>
+<span class="pc bpc" id="L285" title="3 of 4 branches missed.">        if (length &gt; 600 &amp;&amp; length &lt;= 660){</span>
+<span class="nc" id="L286">            toplægte = 360;</span>
         }
-<span class="nc bnc" id="L285" title="All 4 branches missed.">        if (length &gt; 660 &amp;&amp; length &lt;= 720){</span>
-<span class="nc" id="L286">            toplægte = 390;</span>
+<span class="pc bpc" id="L288" title="3 of 4 branches missed.">        if (length &gt; 660 &amp;&amp; length &lt;= 720){</span>
+<span class="nc" id="L289">            toplægte = 390;</span>
         }
-<span class="nc bnc" id="L288" title="All 4 branches missed.">        if (length &gt; 720 &amp;&amp; length &lt;= 780){</span>
-<span class="nc" id="L289">            toplægte = 420;</span>
+<span class="pc bpc" id="L291" title="3 of 4 branches missed.">        if (length &gt; 720 &amp;&amp; length &lt;= 780){</span>
+<span class="nc" id="L292">            toplægte = 420;</span>
         }
-<span class="nc" id="L291">        return toplægte;</span>
+<span class="fc" id="L294">        return toplægte;</span>
         }
         
         public int toplægteAntal(int length){
-<span class="nc" id="L295">            int toplægteAntal = 1;</span>
-<span class="nc bnc" id="L296" title="All 2 branches missed.">            if (length &gt; 510){</span>
-<span class="nc" id="L297">                toplægteAntal = 2;</span>
+<span class="fc" id="L298">            int toplægteAntal = 1;</span>
+<span class="pc bpc" id="L299" title="1 of 2 branches missed.">            if (length &gt; 510){</span>
+<span class="nc" id="L300">                toplægteAntal = 2;</span>
             }
-<span class="nc" id="L299">            return toplægteAntal;</span>
+<span class="fc" id="L302">            return toplægteAntal;</span>
         }
         
         //Tag
-        public int dobbelt(int length, int width, int angle){ 
-<span class="nc" id="L304">        int dobbelt = 0;</span>
-<span class="nc" id="L305">        int vindskeder = vindskeder(width, angle);</span>
-<span class="nc" id="L306">        int dobbeltSide = length / 30; </span>
-<span class="nc bnc" id="L307" title="All 2 branches missed.">        if (vindskeder &lt;= 240)</span>
+        public int dobbelt(int length, int width, int angle, int skurLength){ 
+<span class="fc" id="L307">        int dobbelt = 0;</span>
+<span class="fc" id="L308">        int vindskeder = vindskedeAntal(width, angle);</span>
+<span class="fc" id="L309">        int dobbeltSide = (length +skurLength) / 30; </span>
+<span class="pc bpc" id="L310" title="1 of 2 branches missed.">        if (vindskeder &lt;= 240)</span>
             {
-<span class="nc" id="L309">            dobbelt = 3 * dobbeltSide;</span>
+<span class="fc" id="L312">            dobbelt = 3 * dobbeltSide;</span>
                     }
-<span class="nc bnc" id="L311" title="All 4 branches missed.">        if (vindskeder &gt; 240 &amp;&amp; vindskeder &lt;= 320)</span>
+<span class="pc bpc" id="L314" title="3 of 4 branches missed.">        if (vindskeder &gt; 240 &amp;&amp; vindskeder &lt;= 320)</span>
             {
-<span class="nc" id="L313">            dobbelt = 4 * dobbeltSide;</span>
+<span class="nc" id="L316">            dobbelt = 4 * dobbeltSide;</span>
                     }
-<span class="nc bnc" id="L315" title="All 4 branches missed.">        if (vindskeder &gt; 320 &amp;&amp; vindskeder &lt;= 400)</span>
+<span class="pc bpc" id="L318" title="3 of 4 branches missed.">        if (vindskeder &gt; 320 &amp;&amp; vindskeder &lt;= 400)</span>
             {
-<span class="nc" id="L317">            dobbelt = 5 * dobbeltSide;</span>
+<span class="nc" id="L320">            dobbelt = 5 * dobbeltSide;</span>
                     }
-<span class="nc bnc" id="L319" title="All 4 branches missed.">        if (vindskeder &gt; 400 &amp;&amp; vindskeder &lt;= 480)</span>
+<span class="pc bpc" id="L322" title="3 of 4 branches missed.">        if (vindskeder &gt; 400 &amp;&amp; vindskeder &lt;= 480)</span>
             {
-<span class="nc" id="L321">            dobbelt = 6 * dobbeltSide;</span>
+<span class="nc" id="L324">            dobbelt = 6 * dobbeltSide;</span>
                     }
-<span class="nc bnc" id="L323" title="All 4 branches missed.">        if (vindskeder &gt; 480 &amp;&amp; vindskeder &lt;= 560)</span>
+<span class="pc bpc" id="L326" title="3 of 4 branches missed.">        if (vindskeder &gt; 480 &amp;&amp; vindskeder &lt;= 560)</span>
             {
-<span class="nc" id="L325">            dobbelt = 7 * dobbeltSide;</span>
+<span class="nc" id="L328">            dobbelt = 7 * dobbeltSide;</span>
                     }
-<span class="nc bnc" id="L327" title="All 4 branches missed.">        if (vindskeder &gt; 560 &amp;&amp; vindskeder &lt;= 640)</span>
+<span class="pc bpc" id="L330" title="3 of 4 branches missed.">        if (vindskeder &gt; 560 &amp;&amp; vindskeder &lt;= 640)</span>
             {
-<span class="nc" id="L329">            dobbelt = 8 * dobbeltSide;</span>
+<span class="nc" id="L332">            dobbelt = 8 * dobbeltSide;</span>
                     }
-<span class="nc bnc" id="L331" title="All 4 branches missed.">        if (vindskeder &gt; 640 &amp;&amp; vindskeder &lt;= 720)</span>
+<span class="pc bpc" id="L334" title="3 of 4 branches missed.">        if (vindskeder &gt; 640 &amp;&amp; vindskeder &lt;= 720)</span>
             {
-<span class="nc" id="L333">            dobbelt = 9 * dobbeltSide;</span>
+<span class="nc" id="L336">            dobbelt = 9 * dobbeltSide;</span>
                     }
-<span class="nc bnc" id="L335" title="All 4 branches missed.">        if (vindskeder &gt; 720 &amp;&amp; vindskeder &lt;= 800)</span>
+<span class="pc bpc" id="L338" title="3 of 4 branches missed.">        if (vindskeder &gt; 720 &amp;&amp; vindskeder &lt;= 800)</span>
             {
-<span class="nc" id="L337">            dobbelt = 10 * dobbeltSide;</span>
+<span class="nc" id="L340">            dobbelt = 10 * dobbeltSide;</span>
                     }
-<span class="nc" id="L339">        return dobbelt;</span>
+<span class="fc" id="L342">        return dobbelt;</span>
         }
         
         public int rygsten(int length){
-<span class="nc" id="L343">            int rygsten = length / 34;</span>
-<span class="nc" id="L344">            return rygsten;</span>
+<span class="fc" id="L346">            int rygsten = length / 34;</span>
+<span class="fc" id="L347">            return rygsten;</span>
         }
         
         public int toplægteHolder(int length){
-<span class="nc" id="L348">            int toplægteHolder = (length/100) + 1;</span>
-<span class="nc" id="L349">            return toplægteHolder;</span>
+<span class="fc" id="L351">            int toplægteHolder = (length/100) + 1;</span>
+<span class="fc" id="L352">            return toplægteHolder;</span>
         }
         public int rygstensBeslag(int length){
-<span class="nc" id="L352">            int rygstensBeslag = (length/100) + 1;</span>
-<span class="nc" id="L353">            return rygstensBeslag;</span>
+<span class="fc" id="L355">            int rygstensBeslag = (length/100) + 1;</span>
+<span class="fc" id="L356">            return rygstensBeslag;</span>
         }
         public int bindereOgNakkekroge(){
-<span class="nc" id="L356">            int bindereOgNakkekroge = 2;</span>
-<span class="nc" id="L357">            return bindereOgNakkekroge;</span>
+<span class="fc" id="L359">            int bindereOgNakkekroge = 2;</span>
+<span class="fc" id="L360">            return bindereOgNakkekroge;</span>
         }
         
         //Skruer
         public int skruer(){
-<span class="nc" id="L362">            int skruer = 1;</span>
-<span class="nc" id="L363">            return skruer;</span>
+<span class="fc" id="L365">            int skruer = 1;</span>
+<span class="fc" id="L366">            return skruer;</span>
         }
         public int beslagsSkruer(){
-<span class="nc" id="L366">            int beslagsSkruer = 1;</span>
-<span class="nc" id="L367">            return beslagsSkruer;</span>
+<span class="fc" id="L369">            int beslagsSkruer = 1;</span>
+<span class="fc" id="L370">            return beslagsSkruer;</span>
         }
         
-        public int taglægterSkruerPakker(int length, int width, int angle){
-<span class="nc" id="L371">            int taglægterSpær = taglægterSpær(length);</span>
-<span class="nc" id="L372">            int taglægterSpærAntal = taglægterSpærAntal(length, width, angle);</span>
-<span class="nc" id="L373">            double taglægteTotal = taglægterSpær * taglægterSpærAntal;</span>
-<span class="nc" id="L374">            int taglægteSkruePakker = 0;</span>
-<span class="nc" id="L375">            int loopCount = 0;</span>
-<span class="nc bnc" id="L376" title="All 2 branches missed.">            for(int i = 0; loopCount &lt;= taglægteTotal; i++)</span>
+        public int taglægterSkruerPakker(int length, int width, int angle, int skurLength){
+<span class="fc" id="L374">            int taglægterSpær = taglægterSpær(length, skurLength);</span>
+<span class="fc" id="L375">            int taglægterSpærAntal = taglægterSpærAntal(length, width, angle, skurLength);</span>
+<span class="fc" id="L376">            double taglægteTotal = taglægterSpær * taglægterSpærAntal;</span>
+<span class="fc" id="L377">            int taglægteSkruePakker = 0;</span>
+<span class="fc" id="L378">            int loopCount = 0;</span>
+<span class="fc bfc" id="L379" title="All 2 branches covered.">            for(int i = 0; loopCount &lt;= taglægteTotal; i++)</span>
             {
-<span class="nc" id="L378">                loopCount += 6000;</span>
-<span class="nc" id="L379">                taglægteSkruePakker++;</span>
+<span class="fc" id="L381">                loopCount += 6000;</span>
+<span class="fc" id="L382">                taglægteSkruePakker++;</span>
             }
-<span class="nc" id="L381">        return taglægteSkruePakker;</span>
+<span class="fc" id="L384">        return taglægteSkruePakker;</span>
         }
-        public int inderBeklædPakker(int length, int width, int angle){
-<span class="nc" id="L384">            int loopCount = 0;</span>
-<span class="nc" id="L385">            int inderBeklædPakker = 0;</span>
-<span class="nc" id="L386">            int taglægterSpær = taglægterSpær(length);</span>
-<span class="nc" id="L387">            int taglægterSpærAntal = taglægterSpærAntal(length, width, angle);</span>
-<span class="nc" id="L388">            double taglægteTotal = taglægterSpær * taglægterSpærAntal;</span>
-<span class="nc" id="L389">            int beklædningTotal = gavlLength(width) * gavlAntal(width);</span>
-<span class="nc bnc" id="L390" title="All 2 branches missed.">            for(int i = 0; loopCount &lt;= taglægteTotal; i++)</span>
+        public int inderBeklædPakker(int length, int width, int angle, int skurLength){
+<span class="fc" id="L387">            int loopCount = 0;</span>
+<span class="fc" id="L388">            int inderBeklædPakker = 0;</span>
+<span class="fc" id="L389">            int taglægterSpær = taglægterSpær(length, skurLength);</span>
+<span class="fc" id="L390">            int taglægterSpærAntal = taglægterSpærAntal(length, width, angle, skurLength);</span>
+<span class="fc" id="L391">            double taglægteTotal = taglægterSpær * taglægterSpærAntal;</span>
+<span class="fc" id="L392">            int beklædningTotal = gavlLength(width) * gavlAntal(width);</span>
+<span class="fc bfc" id="L393" title="All 2 branches covered.">            for(int i = 0; loopCount &lt;= taglægteTotal; i++)</span>
             {
-<span class="nc" id="L392">                loopCount += 20100;</span>
-<span class="nc" id="L393">                inderBeklædPakker++;</span>
+<span class="fc" id="L395">                loopCount += 20100;</span>
+<span class="fc" id="L396">                inderBeklædPakker++;</span>
             }
-<span class="nc" id="L395">            return inderBeklædPakker;</span>
+<span class="fc" id="L398">            return inderBeklædPakker;</span>
         }
         
-        public int yderBeklædPakker(int length, int width, int angle){
-<span class="nc" id="L399">            int loopCount = 0;</span>
-<span class="nc" id="L400">            int taglægterSpær = taglægterSpær(length);</span>
-<span class="nc" id="L401">            int taglægterSpærAntal = taglægterSpærAntal(length, width, angle);</span>
-<span class="nc" id="L402">            double taglægteTotal = taglægterSpær * taglægterSpærAntal;</span>
-<span class="nc" id="L403">            int yderBeklædPakker = 0;</span>
-<span class="nc bnc" id="L404" title="All 2 branches missed.">            for(int i = 0; loopCount &lt;= taglægteTotal; i++)</span>
+        public int yderBeklædPakker(int length, int width, int angle, int skurLength){
+<span class="fc" id="L402">            int loopCount = 0;</span>
+<span class="fc" id="L403">            int taglægterSpær = taglægterSpær(length, skurLength);</span>
+<span class="fc" id="L404">            int taglægterSpærAntal = taglægterSpærAntal(length, width, angle, skurLength);</span>
+<span class="fc" id="L405">            double taglægteTotal = taglægterSpær * taglægterSpærAntal;</span>
+<span class="fc" id="L406">            int yderBeklædPakker = 0;</span>
+<span class="fc bfc" id="L407" title="All 2 branches covered.">            for(int i = 0; loopCount &lt;= taglægteTotal; i++)</span>
             {
-<span class="nc" id="L406">                loopCount += 13400;</span>
-<span class="nc" id="L407">                yderBeklædPakker++;</span>
+<span class="fc" id="L409">                loopCount += 13400;</span>
+<span class="fc" id="L410">                yderBeklædPakker++;</span>
             } 
-<span class="nc" id="L409">            return yderBeklædPakker;</span>
+<span class="fc" id="L412">            return yderBeklædPakker;</span>
         }
        
         public int remmeSkur(int skurLength){
-<span class="nc" id="L413">           int remmeSkur = (skurLength + 10) * 2;</span>
-<span class="nc" id="L414">           return remmeSkur;</span>
+<span class="fc" id="L416">           int remmeSkur = (skurLength + 10) * 2;</span>
+<span class="fc" id="L417">           return remmeSkur;</span>
         }
         
         public int remmeSkurAntal(){
-<span class="nc" id="L418">           int remmeSkurAntal = 1;</span>
-<span class="nc" id="L419">           return remmeSkurAntal;</span>
+<span class="fc" id="L421">           int remmeSkurAntal = 1;</span>
+<span class="fc" id="L422">           return remmeSkurAntal;</span>
         }
         
         public int løsholterSide(int skurLength){
-<span class="nc" id="L423">           int løsholterSide = skurLength + 30;</span>
-<span class="nc" id="L424">           return løsholterSide;</span>
+<span class="fc" id="L426">           int løsholterSide = skurLength + 30;</span>
+<span class="fc" id="L427">           return løsholterSide;</span>
         }
         
         public int løsholterSideAntal(){
-<span class="nc" id="L428">           int løsholterSideAntal = 4;</span>
-<span class="nc" id="L429">           return løsholterSideAntal;</span>
+<span class="fc" id="L431">           int løsholterSideAntal = 4;</span>
+<span class="fc" id="L432">           return løsholterSideAntal;</span>
         }
         
         public int løsholterGavle(int skurWidth){
-<span class="nc" id="L433">           int løsholterGavle = skurWidth;</span>
-<span class="nc" id="L434">           return løsholterGavle;</span>
+<span class="fc" id="L436">           int løsholterGavle = skurWidth;</span>
+<span class="fc" id="L437">           return løsholterGavle;</span>
         }
         
         public int løsholterGavleAntal(){
-<span class="nc" id="L438">           int løsholterGavleAntal = 6;</span>
-<span class="nc" id="L439">           return løsholterGavleAntal;</span>
+<span class="fc" id="L441">           int løsholterGavleAntal = 6;</span>
+<span class="fc" id="L442">           return løsholterGavleAntal;</span>
         }
         
         public int beklædningSkur(){
-<span class="nc" id="L443">            int beklædningSkur = 210;</span>
-<span class="nc" id="L444">            return beklædningSkur;</span>
+<span class="fc" id="L446">            int beklædningSkur = 210;</span>
+<span class="fc" id="L447">            return beklædningSkur;</span>
         }
         
         public int beklædningSkurAntal(int skurLength, int skurWidth){
-<span class="nc" id="L448">           int beklædningSkur = ((skurLength + skurWidth) / 4) + 6;</span>
-<span class="nc" id="L449">           return beklædningSkur;</span>
+<span class="fc" id="L451">           int beklædningSkur = ((skurLength + skurWidth) / 4) + 6;</span>
+<span class="fc" id="L452">           return beklædningSkur;</span>
         }
         
         public int brætOverTagfodslægte(){
-<span class="nc" id="L453">           int brætOverTagfodslægte = 540;</span>
-<span class="nc" id="L454">           return brætOverTagfodslægte;</span>
+<span class="fc" id="L456">           int brætOverTagfodslægte = 540;</span>
+<span class="fc" id="L457">           return brætOverTagfodslægte;</span>
         }
         
         public int brætOverAntal(){
-<span class="nc" id="L458">           int brætOverAntal = 3;</span>
-<span class="nc" id="L459">           return brætOverAntal;</span>
+<span class="fc" id="L461">           int brætOverAntal = 3;</span>
+<span class="fc" id="L462">           return brætOverAntal;</span>
         }
         
         public int brætBagdør(){
-<span class="nc" id="L463">           int brætBagdør = 540;</span>
-<span class="nc" id="L464">           return brætBagdør;</span>
+<span class="fc" id="L466">           int brætBagdør = 540;</span>
+<span class="fc" id="L467">           return brætBagdør;</span>
         }
         
         public int brætBagdørAntal(){
-<span class="nc" id="L468">           int brætBagdørAntal = 1;</span>
-<span class="nc" id="L469">           return brætBagdørAntal;</span>
+<span class="fc" id="L471">           int brætBagdørAntal = 1;</span>
+<span class="fc" id="L472">           return brætBagdørAntal;</span>
         }
         
         public int stalddørsGreb(){
-<span class="nc" id="L473">           int stalddørsGreb = 1;</span>
-<span class="nc" id="L474">           return stalddørsGreb;</span>
+<span class="fc" id="L476">           int stalddørsGreb = 1;</span>
+<span class="fc" id="L477">           return stalddørsGreb;</span>
         }
         
         public int tHængsel(){
-<span class="nc" id="L478">           int tHængsel = 2;</span>
-<span class="nc" id="L479">           return tHængsel;</span>
+<span class="fc" id="L481">           int tHængsel = 2;</span>
+<span class="fc" id="L482">           return tHængsel;</span>
         }
         
         public int bræddebolte(){
-<span class="nc" id="L483">            int bræddebolte = 20;</span>
-<span class="nc" id="L484">            return bræddebolte;</span>
+<span class="fc" id="L486">            int bræddebolte = 20;</span>
+<span class="fc" id="L487">            return bræddebolte;</span>
         }
         
         public int firkantskiver(){
-<span class="nc" id="L488">            int firkantskiver = 20;</span>
-<span class="nc" id="L489">            return firkantskiver;</span>
+<span class="fc" id="L491">            int firkantskiver = 20;</span>
+<span class="fc" id="L492">            return firkantskiver;</span>
         }
         
         public int vinkelbeslag(){
-<span class="nc" id="L493">           int vinkelbeslag = 10;</span>
-<span class="nc" id="L494">           return vinkelbeslag;</span>
+<span class="fc" id="L496">           int vinkelbeslag = 10;</span>
+<span class="fc" id="L497">           return vinkelbeslag;</span>
         }
            
 }

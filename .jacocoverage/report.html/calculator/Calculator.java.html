@@ -1,0 +1,639 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Calculator.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;FogProjectWeb&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">calculator</a> &gt; <span class="el_source">Calculator.java</span></div><h1>Calculator.java</h1><pre class="source lang-java linenums">package calculator;
+
+import classes.Material;
+import facade.DBFacade;
+import java.util.ArrayList;
+
+/**
+ *
+ * @author vfgya_000
+ */
+
+
+<span class="fc" id="L13">public class Calculator {</span>
+<span class="fc" id="L14">    FlatRoof f = new FlatRoof();</span>
+<span class="fc" id="L15">    LiftedRoof l = new LiftedRoof();</span>
+
+    public void calculateResultLifted(ArrayList&lt;Material&gt; list, int length, int width, int angle, boolean skur, int skurlength, int skurwidth) {
+<span class="pc bpc" id="L18" title="1 of 2 branches missed.">        if (list.isEmpty())</span>
+        {
+<span class="nc" id="L20">            DBFacade DB = new DBFacade();</span>
+<span class="nc" id="L21">            list = DB.getAllMaterials();</span>
+        }
+<span class="fc bfc" id="L23" title="All 2 branches covered.">        for (int i = 0; i &lt; list.size(); i++) {</span>
+<span class="pc bpc" id="L24" title="1 of 2 branches missed.">            if (skur == true) {</span>
+                // id 17
+<span class="fc bfc" id="L26" title="All 2 branches covered.">                if (i == 0) {</span>
+<span class="fc" id="L27">                    list.get(i).setLength(l.vindskeder(width, angle));</span>
+<span class="fc" id="L28">                    list.get(i).setAmount(l.vindskedeAntal(width, angle));</span>
+                }
+                // id 18
+<span class="fc bfc" id="L31" title="All 2 branches covered.">                if (i == 1) {</span>
+<span class="fc" id="L32">                    list.get(i).setLength(l.sternSide(length));</span>
+<span class="fc" id="L33">                    list.get(i).setAmount(l.sternSideAntal());</span>
+                }
+                // id 19 
+<span class="fc bfc" id="L36" title="All 2 branches covered.">                if (i == 2) {</span>
+<span class="fc" id="L37">                   list.get(i).setLength(l.sternSideSkur(length));</span>
+<span class="fc" id="L38">                   list.get(i).setAmount(l.sternSideSkurAntal());</span>
+                }
+                // id 20
+<span class="fc bfc" id="L41" title="All 2 branches covered.">                if (i == 3) {</span>
+<span class="fc" id="L42">                    list.get(i).setAmount(l.færdigByggetAntal());</span>
+                }
+                // id 21
+<span class="fc bfc" id="L45" title="All 2 branches covered.">                if (i == 4) {</span>
+<span class="fc" id="L46">                    list.get(i).setLength(l.stolperLength());</span>
+<span class="fc" id="L47">                    list.get(i).setAmount(l.stolperAntal(length, skur));</span>
+                }
+                // id 22
+<span class="fc bfc" id="L50" title="All 2 branches covered.">                if (i == 5) {</span>
+<span class="fc" id="L51">                    list.get(i).setLength(l.remme(length));</span>
+<span class="fc" id="L52">                    list.get(i).setAmount(l.remmeAntal());</span>
+                }
+                // id 23
+<span class="fc bfc" id="L55" title="All 2 branches covered.">                if (i == 6) {</span>
+<span class="fc" id="L56">                    list.get(i).setLength(l.remmeSkur(skurlength));</span>
+<span class="fc" id="L57">                    list.get(i).setAmount(l.remmeSkurAntal());</span>
+                }
+                // id 24
+<span class="fc bfc" id="L60" title="All 2 branches covered.">                if (i == 7) {</span>
+<span class="fc" id="L61">                    list.get(i).setLength(l.løsholterSide(skurlength));</span>
+<span class="fc" id="L62">                    list.get(i).setAmount(l.løsholterSideAntal());</span>
+                }
+                // id 25
+<span class="fc bfc" id="L65" title="All 2 branches covered.">                if (i == 8) {</span>
+<span class="fc" id="L66">                    list.get(i).setLength(l.løsholterGavle(skurwidth));</span>
+<span class="fc" id="L67">                    list.get(i).setAmount(l.løsholterGavleAntal());</span>
+                }
+                // id 26
+<span class="fc bfc" id="L70" title="All 2 branches covered.">                if (i == 9) {</span>
+<span class="fc" id="L71">                    list.get(i).setLength(l.vandbræt(width, angle));</span>
+<span class="fc" id="L72">                    list.get(i).setAmount(l.vandbrætAntal(width, angle));</span>
+                }
+                // id 27
+<span class="fc bfc" id="L75" title="All 2 branches covered.">                if (i == 10) {</span>
+<span class="fc" id="L76">                    list.get(i).setLength(l.gavlLength(width));</span>
+<span class="fc" id="L77">                    list.get(i).setAmount(l.gavlAntal(width));</span>
+                }
+                // id 28
+<span class="fc bfc" id="L80" title="All 2 branches covered.">                if (i == 11) {</span>
+<span class="fc" id="L81">                    list.get(i).setLength(l.beklædningSkur());</span>
+<span class="fc" id="L82">                    list.get(i).setAmount(l.beklædningSkurAntal(skurlength, skurwidth));</span>
+                }
+                // id 29
+<span class="fc bfc" id="L85" title="All 2 branches covered.">                if (i == 12) {</span>
+<span class="fc" id="L86">                    list.get(i).setLength(l.brætOverTagfodslægte());</span>
+<span class="fc" id="L87">                    list.get(i).setAmount(l.brætOverAntal());</span>
+                }
+                // id 30
+<span class="fc bfc" id="L90" title="All 2 branches covered.">                if (i == 13) {</span>
+<span class="fc" id="L91">                    list.get(i).setLength(l.brætBagdør());</span>
+<span class="fc" id="L92">                    list.get(i).setAmount(l.brætBagdørAntal());</span>
+                }
+                // id 31
+<span class="fc bfc" id="L95" title="All 2 branches covered.">                if (i == 14) {</span>
+<span class="fc" id="L96">                   list.get(i).setLength(l.taglægterSpær(length, skurlength));</span>
+<span class="fc" id="L97">                   list.get(i).setAmount(l.taglægterSpærAntal(length, width, angle, skurlength));</span>
+                }
+                // id 32
+<span class="fc bfc" id="L100" title="All 2 branches covered.">                if (i == 15){</span>
+<span class="fc" id="L101">                    list.get(i).setLength(l.toplægte(length));</span>
+<span class="fc" id="L102">                    list.get(i).setAmount(l.toplægteAntal(length));</span>
+                }
+                // id 33
+<span class="fc bfc" id="L105" title="All 2 branches covered.">                if (i == 16){</span>
+<span class="fc" id="L106">                    list.get(i).setAmount(l.dobbelt(length, width, angle, skurlength));</span>
+                }
+                // id 34
+<span class="fc bfc" id="L109" title="All 2 branches covered.">                if (i == 17){</span>
+<span class="fc" id="L110">                    list.get(i).setAmount(l.rygsten(length));</span>
+                }
+                // id 35
+<span class="fc bfc" id="L113" title="All 2 branches covered.">                if (i == 18){</span>
+<span class="fc" id="L114">                    list.get(i).setAmount(l.toplægteHolder(length));</span>
+                }
+                // id 36
+<span class="fc bfc" id="L117" title="All 2 branches covered.">                if (i == 19){</span>
+<span class="fc" id="L118">                    list.get(i).setAmount(l.rygstensBeslag(length));</span>
+                }
+                // id 37
+<span class="fc bfc" id="L121" title="All 2 branches covered.">                if (i == 20){</span>
+                    
+<span class="fc" id="L123">                    list.get(i).setAmount(l.bindereOgNakkekroge());</span>
+                }
+                // id 38
+<span class="fc bfc" id="L126" title="All 2 branches covered.">                if (i == 21){</span>
+<span class="fc" id="L127">                    list.get(i).setAmount(l.skruerSpærH(length));</span>
+                }
+                // id 39
+<span class="fc bfc" id="L130" title="All 2 branches covered.">                if (i == 22){</span>
+<span class="fc" id="L131">                    list.get(i).setAmount(l.skruerSpærV(length));</span>
+                }
+                // id 40
+<span class="fc bfc" id="L134" title="All 2 branches covered.">                if (i == 23){</span>
+<span class="fc" id="L135">                    list.get(i).setAmount(l.stalddørsGreb());</span>
+                }
+                // id 41
+<span class="fc bfc" id="L138" title="All 2 branches covered.">                if (i == 24){</span>
+<span class="fc" id="L139">                    list.get(i).setAmount(l.tHængsel());</span>
+                }
+                // id 42
+<span class="fc bfc" id="L142" title="All 2 branches covered.">                if (i == 25){</span>
+<span class="fc" id="L143">                    list.get(i).setAmount(l.vinkelbeslag());</span>
+                }
+                // id 43
+<span class="fc bfc" id="L146" title="All 2 branches covered.">                if (i == 26){</span>
+<span class="fc" id="L147">                    list.get(i).setAmount(l.skruer());</span>
+                }
+                // id 44
+<span class="fc bfc" id="L150" title="All 2 branches covered.">                if (i == 27){</span>
+<span class="fc" id="L151">                    list.get(i).setAmount(l.beslagsSkruer());</span>
+                }
+                // id 45
+<span class="fc bfc" id="L154" title="All 2 branches covered.">                if (i == 28){</span>
+<span class="fc" id="L155">                    list.get(i).setAmount(l.taglægterSkruerPakker(length, width, angle, skurlength));</span>
+                }
+                // id 46
+<span class="fc bfc" id="L158" title="All 2 branches covered.">                if (i == 29){</span>
+<span class="fc" id="L159">                    list.get(i).setAmount(l.bræddebolte());</span>
+                }
+                // id 47
+<span class="fc bfc" id="L162" title="All 2 branches covered.">                if (i == 30){</span>
+<span class="fc" id="L163">                    list.get(i).setAmount(l.firkantskiver());</span>
+                }
+                // id 48 
+<span class="fc bfc" id="L166" title="All 2 branches covered.">                if (i == 31){</span>
+<span class="fc" id="L167">                    list.get(i).setAmount(l.yderBeklædPakker(length, width, angle, skurlength));</span>
+                }
+                // id 49
+<span class="fc bfc" id="L170" title="All 2 branches covered.">                if (i == 32){</span>
+<span class="fc" id="L171">                    list.get(i).setAmount(l.inderBeklædPakker(length, width, angle, skurlength));</span>
+                }
+                
+                // deletes all flat roof materials
+<span class="pc bpc" id="L175" title="1 of 4 branches missed.">                if (list.get(i).getId() &gt;= 50 &amp;&amp; list.get(i).getId() &lt;= 63) {</span>
+<span class="fc bfc" id="L176" title="All 2 branches covered.">                    for (int j = 0; j &lt;= 13; j++)</span>
+<span class="fc" id="L177">                        list.remove(i);</span>
+                }
+                
+               
+            } else {
+                // id 17
+<span class="nc bnc" id="L183" title="All 2 branches missed.">                if (i == 0) {</span>
+<span class="nc" id="L184">                    list.get(i).setLength(l.vindskeder(width, angle));</span>
+<span class="nc" id="L185">                    list.get(i).setAmount(l.vindskedeAntal(width, angle));</span>
+                }
+                // id 18
+<span class="nc bnc" id="L188" title="All 2 branches missed.">                if (i == 1) {</span>
+<span class="nc" id="L189">                    list.get(i).setLength(l.sternSide(length));</span>
+<span class="nc" id="L190">                    list.get(i).setAmount(l.sternSideAntal());</span>
+                }
+                // id 19
+<span class="nc bnc" id="L193" title="All 2 branches missed.">                if (i == 2) {</span>
+<span class="nc" id="L194">                    list.remove(i);</span>
+                }
+                // id 20
+<span class="nc bnc" id="L197" title="All 2 branches missed.">                if (i == 3) {</span>
+<span class="nc" id="L198">                    list.get(i).setAmount(l.færdigByggetAntal());</span>
+                }
+                // id 21
+<span class="nc bnc" id="L201" title="All 2 branches missed.">                if (i == 4) {</span>
+<span class="nc" id="L202">                    list.get(i).setLength(l.stolperLength());</span>
+<span class="nc" id="L203">                    list.get(i).setAmount(l.stolperAntal(length, skur));</span>
+                }
+                // id 22
+<span class="nc bnc" id="L206" title="All 2 branches missed.">                if (i == 5) {</span>
+<span class="nc" id="L207">                    list.get(i).setLength(l.remme(length));</span>
+<span class="nc" id="L208">                    list.get(i).setAmount(l.remmeAntal());</span>
+                }
+                // id 23
+<span class="nc bnc" id="L211" title="All 2 branches missed.">                if (i == 6) {</span>
+<span class="nc" id="L212">                    list.remove(i);</span>
+                }
+                // id 24
+<span class="nc bnc" id="L215" title="All 2 branches missed.">                if (i == 7) {</span>
+<span class="nc" id="L216">                    list.remove(i);</span>
+                }
+                // id 25
+<span class="nc bnc" id="L219" title="All 2 branches missed.">                if (i == 8) {</span>
+<span class="nc" id="L220">                    list.remove(i);</span>
+                }
+                // id 26
+<span class="nc bnc" id="L223" title="All 2 branches missed.">                if (i == 9) {</span>
+<span class="nc" id="L224">                    list.get(i).setLength(l.vandbræt(width, angle));</span>
+<span class="nc" id="L225">                    list.get(i).setAmount(l.vandbrætAntal(width, angle));</span>
+                }
+                // id 27
+<span class="nc bnc" id="L228" title="All 2 branches missed.">                if (i == 10) {</span>
+<span class="nc" id="L229">                    list.get(i).setLength(l.gavlLength(width));</span>
+<span class="nc" id="L230">                    list.get(i).setAmount(l.gavlAntal(width));</span>
+                }
+                // id 28
+<span class="nc bnc" id="L233" title="All 2 branches missed.">                if (i == 11) {</span>
+<span class="nc" id="L234">                    list.remove(i);</span>
+                }
+                // id 29
+<span class="nc bnc" id="L237" title="All 2 branches missed.">                if (i == 12) {</span>
+<span class="nc" id="L238">                    list.get(i).setLength(l.brætOverTagfodslægte());</span>
+<span class="nc" id="L239">                    list.get(i).setAmount(l.brætOverAntal());</span>
+                }
+                // id 30
+<span class="nc bnc" id="L242" title="All 2 branches missed.">                if (i == 13) {</span>
+<span class="nc" id="L243">                    list.get(i).setLength(l.brætBagdør());</span>
+<span class="nc" id="L244">                    list.get(i).setAmount(l.brætBagdørAntal());</span>
+                }
+                // id 31
+<span class="nc bnc" id="L247" title="All 2 branches missed.">                if (i == 14) {</span>
+<span class="nc" id="L248">                   list.get(i).setLength(l.taglægterSpær(length, skurlength));</span>
+<span class="nc" id="L249">                   list.get(i).setAmount(l.taglægterSpærAntal(length, width, angle, skurlength));</span>
+                }
+                // id 32
+<span class="nc bnc" id="L252" title="All 2 branches missed.">                if (i == 15){</span>
+<span class="nc" id="L253">                    list.get(i).setLength(l.toplægte(length));</span>
+<span class="nc" id="L254">                    list.get(i).setAmount(l.toplægteAntal(length));</span>
+                }
+                // id 33
+<span class="nc bnc" id="L257" title="All 2 branches missed.">                if (i == 16){</span>
+<span class="nc" id="L258">                    list.get(i).setAmount(l.dobbelt(length, width, angle, skurlength));</span>
+                }
+                // id 34
+<span class="nc bnc" id="L261" title="All 2 branches missed.">                if (i == 17){</span>
+<span class="nc" id="L262">                    list.get(i).setAmount(l.rygsten(length));</span>
+                }
+                // id 35
+<span class="nc bnc" id="L265" title="All 2 branches missed.">                if (i == 18){</span>
+<span class="nc" id="L266">                    list.get(i).setAmount(l.toplægteHolder(length));</span>
+                }
+                // id 36
+<span class="nc bnc" id="L269" title="All 2 branches missed.">                if (i == 19){</span>
+<span class="nc" id="L270">                    list.get(i).setAmount(l.rygstensBeslag(length));</span>
+                }
+                // id 37
+<span class="nc bnc" id="L273" title="All 2 branches missed.">                if (i == 20){</span>
+                    
+<span class="nc" id="L275">                    list.get(i).setAmount(l.bindereOgNakkekroge());</span>
+                }
+                // id 38
+<span class="nc bnc" id="L278" title="All 2 branches missed.">                if (i == 21){</span>
+<span class="nc" id="L279">                    list.get(i).setAmount(l.skruerSpærH(length));</span>
+                }
+                // id 39
+<span class="nc bnc" id="L282" title="All 2 branches missed.">                if (i == 22){</span>
+<span class="nc" id="L283">                    list.get(i).setAmount(l.skruerSpærV(length));</span>
+                }
+                // id 40
+<span class="nc bnc" id="L286" title="All 2 branches missed.">                if (i == 23){</span>
+<span class="nc" id="L287">                    list.remove(i);</span>
+                }
+                // id 41
+<span class="nc bnc" id="L290" title="All 2 branches missed.">                if (i == 24){</span>
+<span class="nc" id="L291">                    list.remove(i);</span>
+                }
+                // id 42
+<span class="nc bnc" id="L294" title="All 2 branches missed.">                if (i == 25){</span>
+<span class="nc" id="L295">                    list.remove(i);</span>
+                }
+                // id 43
+<span class="nc bnc" id="L298" title="All 2 branches missed.">                if (i == 26){</span>
+<span class="nc" id="L299">                    list.get(i).setAmount(l.skruer());</span>
+                }
+                // id 44
+<span class="nc bnc" id="L302" title="All 2 branches missed.">                if (i == 27){</span>
+<span class="nc" id="L303">                    list.get(i).setAmount(l.beslagsSkruer());</span>
+                }
+                // id 45
+<span class="nc bnc" id="L306" title="All 2 branches missed.">                if (i == 28){</span>
+<span class="nc" id="L307">                    list.get(i).setAmount(l.taglægterSkruerPakker(length, width, angle, skurlength));</span>
+                }
+                // id 46
+<span class="nc bnc" id="L310" title="All 2 branches missed.">                if (i == 29){</span>
+<span class="nc" id="L311">                    list.get(i).setAmount(l.bræddebolte());</span>
+                }
+                // id 47
+<span class="nc bnc" id="L314" title="All 2 branches missed.">                if (i == 30){</span>
+<span class="nc" id="L315">                    list.get(i).setAmount(l.firkantskiver());</span>
+                }
+                // id 48 
+<span class="nc bnc" id="L318" title="All 2 branches missed.">                if (i == 31){</span>
+<span class="nc" id="L319">                    list.get(i).setAmount(l.yderBeklædPakker(length, width, angle, skurlength));</span>
+                }
+                // id 49
+<span class="nc bnc" id="L322" title="All 2 branches missed.">                if (i == 32){</span>
+<span class="nc" id="L323">                    list.get(i).setAmount(l.inderBeklædPakker(length, width, angle, skurlength));</span>
+                }
+                
+                
+<span class="nc bnc" id="L327" title="All 4 branches missed.">                if (list.get(i).getId() &gt;= 50 &amp;&amp; list.get(i).getId() &lt;= 63) {</span>
+<span class="nc bnc" id="L328" title="All 2 branches missed.">                    for (int j = 0; j &lt;= 13; j++)</span>
+<span class="nc" id="L329">                        list.remove(i);</span>
+                }
+            }
+        }
+<span class="fc" id="L333">    }</span>
+    public void calculateResultFlat(ArrayList&lt;Material&gt; list, int length, int width, boolean skur, int skurlength, int skurwidth) {
+<span class="nc bnc" id="L335" title="All 2 branches missed.">        for (int i = 0; i &lt; list.size(); i++) {</span>
+<span class="nc bnc" id="L336" title="All 2 branches missed.">            if (skur == true) {</span>
+<span class="nc bnc" id="L337" title="All 4 branches missed.">                if (list.get(i).getId() &gt;= 17 &amp;&amp; list.get(i).getId() &lt;=  20) {</span>
+<span class="nc bnc" id="L338" title="All 2 branches missed.">                    for (int j = 0; j &lt;= 2; j++)</span>
+<span class="nc" id="L339">                        list.remove(i);</span>
+                }
+<span class="nc bnc" id="L341" title="All 4 branches missed.">                if (list.get(i).getId() &gt;= 26 &amp;&amp; list.get(i).getId() &lt;= 27) {</span>
+<span class="nc bnc" id="L342" title="All 2 branches missed.">                    for (int j = 0; j &lt;= 2; j++)</span>
+<span class="nc" id="L343">                        list.remove(i);</span>
+                }
+<span class="nc bnc" id="L345" title="All 2 branches missed.">                if (list.get(i).getId() == 29) {</span>
+<span class="nc" id="L346">                        list.remove(i);</span>
+                }
+<span class="nc bnc" id="L348" title="All 4 branches missed.">                if (list.get(i).getId() &gt;= 31 &amp;&amp; list.get(i).getId() &lt;= 37) {</span>
+<span class="nc bnc" id="L349" title="All 2 branches missed.">                    for (int j = 0; j &lt;= 7; j++)</span>
+<span class="nc" id="L350">                        list.remove(i);</span>
+                }
+<span class="nc bnc" id="L352" title="All 4 branches missed.">                if (list.get(i).getId() &gt;= 43 &amp;&amp; list.get(i).getId() &lt;= 45) {</span>
+<span class="nc bnc" id="L353" title="All 2 branches missed.">                    for (int j = 0; j &lt;= 3; j++)</span>
+<span class="nc" id="L354">                        list.remove(i);</span>
+                }
+<span class="nc bnc" id="L356" title="All 4 branches missed.">                if (list.get(i).getId() &gt;= 48 &amp;&amp; list.get(i).getId() &lt;= 49) {</span>
+<span class="nc bnc" id="L357" title="All 2 branches missed.">                    for (int j = 0; j &lt;= 2; j++)</span>
+<span class="nc" id="L358">                        list.remove(i);</span>
+                }
+                // id 21
+<span class="nc bnc" id="L361" title="All 2 branches missed.">                if (i == 0){</span>
+<span class="nc" id="L362">                    list.get(i).setLength(l.stolperLength());</span>
+<span class="nc" id="L363">                    list.get(i).setAmount(l.stolperAntal(length, skur));</span>
+                }
+                // id 22
+<span class="nc bnc" id="L366" title="All 2 branches missed.">                if (i == 1){</span>
+<span class="nc" id="L367">                    list.get(i).setLength(f.remmeSide(length));</span>
+<span class="nc" id="L368">                    list.get(i).setAmount(f.remmeSideAntal());</span>
+                }
+                // id 23
+<span class="nc bnc" id="L371" title="All 2 branches missed.">                if (i == 2){</span>
+<span class="nc" id="L372">                    list.get(i).setLength(l.remmeSkur(skurlength));</span>
+<span class="nc" id="L373">                    list.get(i).setAmount(l.remmeSkurAntal());</span>
+                }
+                // id 24
+<span class="nc bnc" id="L376" title="All 2 branches missed.">                if (i == 3){</span>
+<span class="nc" id="L377">                    list.get(i).setLength(l.løsholterSide(skurlength));</span>
+<span class="nc" id="L378">                    list.get(i).setAmount(l.løsholterSideAntal());</span>
+                }
+                // id 25
+<span class="nc bnc" id="L381" title="All 2 branches missed.">                if (i == 4){</span>
+<span class="nc" id="L382">                    list.get(i).setLength(l.løsholterGavle(skurwidth));</span>
+<span class="nc" id="L383">                    list.get(i).setAmount(l.løsholterGavleAntal());</span>
+                }
+                // id 28
+<span class="nc bnc" id="L386" title="All 2 branches missed.">                if (i == 5){</span>
+<span class="nc" id="L387">                    list.get(i).setLength(l.beklædningSkur());</span>
+<span class="nc" id="L388">                    list.get(i).setAmount(l.beklædningSkurAntal(skurlength, skurwidth));</span>
+                }
+                // id 30
+<span class="nc bnc" id="L391" title="All 2 branches missed.">                if (i == 6){</span>
+<span class="nc" id="L392">                    list.get(i).setLength(l.brætBagdør());</span>
+<span class="nc" id="L393">                    list.get(i).setAmount(l.brætBagdørAntal());</span>
+                }
+                // id 38
+<span class="nc bnc" id="L396" title="All 2 branches missed.">                if (i == 7){</span>
+<span class="nc" id="L397">                    list.get(i).setAmount(f.spærSkruerH(length));</span>
+                }
+                // id 39
+<span class="nc bnc" id="L400" title="All 2 branches missed.">                if (i == 8){</span>
+<span class="nc" id="L401">                    list.get(i).setAmount(f.spærSkruerV(length));</span>
+                }
+                // id 40
+<span class="nc bnc" id="L404" title="All 2 branches missed.">                if (i == 9){</span>
+<span class="nc" id="L405">                    list.get(i).setAmount(l.stalddørsGreb());</span>
+                }
+                // id 41
+<span class="nc bnc" id="L408" title="All 2 branches missed.">                if (i == 10){</span>
+<span class="nc" id="L409">                    list.get(i).setAmount(l.tHængsel());</span>
+                }
+                // id 42
+<span class="nc bnc" id="L412" title="All 2 branches missed.">                if (i == 11){</span>
+<span class="nc" id="L413">                    list.get(i).setAmount(l.vinkelbeslag());</span>
+                }
+                // id 46
+<span class="nc bnc" id="L416" title="All 2 branches missed.">                if (i == 12){</span>
+<span class="nc" id="L417">                    list.get(i).setAmount(f.bræddebolte(length));</span>
+                }
+                // id 47
+<span class="nc bnc" id="L420" title="All 2 branches missed.">                if (i == 13){</span>
+<span class="nc" id="L421">                    list.get(i).setAmount(f.firkantskiver(length));</span>
+                }
+                // id 50
+<span class="nc bnc" id="L424" title="All 2 branches missed.">                if (i == 14) {</span>
+<span class="nc" id="L425">                   list.get(i).setLength(f.understernFB(width));</span>
+<span class="nc" id="L426">                   list.get(i).setAmount(f.understernFBAntal());</span>
+                }
+                // id 51
+<span class="nc bnc" id="L429" title="All 2 branches missed.">                if (i == 15){</span>
+<span class="nc" id="L430">                    list.get(i).setLength(f.understernSide(length));</span>
+<span class="nc" id="L431">                    list.get(i).setAmount(f.understernSideAntal());</span>
+                }
+                // id 52
+<span class="nc bnc" id="L434" title="All 2 branches missed.">                if (i == 16){</span>
+<span class="nc" id="L435">                    list.get(i).setLength(f.oversternF(width));</span>
+<span class="nc" id="L436">                    list.get(i).setAmount(f.oversternFAntal());</span>
+                }
+                // id 53
+<span class="nc bnc" id="L439" title="All 2 branches missed.">                if (i == 17){</span>
+<span class="nc" id="L440">                    list.get(i).setLength(f.oversternSide(length));</span>
+<span class="nc" id="L441">                    list.get(i).setAmount(f.oversternSideAntal());</span>
+                }
+                // id 54
+<span class="nc bnc" id="L444" title="All 2 branches missed.">                if (i == 18){</span>
+<span class="nc" id="L445">                    list.get(i).setLength(f.spær(width));</span>
+<span class="nc" id="L446">                    list.get(i).setAmount(f.spærAntal(length));</span>
+                }
+                // id 55
+<span class="nc bnc" id="L449" title="All 2 branches missed.">                if (i == 19){</span>
+<span class="nc" id="L450">                    list.get(i).setLength(f.vandbrætF(width));</span>
+<span class="nc" id="L451">                    list.get(i).setAmount(f.vandbrætFAntal());</span>
+                }
+                // id 56
+<span class="nc bnc" id="L454" title="All 2 branches missed.">                if (i == 20){</span>
+<span class="nc" id="L455">                    list.get(i).setLength(f.vandbrætSide(length));</span>
+<span class="nc" id="L456">                    list.get(i).setAmount(f.vandbrætSideAntal());</span>
+                }
+                // id 57
+<span class="nc bnc" id="L459" title="All 2 branches missed.">                if (i == 21){</span>
+<span class="nc" id="L460">                    list.get(i).setLength(f.tagpladerLength(length));</span>
+<span class="nc" id="L461">                    list.get(i).setAmount(f.tagplader(length, width, skurlength));</span>
+                }
+                // id 58
+<span class="nc bnc" id="L464" title="All 2 branches missed.">                if (i == 22){</span>
+<span class="nc" id="L465">                    list.get(i).setAmount(f.skruePakker(length, width));</span>
+                }
+                // id 59
+<span class="nc bnc" id="L468" title="All 2 branches missed.">                if (i == 23){</span>
+<span class="nc" id="L469">                    list.get(i).setAmount(f.hulbånd());</span>
+                }
+                // id 60
+<span class="nc bnc" id="L472" title="All 2 branches missed.">                if (i == 24){</span>
+<span class="nc" id="L473">                    list.get(i).setAmount(f.sternSkruer());</span>
+                }
+                // id 61
+<span class="nc bnc" id="L476" title="All 2 branches missed.">                if (i == 25){</span>
+<span class="nc" id="L477">                    list.get(i).setAmount(f.beslagsSkruer());</span>
+                }
+                // id 62
+<span class="nc bnc" id="L480" title="All 2 branches missed.">                if (i == 26){</span>
+<span class="nc" id="L481">                    list.get(i).setAmount(f.ydersteBeklædAmount(skurlength, skurwidth));</span>
+                }
+                // id 63
+<span class="nc bnc" id="L484" title="All 2 branches missed.">                if (i == 27){</span>
+<span class="nc" id="L485">                    list.get(i).setAmount(f.indersteBeklædAmount(skurlength, skurwidth));</span>
+                }
+                
+<span class="nc bnc" id="L488" title="All 2 branches missed.">            } else if (skur == false) {</span>
+<span class="nc bnc" id="L489" title="All 4 branches missed.">                if (list.get(i).getId() &gt;= 17 &amp;&amp; list.get(i).getId() &lt;=  20) {</span>
+<span class="nc bnc" id="L490" title="All 2 branches missed.">                    for (int j = 0; j &lt;= 2; j++)</span>
+<span class="nc" id="L491">                        list.remove(i);</span>
+                }
+<span class="nc bnc" id="L493" title="All 4 branches missed.">                if (list.get(i).getId() &gt;= 26 &amp;&amp; list.get(i).getId() &lt;= 27) {</span>
+<span class="nc bnc" id="L494" title="All 2 branches missed.">                    for (int j = 0; j &lt;= 2; j++)</span>
+<span class="nc" id="L495">                        list.remove(i);</span>
+                }
+<span class="nc bnc" id="L497" title="All 2 branches missed.">                if (list.get(i).getId() == 29) {</span>
+<span class="nc" id="L498">                        list.remove(i);</span>
+                }
+<span class="nc bnc" id="L500" title="All 4 branches missed.">                if (list.get(i).getId() &gt;= 31 &amp;&amp; list.get(i).getId() &lt;= 37) {</span>
+<span class="nc bnc" id="L501" title="All 2 branches missed.">                    for (int j = 0; j &lt;= 7; j++)</span>
+<span class="nc" id="L502">                        list.remove(i);</span>
+                }
+<span class="nc bnc" id="L504" title="All 4 branches missed.">                if (list.get(i).getId() &gt;= 43 &amp;&amp; list.get(i).getId() &lt;= 45) {</span>
+<span class="nc bnc" id="L505" title="All 2 branches missed.">                    for (int j = 0; j &lt;= 3; j++)</span>
+<span class="nc" id="L506">                        list.remove(i);</span>
+                }
+<span class="nc bnc" id="L508" title="All 4 branches missed.">                if (list.get(i).getId() &gt;= 48 &amp;&amp; list.get(i).getId() &lt;= 49) {</span>
+<span class="nc bnc" id="L509" title="All 2 branches missed.">                    for (int j = 0; j &lt;= 2; j++)</span>
+<span class="nc" id="L510">                        list.remove(i);</span>
+                }
+                // id 21
+<span class="nc bnc" id="L513" title="All 2 branches missed.">                if (i == 0){</span>
+<span class="nc" id="L514">                    list.get(i).setLength(l.stolperLength());</span>
+<span class="nc" id="L515">                    list.get(i).setAmount(l.stolperAntal(length, skur));</span>
+                }
+                // id 22
+<span class="nc bnc" id="L518" title="All 2 branches missed.">                if (i == 1){</span>
+<span class="nc" id="L519">                    list.get(i).setLength(f.remmeSide(length));</span>
+<span class="nc" id="L520">                    list.get(i).setAmount(f.remmeSideAntal());</span>
+                }
+                // id 23
+<span class="nc bnc" id="L523" title="All 2 branches missed.">                if (i == 2){</span>
+<span class="nc" id="L524">                    list.remove(i);</span>
+                }
+                // id 24
+<span class="nc bnc" id="L527" title="All 2 branches missed.">                if (i == 3){</span>
+<span class="nc" id="L528">                    list.remove(i);</span>
+                }
+                // id 25
+<span class="nc bnc" id="L531" title="All 2 branches missed.">                if (i == 4){</span>
+<span class="nc" id="L532">                    list.remove(i);</span>
+                }
+                // id 28
+<span class="nc bnc" id="L535" title="All 2 branches missed.">                if (i == 5){</span>
+<span class="nc" id="L536">                    list.remove(i);</span>
+                }
+                // id 30
+<span class="nc bnc" id="L539" title="All 2 branches missed.">                if (i == 6){</span>
+<span class="nc" id="L540">                    list.remove(i);</span>
+                }
+                // id 38
+<span class="nc bnc" id="L543" title="All 2 branches missed.">                if (i == 7){</span>
+<span class="nc" id="L544">                    list.get(i).setAmount(f.spærSkruerH(length));</span>
+                }
+                // id 39
+<span class="nc bnc" id="L547" title="All 2 branches missed.">                if (i == 8){</span>
+<span class="nc" id="L548">                    list.get(i).setAmount(f.spærSkruerV(length));</span>
+                }
+                // id 40
+<span class="nc bnc" id="L551" title="All 2 branches missed.">                if (i == 9){</span>
+<span class="nc" id="L552">                    list.remove(i);</span>
+                }
+                // id 41
+<span class="nc bnc" id="L555" title="All 2 branches missed.">                if (i == 10){</span>
+<span class="nc" id="L556">                    list.remove(i);</span>
+                }
+                // id 42
+<span class="nc bnc" id="L559" title="All 2 branches missed.">                if (i == 11){</span>
+<span class="nc" id="L560">                    list.remove(i);</span>
+                }
+                // id 46
+<span class="nc bnc" id="L563" title="All 2 branches missed.">                if (i == 12){</span>
+<span class="nc" id="L564">                    list.get(i).setAmount(f.bræddebolte(length));</span>
+                }
+                // id 47
+<span class="nc bnc" id="L567" title="All 2 branches missed.">                if (i == 13){</span>
+<span class="nc" id="L568">                    list.get(i).setAmount(f.firkantskiver(length));</span>
+                }
+                // id 50
+<span class="nc bnc" id="L571" title="All 2 branches missed.">                if (i == 14) {</span>
+<span class="nc" id="L572">                   list.get(i).setLength(f.understernFB(width));</span>
+<span class="nc" id="L573">                   list.get(i).setAmount(f.understernFBAntal());</span>
+                }
+                // id 51
+<span class="nc bnc" id="L576" title="All 2 branches missed.">                if (i == 15){</span>
+<span class="nc" id="L577">                    list.get(i).setLength(f.understernSide(length));</span>
+<span class="nc" id="L578">                    list.get(i).setAmount(f.understernSideAntal());</span>
+                }
+                // id 52
+<span class="nc bnc" id="L581" title="All 2 branches missed.">                if (i == 16){</span>
+<span class="nc" id="L582">                    list.get(i).setLength(f.oversternF(width));</span>
+<span class="nc" id="L583">                    list.get(i).setAmount(f.oversternFAntal());</span>
+                }
+                // id 53
+<span class="nc bnc" id="L586" title="All 2 branches missed.">                if (i == 17){</span>
+<span class="nc" id="L587">                    list.get(i).setLength(f.oversternSide(length));</span>
+<span class="nc" id="L588">                    list.get(i).setAmount(f.oversternSideAntal());</span>
+                }
+                // id 54
+<span class="nc bnc" id="L591" title="All 2 branches missed.">                if (i == 18){</span>
+<span class="nc" id="L592">                    list.get(i).setLength(f.spær(width));</span>
+<span class="nc" id="L593">                    list.get(i).setAmount(f.spærAntal(length));</span>
+                }
+                // id 55
+<span class="nc bnc" id="L596" title="All 2 branches missed.">                if (i == 19){</span>
+<span class="nc" id="L597">                    list.get(i).setLength(f.vandbrætF(width));</span>
+<span class="nc" id="L598">                    list.get(i).setAmount(f.vandbrætFAntal());</span>
+                }
+                // id 56
+<span class="nc bnc" id="L601" title="All 2 branches missed.">                if (i == 20){</span>
+<span class="nc" id="L602">                    list.get(i).setLength(f.vandbrætSide(length));</span>
+<span class="nc" id="L603">                    list.get(i).setAmount(f.vandbrætSideAntal());</span>
+                }
+                // id 57
+<span class="nc bnc" id="L606" title="All 2 branches missed.">                if (i == 21){</span>
+<span class="nc" id="L607">                    list.get(i).setLength(f.tagpladerLength(length));</span>
+<span class="nc" id="L608">                    list.get(i).setAmount(f.tagplader(length, width, skurlength));</span>
+                }
+                // id 58
+<span class="nc bnc" id="L611" title="All 2 branches missed.">                if (i == 22){</span>
+<span class="nc" id="L612">                    list.get(i).setAmount(f.skruePakker(length, width));</span>
+                }
+                // id 59
+<span class="nc bnc" id="L615" title="All 2 branches missed.">                if (i == 23){</span>
+<span class="nc" id="L616">                    list.get(i).setAmount(f.hulbånd());</span>
+                }
+                // id 60
+<span class="nc bnc" id="L619" title="All 2 branches missed.">                if (i == 24){</span>
+<span class="nc" id="L620">                    list.get(i).setAmount(f.sternSkruer());</span>
+                }
+                // id 61
+<span class="nc bnc" id="L623" title="All 2 branches missed.">                if (i == 25){</span>
+<span class="nc" id="L624">                    list.get(i).setAmount(f.beslagsSkruer());</span>
+                }
+                // id 62
+<span class="nc bnc" id="L627" title="All 2 branches missed.">                if (i == 26){</span>
+<span class="nc" id="L628">                    list.remove(i);</span>
+                }
+                // id 63
+<span class="nc bnc" id="L631" title="All 2 branches missed.">                if (i == 27){</span>
+<span class="nc" id="L632">                    list.remove(i);</span>
+                }
+                
+            }
+        }
+<span class="nc" id="L637">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

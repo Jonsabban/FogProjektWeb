@@ -44,23 +44,24 @@ import javax.servlet.http.HttpSession;
 <span class="nc" id="L44">        String cword = request.getParameter(&quot;password&quot;);</span>
         
 <span class="nc" id="L46">        HttpSession session = request.getSession();</span>
+<span class="nc" id="L47">        session.setAttribute(&quot;id&quot;, 0);</span>
         
         try {
-<span class="nc" id="L49">            Customer cs = facade.getUser(cname, cword);</span>
+<span class="nc" id="L50">            Customer cs = facade.getUser(cname, cword);</span>
 
-<span class="nc bnc" id="L51" title="All 2 branches missed.">            if (cs.getcName().equals(cname)) {</span>
+<span class="nc bnc" id="L52" title="All 2 branches missed.">            if (cs.getcName().equals(cname)) {</span>
 
-<span class="nc" id="L53">                session.setAttribute(&quot;id&quot;, cs.getcID());</span>
-<span class="nc" id="L54">                RequestDispatcher rd = request.getRequestDispatcher(&quot;/SLInput&quot;);</span>
-<span class="nc" id="L55">                rd.forward(request, response);</span>
+<span class="nc" id="L54">                session.setAttribute(&quot;id&quot;, cs.getcID());</span>
+<span class="nc" id="L55">                RequestDispatcher rd = request.getRequestDispatcher(&quot;/SLInput&quot;);</span>
+<span class="nc" id="L56">                rd.forward(request, response);</span>
             }
-<span class="nc" id="L57">        } catch (NullPointerException ex) {</span>
-<span class="nc" id="L58">            request.setAttribute(&quot;error&quot;, &quot;&lt;p style=\&quot;color: red;\&quot;&gt;Login or password is incorrect&lt;/p&gt;&quot;);</span>
-<span class="nc" id="L59">            RequestDispatcher rd = request.getRequestDispatcher(&quot;/index.jsp&quot;);</span>
-<span class="nc" id="L60">            rd.forward(request, response);</span>
-<span class="nc" id="L61">        }</span>
+<span class="nc" id="L58">        } catch (NullPointerException ex) {</span>
+<span class="nc" id="L59">            request.setAttribute(&quot;error&quot;, &quot;&lt;p style=\&quot;color: red;\&quot;&gt;Login or password is incorrect&lt;/p&gt;&quot;);</span>
+<span class="nc" id="L60">            RequestDispatcher rd = request.getRequestDispatcher(&quot;/index.jsp&quot;);</span>
+<span class="nc" id="L61">            rd.forward(request, response);</span>
+<span class="nc" id="L62">        }</span>
 
-<span class="nc" id="L63">    }</span>
+<span class="nc" id="L64">    }</span>
 
     // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;HttpServlet methods. Click on the + sign on the left to edit the code.&quot;&gt;
     /**
@@ -74,8 +75,8 @@ import javax.servlet.http.HttpSession;
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-<span class="nc" id="L77">        processRequest(request, response);</span>
-<span class="nc" id="L78">    }</span>
+<span class="nc" id="L78">        processRequest(request, response);</span>
+<span class="nc" id="L79">    }</span>
 
     /**
      * Handles the HTTP &lt;code&gt;POST&lt;/code&gt; method.
@@ -88,8 +89,8 @@ import javax.servlet.http.HttpSession;
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-<span class="nc" id="L91">        processRequest(request, response);</span>
-<span class="nc" id="L92">    }</span>
+<span class="nc" id="L92">        processRequest(request, response);</span>
+<span class="nc" id="L93">    }</span>
 
     /**
      * Returns a short description of the servlet.
@@ -98,7 +99,7 @@ import javax.servlet.http.HttpSession;
      */
     @Override
     public String getServletInfo() {
-<span class="nc" id="L101">        return &quot;Short description&quot;;</span>
+<span class="nc" id="L102">        return &quot;Short description&quot;;</span>
     }// &lt;/editor-fold&gt;
 
 }
